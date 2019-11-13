@@ -5,7 +5,12 @@
  */
 package com.qlsv.view;
 
+import com.qlsv.controller.MatkhauController;
+import com.qlsv.controller.TaiKhoanController;
 import com.qlsv.controller.TextBubbleBorder;
+import com.qlsv.dao.UserDAO;
+import com.qlsv.models.SinhVien;
+import com.qlsv.models.User;
 import java.awt.Color;
 
 /**
@@ -13,12 +18,38 @@ import java.awt.Color;
  * @author Hiddenpants-H
  */
 public class MatKhauJPanel extends javax.swing.JPanel {
+    private User user;
+    private MatkhauController controller;
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public MatkhauController getController() {
+        return controller;
+    }
+
+    public void setController(MatkhauController controller) {
+        this.controller = controller;
+    }
+    
     /**
      * Creates new form MatKhauJPanel
      */
     public MatKhauJPanel() {
         initComponents();
+        User user = new SinhVien();
+        user.setUser_id(6);
+        user.setPassword("Tranvanhoang1999");
+        user = new UserDAO().findByUsernameAndPassword(user);
+        setUser(user);
+        MatkhauController controller = new MatkhauController(MatKhauCujPasswordField, MatKhauMoijPasswordField, XacNhanjPasswordField);
+        setController(controller);
+        
     }
 
     /**
@@ -49,7 +80,7 @@ public class MatKhauJPanel extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 
         NoteJLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        NoteJLabel.setText("Mật khẩu phải có ít nhất 6 kí tự: số, chữ cái, chữ hoa");
+        NoteJLabel.setText("Mật khẩu phải có ít nhất 8 kí tự: số, chữ cái, chữ hoa");
 
         MatKhauMoiJLabel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         MatKhauMoiJLabel.setText("Mật khẩu mới");
@@ -62,11 +93,15 @@ public class MatKhauJPanel extends javax.swing.JPanel {
 
         jButton1.setText("Đổi mật khẩu");
         jButton1.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 10, 0));
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 7, 0));
 
-        MatKhauCujPasswordField.setText("jPasswordField1");
         MatKhauCujPasswordField.setBorder(null);
         MatKhauCujPasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,7 +135,6 @@ public class MatKhauJPanel extends javax.swing.JPanel {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlsv/image/baseline_lock_black_18dp.png"))); // NOI18N
 
-        MatKhauMoijPasswordField.setText("jPasswordField1");
         MatKhauMoijPasswordField.setBorder(null);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -126,7 +160,6 @@ public class MatKhauJPanel extends javax.swing.JPanel {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 7, 0));
 
-        XacNhanjPasswordField.setText("jPasswordField1");
         XacNhanjPasswordField.setBorder(null);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlsv/image/baseline_lock_black_18dp.png"))); // NOI18N
@@ -206,6 +239,10 @@ public class MatKhauJPanel extends javax.swing.JPanel {
     private void MatKhauCujPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MatKhauCujPasswordFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_MatKhauCujPasswordFieldActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        controller.doiMatKhau(user);
+    }//GEN-LAST:event_jButton1MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel MatKhauCuJLabel;

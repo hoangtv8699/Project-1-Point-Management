@@ -13,22 +13,10 @@ import com.qlsv.models.User;
  * @author Hiddenpants-H
  */
 public class MainJFrame extends javax.swing.JFrame {
-    
-    private User user;
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public MainJFrame(JPanelAbstract jpnItem, User user) {
+    public MainJFrame(JPanelAbstract jpnItem) {
         initComponents();
-        setUser(user);
         setTitle("Quản Lý Điểm Sinh Viên");
-        
         ChangePanelMenuController controller = new ChangePanelMenuController(MenuJPanel, jpnView);
         controller.setMenu(jpnItem);
         controller.setEvent();

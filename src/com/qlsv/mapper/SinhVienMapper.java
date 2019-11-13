@@ -14,7 +14,7 @@ public class SinhVienMapper implements RowMapper<SinhVien> {
 			sv.setTen(result.getString("ten"));
 			sv.setEmail(result.getString("email"));
 			sv.setPassword(result.getString("password"));
-			sv.setNgaySinh(result.getDate("ngaySinh"));
+			sv.setNgaySinh(new java.sql.Date(result.getDate("ngaySinh").getTime()));
 			sv.setDiaChi(result.getString("diaChi"));
 			sv.setSdt(result.getString("sdt"));
 			sv.setGt(result.getInt("gioiTinh"));

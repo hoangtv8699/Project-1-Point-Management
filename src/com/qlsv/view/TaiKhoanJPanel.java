@@ -5,20 +5,52 @@
  */
 package com.qlsv.view;
 
+import com.qlsv.controller.TaiKhoanController;
 import com.qlsv.controller.TextBubbleBorder;
+import com.qlsv.dao.UserDAO;
+import com.qlsv.models.SinhVien;
+import com.qlsv.models.User;
 import java.awt.Color;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Hiddenpants-H
  */
 public class TaiKhoanJPanel extends javax.swing.JPanel {
+    private User user;
+    private TaiKhoanController controller;
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public TaiKhoanController getController() {
+        return controller;
+    }
+
+    public void setController(TaiKhoanController controller) {
+        this.controller = controller;
+    }
+    
     /**
      * Creates new form TaiKhoanJPanel
      */
     public TaiKhoanJPanel() {
+        User user = new SinhVien();
+        user.setUser_id(6);
+        user.setPassword("Tranvanhoang1999");
+        user = new UserDAO().findByUsernameAndPassword(user);
+        setUser(user);
         initComponents();
+        TaiKhoanController controller = new TaiKhoanController(userIdJLabel, tenjTextField, emailjTextField, dateChooser, diaChijTextField, sDTjTextField, dacTrungJLabel);
+        setController(controller);
+        controller.setData(user);
     }
 
     /**
@@ -32,31 +64,34 @@ public class TaiKhoanJPanel extends javax.swing.JPanel {
 
         dateChooserDialog1 = new datechooser.beans.DateChooserDialog();
         jPanel1 = new javax.swing.JPanel();
-        UserIdJLabel = new javax.swing.JLabel();
+        userIdJLabel = new javax.swing.JLabel();
         EmailJLabel = new javax.swing.JLabel();
         TenJLabel = new javax.swing.JLabel();
         SDTJLabel = new javax.swing.JLabel();
         NgaySinhJLabel = new javax.swing.JLabel();
         DiaChiJLabel = new javax.swing.JLabel();
-        DacTrungJLabel = new javax.swing.JLabel();
+        dacTrungJLabel = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        TenjTextField = new javax.swing.JTextField();
+        tenjTextField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        EmailjTextField = new javax.swing.JTextField();
+        emailjTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        DiaChijTextField = new javax.swing.JTextField();
+        diaChijTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        SDTjTextField = new javax.swing.JTextField();
+        sDTjTextField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        dateChooserCombo1 = new datechooser.beans.DateChooserCombo();
+        capNhatjTextField = new javax.swing.JButton();
+        userIdJLabel1 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        dateChooser = new com.toedter.calendar.JDateChooser();
+        jLabel5 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 
-        UserIdJLabel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        UserIdJLabel.setText("User id:");
+        userIdJLabel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
         EmailJLabel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         EmailJLabel.setText("Email");
@@ -73,18 +108,18 @@ public class TaiKhoanJPanel extends javax.swing.JPanel {
         DiaChiJLabel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         DiaChiJLabel.setText("địa chỉ");
 
-        DacTrungJLabel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        DacTrungJLabel.setText("Chương trình or level");
+        dacTrungJLabel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        dacTrungJLabel.setText("Chương trình or level");
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 7, 0));
 
-        TenjTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        TenjTextField.setText("Trần Văn Hoàng");
-        TenjTextField.setBorder(null);
-        TenjTextField.addActionListener(new java.awt.event.ActionListener() {
+        tenjTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tenjTextField.setText("Trần Văn Hoàng");
+        tenjTextField.setBorder(null);
+        tenjTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TenjTextFieldActionPerformed(evt);
+                tenjTextFieldActionPerformed(evt);
             }
         });
 
@@ -98,25 +133,25 @@ public class TaiKhoanJPanel extends javax.swing.JPanel {
                 .addGap(3, 3, 3)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TenjTextField))
+                .addComponent(tenjTextField))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(TenjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(tenjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 7, 0));
 
-        EmailjTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        EmailjTextField.setText("hoang.tv173129@sis.hust.edu.vn");
-        EmailjTextField.setBorder(null);
-        EmailjTextField.addActionListener(new java.awt.event.ActionListener() {
+        emailjTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        emailjTextField.setText("hoang.tv173129@sis.hust.edu.vn");
+        emailjTextField.setBorder(null);
+        emailjTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EmailjTextFieldActionPerformed(evt);
+                emailjTextFieldActionPerformed(evt);
             }
         });
 
@@ -130,26 +165,26 @@ public class TaiKhoanJPanel extends javax.swing.JPanel {
                 .addGap(6, 6, 6)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(EmailjTextField))
+                .addComponent(emailjTextField))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(EmailjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emailjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 7, 0));
 
-        DiaChijTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        DiaChijTextField.setText("đội 5, thôn Thụy Ứng, xã Hòa Bình, thành phố Hà Nội");
-        DiaChijTextField.setBorder(null);
-        DiaChijTextField.addActionListener(new java.awt.event.ActionListener() {
+        diaChijTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        diaChijTextField.setText("đội 5, thôn Thụy Ứng, xã Hòa Bình, thành phố Hà Nội");
+        diaChijTextField.setBorder(null);
+        diaChijTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DiaChijTextFieldActionPerformed(evt);
+                diaChijTextFieldActionPerformed(evt);
             }
         });
 
@@ -163,8 +198,8 @@ public class TaiKhoanJPanel extends javax.swing.JPanel {
                 .addGap(4, 4, 4)
                 .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(DiaChijTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(220, 220, 220))
+                .addComponent(diaChijTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(225, 225, 225))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,18 +207,18 @@ public class TaiKhoanJPanel extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DiaChijTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(diaChijTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 7, 0));
 
-        SDTjTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        SDTjTextField.setText("0386458774");
-        SDTjTextField.setBorder(null);
-        SDTjTextField.addActionListener(new java.awt.event.ActionListener() {
+        sDTjTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        sDTjTextField.setText("0386458774");
+        sDTjTextField.setBorder(null);
+        sDTjTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SDTjTextFieldActionPerformed(evt);
+                sDTjTextFieldActionPerformed(evt);
             }
         });
 
@@ -197,7 +232,7 @@ public class TaiKhoanJPanel extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(SDTjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sDTjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(215, 215, 215))
         );
         jPanel5Layout.setVerticalGroup(
@@ -205,167 +240,192 @@ public class TaiKhoanJPanel extends javax.swing.JPanel {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(SDTjTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sDTjTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        dateChooserCombo1.setCurrentView(new datechooser.view.appearance.AppearancesList("Swing",
-            new datechooser.view.appearance.ViewAppearance("custom",
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                    new java.awt.Color(0, 0, 0),
-                    new java.awt.Color(0, 0, 255),
-                    false,
-                    true,
-                    new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                    new java.awt.Color(0, 0, 0),
-                    new java.awt.Color(0, 0, 255),
-                    true,
-                    true,
-                    new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                    new java.awt.Color(0, 0, 255),
-                    new java.awt.Color(0, 0, 255),
-                    false,
-                    true,
-                    new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                    new java.awt.Color(128, 128, 128),
-                    new java.awt.Color(0, 0, 255),
-                    false,
-                    true,
-                    new datechooser.view.appearance.swing.LabelPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                    new java.awt.Color(0, 0, 0),
-                    new java.awt.Color(0, 0, 255),
-                    false,
-                    true,
-                    new datechooser.view.appearance.swing.LabelPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                    new java.awt.Color(0, 0, 0),
-                    new java.awt.Color(255, 0, 0),
-                    false,
-                    false,
-                    new datechooser.view.appearance.swing.ButtonPainter()),
-                (datechooser.view.BackRenderer)null,
-                false,
-                true)));
-    dateChooserCombo1.setCalendarBackground(new java.awt.Color(255, 255, 255));
-    dateChooserCombo1.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 7, 0));
-    dateChooserCombo1.setCalendarPreferredSize(new java.awt.Dimension(300, 200));
-    dateChooserCombo1.setFormat(1);
-    dateChooserCombo1.setWeekStyle(datechooser.view.WeekDaysStyle.FULL);
-    dateChooserCombo1.setFieldFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 11));
-    dateChooserCombo1.setLocked(true);
+        capNhatjTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        capNhatjTextField.setText("Cập nhật thông tin cá nhân");
+        capNhatjTextField.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 7, 0));
+        capNhatjTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                capNhatjTextFieldMouseClicked(evt);
+            }
+        });
+        capNhatjTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                capNhatjTextFieldActionPerformed(evt);
+            }
+        });
 
-    javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-    jPanel1.setLayout(jPanel1Layout);
-    jPanel1Layout.setHorizontalGroup(
-        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(jPanel1Layout.createSequentialGroup()
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(NgaySinhJLabel)
-                .addComponent(DiaChiJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(SDTJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(EmailJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(UserIdJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(TenJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(DacTrungJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGap(282, 282, 282))
-        .addGroup(jPanel1Layout.createSequentialGroup()
-            .addContainerGap()
-            .addComponent(dateChooserCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-    );
-    jPanel1Layout.setVerticalGroup(
-        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(jPanel1Layout.createSequentialGroup()
-            .addGap(29, 29, 29)
-            .addComponent(UserIdJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(TenJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(EmailJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(NgaySinhJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(dateChooserCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(9, 9, 9)
-            .addComponent(DiaChiJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(SDTJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(11, 11, 11)
-            .addComponent(DacTrungJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(158, Short.MAX_VALUE))
-    );
+        userIdJLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        userIdJLabel1.setText("User id:");
 
-    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-    this.setLayout(layout);
-    layout.setHorizontalGroup(
-        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-    );
-    layout.setVerticalGroup(
-        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
+
+        dateChooser.setBackground(new java.awt.Color(255, 255, 255));
+        dateChooser.setToolTipText("");
+        dateChooser.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        dateChooser.setMinSelectableDate(new java.util.Date(-62135791125000L));
+        dateChooser.setName("dateChooser"); // NOI18N
+
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlsv/image/baseline_date_range_black_18dp.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addComponent(dateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dateChooser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NgaySinhJLabel)
+                            .addComponent(DiaChiJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(SDTJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EmailJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(TenJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(dacTrungJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(282, 282, 282))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(userIdJLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(userIdJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(capNhatjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(userIdJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(userIdJLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(TenJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(EmailJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(NgaySinhJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
+                .addComponent(DiaChiJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SDTJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(dacTrungJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(capNhatjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(84, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGap(0, 0, 0))
-    );
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TenjTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TenjTextFieldActionPerformed
+    private void tenjTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tenjTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TenjTextFieldActionPerformed
+    }//GEN-LAST:event_tenjTextFieldActionPerformed
 
-    private void EmailjTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailjTextFieldActionPerformed
+    private void emailjTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailjTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_EmailjTextFieldActionPerformed
+    }//GEN-LAST:event_emailjTextFieldActionPerformed
 
-    private void DiaChijTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiaChijTextFieldActionPerformed
+    private void diaChijTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diaChijTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_DiaChijTextFieldActionPerformed
+    }//GEN-LAST:event_diaChijTextFieldActionPerformed
 
-    private void SDTjTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SDTjTextFieldActionPerformed
+    private void sDTjTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sDTjTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_SDTjTextFieldActionPerformed
+    }//GEN-LAST:event_sDTjTextFieldActionPerformed
+
+    private void capNhatjTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_capNhatjTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_capNhatjTextFieldActionPerformed
+
+    private void capNhatjTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_capNhatjTextFieldMouseClicked
+
+        controller.saveData(user);
+        
+    }//GEN-LAST:event_capNhatjTextFieldMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel DacTrungJLabel;
     private javax.swing.JLabel DiaChiJLabel;
-    private javax.swing.JTextField DiaChijTextField;
     private javax.swing.JLabel EmailJLabel;
-    private javax.swing.JTextField EmailjTextField;
     private javax.swing.JLabel NgaySinhJLabel;
     private javax.swing.JLabel SDTJLabel;
-    private javax.swing.JTextField SDTjTextField;
     private javax.swing.JLabel TenJLabel;
-    private javax.swing.JTextField TenjTextField;
-    private javax.swing.JLabel UserIdJLabel;
-    private datechooser.beans.DateChooserCombo dateChooserCombo1;
+    private javax.swing.JButton capNhatjTextField;
+    private javax.swing.JLabel dacTrungJLabel;
+    private com.toedter.calendar.JDateChooser dateChooser;
     private datechooser.beans.DateChooserDialog dateChooserDialog1;
+    private javax.swing.JTextField diaChijTextField;
+    private javax.swing.JTextField emailjTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JTextField sDTjTextField;
+    private javax.swing.JTextField tenjTextField;
+    private javax.swing.JLabel userIdJLabel;
+    private javax.swing.JLabel userIdJLabel1;
     // End of variables declaration//GEN-END:variables
 
 }
