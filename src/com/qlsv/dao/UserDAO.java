@@ -34,6 +34,14 @@ public class UserDAO extends CommonDAO<User> {
         return id;
     }
 
+    public long save(String password) {
+        long id = -1;
+        String sql = "insert into users(password) value(?);";
+        id = insert(sql, password);
+        return id;
+        
+    }
+
     public void saveRole(User user) {
         String sql = "insert into role(user_id, roles) value(?,?)";
         if (user instanceof SinhVien) {
@@ -187,6 +195,12 @@ public class UserDAO extends CommonDAO<User> {
         delete(sql, u.getUser_id());
         sql = "delete from users where user_id=?";
         delete(sql, u.getUser_id());
-
+    }
+    
+    public long count(int i){
+        if(i < 0 || i > 3) return 0;
+        String sql = "select count(0) from users inner join role on users.user_id = role.user_id where roles = ?;";
+        long count = count(sql, i);
+        return count;
     }
 }

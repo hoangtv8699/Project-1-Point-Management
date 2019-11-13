@@ -1,12 +1,20 @@
 package com.qlsv.models;
 
 public class BangDiem {
-
+    private String hocKy;
     private String maLop;
     private String maHP;
     private float diemQT;
     private float diemCK;
     private float diem;
+
+    public String getHocKy() {
+        return hocKy;
+    }
+
+    public void setHocKy(String hocKy) {
+        this.hocKy = hocKy;
+    }
 
     public String getMaLop() {
         return maLop;

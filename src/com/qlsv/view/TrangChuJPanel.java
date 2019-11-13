@@ -5,6 +5,7 @@
  */
 package com.qlsv.view;
 
+import com.qlsv.controller.HomeController;
 import com.qlsv.controller.TextBubbleBorder;
 import java.awt.Color;
 
@@ -13,12 +14,23 @@ import java.awt.Color;
  * @author Hiddenpants-H
  */
 public class TrangChuJPanel extends javax.swing.JPanel {
+    private HomeController controller;
 
+    public HomeController getController() {
+        return controller;
+    }
+
+    public void setController(HomeController controller) {
+        this.controller = controller;
+    }
+    
     /**
      * Creates new form TrangChuJPanel
      */
     public TrangChuJPanel() {
         initComponents();
+        controller = new HomeController(count1, count2, count3);
+        controller.setCount();
     }
 
     /**
@@ -33,17 +45,17 @@ public class TrangChuJPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         KhoaHocJPanel = new javax.swing.JPanel();
         KhoaHocjLabel = new javax.swing.JLabel();
-        count1 = new javax.swing.JLabel();
+        count2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         KhoaHocJPanel1 = new javax.swing.JPanel();
         KhoaHocjLabel1 = new javax.swing.JLabel();
-        count2 = new javax.swing.JLabel();
+        count1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         KhoaHocJPanel4 = new javax.swing.JPanel();
         KhoaHocjLabel4 = new javax.swing.JLabel();
-        count5 = new javax.swing.JLabel();
+        count3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
 
@@ -53,10 +65,10 @@ public class TrangChuJPanel extends javax.swing.JPanel {
 
         KhoaHocjLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlsv/image/icon_ung_dung_48dp.png"))); // NOI18N
 
-        count1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        count1.setForeground(new java.awt.Color(255, 255, 255));
-        count1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        count1.setText("100");
+        count2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        count2.setForeground(new java.awt.Color(255, 255, 255));
+        count2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        count2.setText("100");
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -91,7 +103,7 @@ public class TrangChuJPanel extends javax.swing.JPanel {
                         .addGap(57, 57, 57))
                     .addGroup(KhoaHocJPanelLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(count1)
+                        .addComponent(count2)
                         .addContainerGap())))
         );
         KhoaHocJPanelLayout.setVerticalGroup(
@@ -102,7 +114,7 @@ public class TrangChuJPanel extends javax.swing.JPanel {
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(KhoaHocJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(KhoaHocJPanelLayout.createSequentialGroup()
-                            .addComponent(count1)
+                            .addComponent(count2)
                             .addGap(35, 35, 35)
                             .addComponent(jLabel1))
                         .addComponent(KhoaHocjLabel)))
@@ -113,10 +125,10 @@ public class TrangChuJPanel extends javax.swing.JPanel {
 
         KhoaHocjLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlsv/image/icon_event.png"))); // NOI18N
 
-        count2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        count2.setForeground(new java.awt.Color(255, 255, 255));
-        count2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        count2.setText("100");
+        count1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        count1.setForeground(new java.awt.Color(255, 255, 255));
+        count1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        count1.setText("100");
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -147,7 +159,7 @@ public class TrangChuJPanel extends javax.swing.JPanel {
                 .addGroup(KhoaHocJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(KhoaHocJPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(count2)
+                        .addComponent(count1)
                         .addContainerGap())
                     .addGroup(KhoaHocJPanel1Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
@@ -163,7 +175,7 @@ public class TrangChuJPanel extends javax.swing.JPanel {
                         .addGroup(KhoaHocJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(KhoaHocjLabel1)
                             .addGroup(KhoaHocJPanel1Layout.createSequentialGroup()
-                                .addComponent(count2)
+                                .addComponent(count1)
                                 .addGap(60, 60, 60)
                                 .addComponent(jLabel2))))
                     .addGroup(KhoaHocJPanel1Layout.createSequentialGroup()
@@ -176,10 +188,10 @@ public class TrangChuJPanel extends javax.swing.JPanel {
 
         KhoaHocjLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlsv/image/icon_cap_sach.png"))); // NOI18N
 
-        count5.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        count5.setForeground(new java.awt.Color(255, 255, 255));
-        count5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        count5.setText("100");
+        count3.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        count3.setForeground(new java.awt.Color(255, 255, 255));
+        count3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        count3.setText("100");
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -214,7 +226,7 @@ public class TrangChuJPanel extends javax.swing.JPanel {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, KhoaHocJPanel4Layout.createSequentialGroup()
                         .addGap(105, 105, 105)
-                        .addComponent(count5)
+                        .addComponent(count3)
                         .addContainerGap())))
         );
         KhoaHocJPanel4Layout.setVerticalGroup(
@@ -224,7 +236,7 @@ public class TrangChuJPanel extends javax.swing.JPanel {
                     .addGroup(KhoaHocJPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, KhoaHocJPanel4Layout.createSequentialGroup()
                             .addContainerGap()
-                            .addComponent(count5)
+                            .addComponent(count3)
                             .addGap(35, 35, 35)
                             .addComponent(jLabel5))
                         .addGroup(KhoaHocJPanel4Layout.createSequentialGroup()
@@ -282,7 +294,7 @@ public class TrangChuJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel KhoaHocjLabel4;
     private javax.swing.JLabel count1;
     private javax.swing.JLabel count2;
-    private javax.swing.JLabel count5;
+    private javax.swing.JLabel count3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;

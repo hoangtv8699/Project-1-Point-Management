@@ -1,8 +1,7 @@
 package com.qlsv.main;
 
-import com.qlsv.dao.UserDAO;
-import com.qlsv.models.SinhVien;
-import com.qlsv.models.User;
+import com.qlsv.dao.*;
+import com.qlsv.models.*;
 import com.qlsv.view.MainJFrame;
 import com.qlsv.view.SVJPanel;
 

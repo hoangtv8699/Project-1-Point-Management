@@ -43,8 +43,8 @@ public class MatKhauJPanel extends javax.swing.JPanel {
     public MatKhauJPanel() {
         initComponents();
         User user = new SinhVien();
-        user.setUser_id(6);
-        user.setPassword("Tranvanhoang1999");
+        user.setUser_id(20000000);
+        user.setPassword("12345");
         user = new UserDAO().findByUsernameAndPassword(user);
         setUser(user);
         MatkhauController controller = new MatkhauController(MatKhauCujPasswordField, MatKhauMoijPasswordField, XacNhanjPasswordField);

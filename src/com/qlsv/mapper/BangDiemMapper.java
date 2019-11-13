@@ -11,6 +11,7 @@ public class BangDiemMapper implements RowMapper<BangDiem> {
 	public BangDiem mapRow(ResultSet result) {
 		try {
 			BangDiem bd = new BangDiem();
+                        bd.setHocKy(result.getString("hocky"));
 			bd.setMaHP(result.getString("maHP"));
 			bd.setMaLop(result.getString("maLop"));
 			bd.setDiemQT(result.getFloat("diemQT"));

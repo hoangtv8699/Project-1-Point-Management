@@ -7,8 +7,8 @@ import com.qlsv.models.MonHoc;
 
 public class MonHocDAO extends CommonDAO<MonHoc> {
 	public void insert(MonHoc mh) {
-		String sql = "insert into mon_hoc(tenHP, maHP, maLop, soTinChi, hocky, qt) value(?,?,?,?,?,?)";
-		insert(sql, mh.getTenHP(), mh.getMaHP(), mh.getMaLop(), mh.getSoTC(), mh.getHocKy(), mh.getQt());
+		String sql = "insert into mon_hoc(tenHP, maHP, maLop, soTinChi) value(?,?,?,?,?,?)";
+		insert(sql, mh.getTenHP(), mh.getMaHP(), mh.getMaLop(), mh.getSoTC());
 	}
 	
 	public void delete(MonHoc mh) {
@@ -23,6 +23,12 @@ public class MonHocDAO extends CommonDAO<MonHoc> {
 	public List<MonHoc> find(int start, int limit) {
 		String sql = "select * from mon_hoc limit ?,?";
 		List<MonHoc> mh = query(sql, new MonHocMapper(), start, limit);
+		return mh;
+	}
+        
+        public List<MonHoc> findName(String maLop, String maHP) {
+		String sql = "select * from mon_hoc where maHP=? and maLop=?";
+		List<MonHoc> mh = query(sql, new MonHocMapper(), maHP, maLop);
 		return mh;
 	}
 	
@@ -44,7 +50,11 @@ public class MonHocDAO extends CommonDAO<MonHoc> {
 		return mhs;
 	}
 	
-	
+	public long count(){
+            String sql = "select count(0) from mon_hoc";
+            Long count = count(sql);
+            return count;
+        }
 	
 	
 }
