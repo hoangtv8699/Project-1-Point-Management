@@ -17,38 +17,14 @@ import java.awt.Color;
  *
  * @author Hiddenpants-H
  */
-public class MatKhauJPanel extends javax.swing.JPanel {
-    private User user;
-    private MatkhauController controller;
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public MatkhauController getController() {
-        return controller;
-    }
-
-    public void setController(MatkhauController controller) {
-        this.controller = controller;
-    }
-    
+public class MatKhauJPanel extends CommonJPanel {
     /**
      * Creates new form MatKhauJPanel
      */
-    public MatKhauJPanel() {
+    public MatKhauJPanel(User user) {
         initComponents();
-        User user = new SinhVien();
-        user.setUser_id(20000000);
-        user.setPassword("12345");
-        user = new UserDAO().findByUsernameAndPassword(user);
         setUser(user);
-        MatkhauController controller = new MatkhauController(MatKhauCujPasswordField, MatKhauMoijPasswordField, XacNhanjPasswordField);
-        setController(controller);
+        setController(new MatkhauController(MatKhauCujPasswordField, MatKhauMoijPasswordField, XacNhanjPasswordField));
         
     }
 
@@ -241,7 +217,7 @@ public class MatKhauJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_MatKhauCujPasswordFieldActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        controller.doiMatKhau(user);
+        ((MatkhauController)controller).doiMatKhau(user);
     }//GEN-LAST:event_jButton1MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

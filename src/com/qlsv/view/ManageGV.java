@@ -5,17 +5,20 @@
  */
 package com.qlsv.view;
 
+import com.qlsv.models.User;
+
 /**
  *
  * @author Hiddenpants-H
  */
-public class ManageGV extends javax.swing.JPanel {
+public class ManageGV extends CommonJPanel {
 
     /**
      * Creates new form ManageGV
      */
-    public ManageGV() {
+    public ManageGV(User user) {
         initComponents();
+        setUser(user);
     }
 
     /**

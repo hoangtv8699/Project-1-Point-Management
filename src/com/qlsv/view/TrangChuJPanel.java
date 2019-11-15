@@ -6,31 +6,22 @@
 package com.qlsv.view;
 
 import com.qlsv.controller.HomeController;
-import com.qlsv.controller.TextBubbleBorder;
-import java.awt.Color;
+import com.qlsv.models.User;
 
 /**
  *
  * @author Hiddenpants-H
  */
-public class TrangChuJPanel extends javax.swing.JPanel {
-    private HomeController controller;
-
-    public HomeController getController() {
-        return controller;
-    }
-
-    public void setController(HomeController controller) {
-        this.controller = controller;
-    }
+public class TrangChuJPanel extends CommonJPanel {
     
     /**
      * Creates new form TrangChuJPanel
      */
-    public TrangChuJPanel() {
+    public TrangChuJPanel(User user) {
         initComponents();
-        controller = new HomeController(count1, count2, count3);
-        controller.setCount();
+    
+        setController(new HomeController(count1, count2, count3));
+        ((HomeController)controller).setCount();
     }
 
     /**

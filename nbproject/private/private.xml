@@ -3,18 +3,29 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/view/TrangChuJPanel.java</file>
             <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/controller/MatkhauController.java</file>
-            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/view/BangDiemCaNhan.java</file>
             <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/models/BangDiem.java</file>
-            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/dao/BangDiemDAO.java</file>
-            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/mapper/BangDiemMapper.java</file>
             <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/dao/UserDAO.java</file>
             <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/view/TaiKhoanJPanel.java</file>
-            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/controller/BangDiemController.java</file>
+            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/controller/Controller.java</file>
             <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/dao/MonHocDAO.java</file>
+            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/controller/BangDiemController.java</file>
             <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/controller/TaiKhoanController.java</file>
-            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/view/MatKhauJPanel.java</file>
+            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/view/MainJFrame.java</file>
             <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/main/Main.java</file>
+            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/view/UserManageJPanel.java</file>
+            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/view/GVJPanel.java</file>
+            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/view/CommonJPanel.java</file>
+            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/view/AdminJPanel.java</file>
+            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/dao/BangDiemDAO.java</file>
+            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/mapper/BangDiemMapper.java</file>
+            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/controller/ChangePanelMenuController.java</file>
+            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/dao/CommonDAO.java</file>
+            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/controller/HomeController.java</file>
+            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/view/SVJPanel.java</file>
+            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/view/JPanelMenuAbstract.java</file>
+            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/controller/TextBubbleBorder.java</file>
         </group>
     </open-files>
 </project-private>

@@ -18,39 +18,15 @@ import javax.swing.JOptionPane;
  *
  * @author Hiddenpants-H
  */
-public class TaiKhoanJPanel extends javax.swing.JPanel {
-    private User user;
-    private TaiKhoanController controller;
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public TaiKhoanController getController() {
-        return controller;
-    }
-
-    public void setController(TaiKhoanController controller) {
-        this.controller = controller;
-    }
-    
+public class TaiKhoanJPanel extends CommonJPanel {
     /**
      * Creates new form TaiKhoanJPanel
      */
-    public TaiKhoanJPanel() {
-        User user = new SinhVien();
-        user.setUser_id(20000000);
-        user.setPassword("12345");
-        user = new UserDAO().findByUsernameAndPassword(user);
+    public TaiKhoanJPanel(User user) {
         setUser(user);
         initComponents();
-        TaiKhoanController controller = new TaiKhoanController(userIdJLabel, tenjTextField, emailjTextField, dateChooser, diaChijTextField, sDTjTextField, dacTrungJLabel);
-        setController(controller);
-        controller.setData(user);
+        setController(new TaiKhoanController(userIdJLabel, tenjTextField, emailjTextField, dateChooser, diaChijTextField, sDTjTextField, dacTrungJLabel));
+        ((TaiKhoanController)controller).setData(user);
     }
 
     /**
@@ -394,7 +370,7 @@ public class TaiKhoanJPanel extends javax.swing.JPanel {
 
     private void capNhatjTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_capNhatjTextFieldMouseClicked
 
-        controller.saveData(user);
+        ((TaiKhoanController)controller).saveData(user);
         
     }//GEN-LAST:event_capNhatjTextFieldMouseClicked
 

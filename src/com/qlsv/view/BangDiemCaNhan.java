@@ -17,7 +17,7 @@ import java.awt.Font;
  *
  * @author Hiddenpants-H
  */
-public class BangDiemCaNhan extends javax.swing.JPanel {
+public class BangDiemCaNhan extends CommonJPanel {
     private User user;
     private BangDiemController controller;
 
@@ -40,21 +40,17 @@ public class BangDiemCaNhan extends javax.swing.JPanel {
     /**
      * Creates new form BangDiemCaNhan
      */
-    public BangDiemCaNhan() {
+    public BangDiemCaNhan(User user) {
         initComponents();
+        setUser(user);
         bangDiemjTable.getTableHeader().setFont(new Font("Arial",Font.BOLD,12));
         bangDiemjTable.getTableHeader().setBackground(new Color(255,102,102));
         bangDiemjTable.getTableHeader().setForeground(new Color(255,255,255));
         tongKetjTable.getTableHeader().setFont(new Font("Arial",Font.BOLD,12));
         tongKetjTable.getTableHeader().setBackground(new Color(255,102,102));
         tongKetjTable.getTableHeader().setForeground(new Color(255,255,255));
-        User user = new SinhVien();
-        user.setUser_id(20000000);
-        user.setPassword("12345");
-        user = new UserDAO().findByUsernameAndPassword(user);
-        setUser(user);
-        controller = new BangDiemController(bangDiemjTable, tongKetjTable, hocKyjTextField,
-                maHPjTextField, tenHPjTextField, tCjTextField, maLopjTextField, qTjTextField, cKjTextField, DiemjTextField);
+        setController(new BangDiemController(bangDiemjTable, tongKetjTable, hocKyjTextField,
+                maHPjTextField, tenHPjTextField, tCjTextField, maLopjTextField, qTjTextField, cKjTextField, DiemjTextField));
         controller.setBangDiem(user);
         controller.setTextBangDiem(user);
         controller.setTextTongKet(user);

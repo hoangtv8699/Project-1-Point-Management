@@ -6,6 +6,7 @@
 package com.qlsv.view;
 
 import com.qlsv.controller.TextBubbleBorder;
+import com.qlsv.models.User;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -14,13 +15,14 @@ import java.awt.Font;
  *
  * @author Hiddenpants-H
  */
-public class ManageCourseJPanel extends javax.swing.JPanel {
+public class ManageCourseJPanel extends CommonJPanel {
 
     /**
      * Creates new form ManageCourseJPanel
      */
-    public ManageCourseJPanel() {
+    public ManageCourseJPanel(User user) {
         initComponents();
+        setUser(user);
         jTable1.getTableHeader().setFont(new Font("Arial",Font.BOLD,12));
         jTable1.getTableHeader().setBackground(new Color(255,102,102));
         jTable1.getTableHeader().setForeground(new Color(255,255,255));
@@ -225,7 +227,7 @@ public class ManageCourseJPanel extends javax.swing.JPanel {
 //        model.addRow(new Object[]{"aa", "bb", "cc", "dd"});
         jPanel1.removeAll();
         jPanel1.setLayout(new BorderLayout());
-        jPanel1.add(new ListStudentJPanel());
+        jPanel1.add(new ListStudentJPanel(user));
         jPanel1.validate();
         jPanel1.repaint();
     }//GEN-LAST:event_jTable1MouseClicked

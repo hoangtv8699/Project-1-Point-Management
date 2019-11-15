@@ -9,7 +9,7 @@ package com.qlsv.view;
  *
  * @author Hiddenpants-H
  */
-public class CaiDatJPanel extends javax.swing.JPanel {
+public class CaiDatJPanel extends CommonJPanel {
 
     /**
      * Creates new form CaiDatJPanel

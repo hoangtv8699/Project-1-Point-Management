@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Hiddenpants-H
  */
-public class BangDiemController {
+public class BangDiemController extends Controller{
 
     private JTable bangDiemjTable;
     private JTable tongKetjTable;

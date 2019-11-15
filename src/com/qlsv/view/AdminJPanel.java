@@ -15,7 +15,7 @@ import javax.swing.JPanel;
  *
  * @author Hiddenpants-H
  */
-public final class AdminJPanel extends JPanelAbstract{
+public final class AdminJPanel extends JPanelMenuAbstract{
     @Override
     public List<DanhMucBean> getListItem(){
         return listItem;

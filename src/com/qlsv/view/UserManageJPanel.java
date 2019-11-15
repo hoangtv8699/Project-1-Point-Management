@@ -7,6 +7,7 @@ package com.qlsv.view;
 
 import com.qlsv.bean.DanhMucBean;
 import com.qlsv.controller.ChangePanelMenuController;
+import com.qlsv.models.User;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,15 +15,14 @@ import java.util.List;
  *
  * @author Hiddenpants-H
  */
-public class UserManageJPanel extends javax.swing.JPanel {
-
+public class UserManageJPanel extends CommonJPanel {
     /**
      * Creates new form UserManageJPanel
      */
-    public UserManageJPanel() {
+    public UserManageJPanel(User user) {
         initComponents();
-        
-        ChangePanelMenuController controller = new ChangePanelMenuController(ViewjPanel);
+        setUser(user);
+        ChangePanelMenuController controller = new ChangePanelMenuController(ViewjPanel ,user);
         
         List<DanhMucBean> listItem = new ArrayList<>();
         listItem.add(new DanhMucBean("TaiKhoan", TaiKhoanjPanel, TaiKhoanjLabel));

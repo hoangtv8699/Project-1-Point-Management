@@ -13,7 +13,7 @@ import javax.swing.JLabel;
  *
  * @author Hiddenpants-H
  */
-public class HomeController {
+public class HomeController extends Controller{
     private JLabel count1;
     private JLabel count2;
     private JLabel count3;

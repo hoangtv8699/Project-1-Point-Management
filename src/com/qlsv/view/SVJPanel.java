@@ -6,13 +6,14 @@
 package com.qlsv.view;
 
 import com.qlsv.bean.DanhMucBean;
+import com.qlsv.models.User;
 import java.util.List;
 
 /**
  *
  * @author Hiddenpants-H
  */
-public class SVJPanel extends JPanelAbstract {
+public class SVJPanel extends JPanelMenuAbstract {
     @Override
     public List<DanhMucBean> getListItem(){
         return listItem;

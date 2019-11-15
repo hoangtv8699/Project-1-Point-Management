@@ -6,11 +6,11 @@
 package com.qlsv.controller;
 
 import com.qlsv.bean.DanhMucBean;
+import com.qlsv.models.User;
 import com.qlsv.view.BangDiemCaNhan;
-import com.qlsv.view.AdminJPanel;
 import com.qlsv.view.ManageCourseJPanel;
 import com.qlsv.view.ManageUserJPanel;
-import com.qlsv.view.JPanelAbstract;
+import com.qlsv.view.JPanelMenuAbstract;
 import com.qlsv.view.MatKhauJPanel;
 import com.qlsv.view.TaiKhoanJPanel;
 import com.qlsv.view.TrangChuJPanel;
@@ -28,23 +28,25 @@ import javax.swing.JPanel;
  * @author Hiddenpants-H
  */
 public class ChangePanelMenuController {
-
+    private User user;
     private JPanel leftRoot;
     private JPanel RightRoot;
     private String kindSelected = "";
 
     private List<DanhMucBean> listDanhMuc = null;
 
-    public ChangePanelMenuController(JPanel leftRoot, JPanel RightRoot) {
+    public ChangePanelMenuController(JPanel leftRoot, JPanel RightRoot, User user) {
         this.leftRoot = leftRoot;
         this.RightRoot = RightRoot;
+        this.user = user;
     }
 
-    public ChangePanelMenuController(JPanel RightRoot) {
+    public ChangePanelMenuController(JPanel RightRoot, User user) {
         this.RightRoot = RightRoot;
+        this.user = user;
     }
 
-    public void setMenu(JPanelAbstract jpnItem) {
+    public void setMenu(JPanelMenuAbstract jpnItem) {
         listDanhMuc = jpnItem.getListItem();
         leftRoot.removeAll();
         leftRoot.setLayout(new BorderLayout());
@@ -75,7 +77,7 @@ public class ChangePanelMenuController {
         jlbItem.setBackground(new Color(96, 100, 191));
         RightRoot.removeAll();
         RightRoot.setLayout(new BorderLayout());
-        RightRoot.add(new TaiKhoanJPanel());
+        RightRoot.add(new TaiKhoanJPanel(user));
         RightRoot.validate();
         RightRoot.repaint();
     }
@@ -103,28 +105,28 @@ public class ChangePanelMenuController {
         JPanel node;
         switch (s) {
                 case "TrangChu":
-                    node = new TrangChuJPanel();
+                    node = new TrangChuJPanel(user);
                     break;
                 case "QuanLyNguoiDung":
-                    node = new ManageUserJPanel();
+                    node = new ManageUserJPanel(user);
                     break;
                 case "QuanLyLopSinhVien":
-                    node = new ManageCourseJPanel();
+                    node = new ManageCourseJPanel(user);
                     break;
                 case "QuanLyTaiKhoanCaNhan":
-                    node = new UserManageJPanel();
+                    node = new UserManageJPanel(user);
                     break;
                 case "XemBangDiemCaNhan":
-                    node = new BangDiemCaNhan();
+                    node = new BangDiemCaNhan(user);
                     break;
                 case "TaiKhoan":
-                    node = new TaiKhoanJPanel();
+                    node = new TaiKhoanJPanel(user);
                     break;
                 case "MatKhau":
-                    node = new MatKhauJPanel();
+                    node = new MatKhauJPanel(user);
                     break;
                 default:
-                    node = new TrangChuJPanel();
+                    node = new TrangChuJPanel(user);
                     break;
             }
         return node;

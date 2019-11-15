@@ -15,7 +15,7 @@ import javax.swing.JPasswordField;
  *
  * @author Hiddenpants-H
  */
-public class MatkhauController {
+public class MatkhauController extends Controller{
 
     private JPasswordField MatKhauCujPasswordField;
     private JPasswordField MatKhauMoijPasswordField;

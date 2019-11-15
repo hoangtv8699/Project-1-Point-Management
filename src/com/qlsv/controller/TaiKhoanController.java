@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  *
  * @author Hiddenpants-H
  */
-public class TaiKhoanController {
+public class TaiKhoanController extends Controller{
 
     private User user;
     private JLabel userIdJLabel;

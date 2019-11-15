@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Hiddenpants-H
  */
-public class GVJPanel extends JPanelAbstract {
+public class GVJPanel extends JPanelMenuAbstract {
 @Override
     public List<DanhMucBean> getListItem(){
         return listItem;

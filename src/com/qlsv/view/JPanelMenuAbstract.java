@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author Hiddenpants-H
  */ 
-public abstract class JPanelAbstract extends javax.swing.JPanel{
+public abstract class JPanelMenuAbstract extends CommonJPanel{
     public List<DanhMucBean> listItem = new ArrayList<>();
     public abstract List<DanhMucBean> getListItem();
     public abstract void setListItem();
