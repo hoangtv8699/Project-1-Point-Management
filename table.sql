@@ -26,9 +26,10 @@ CREATE TABLE `mon_hoc` (
   `tenHP` varchar(255) NOT NULL,
   `maHP` varchar(255) NOT NULL,
   `maLop` varchar(255) NOT NULL,
+  `hocky` varchar(255) NOT NULL,
   `soTinChi` tinyint(4) DEFAULT NULL,
   `qt` float DEFAULT NULL,
-  PRIMARY KEY (`maHP`,`maLop`)
+  PRIMARY KEY (`maHP`,`maLop`,`hocky`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -159,12 +160,13 @@ DROP TABLE IF EXISTS `mh_gv`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `mh_gv` (
   `user_id` bigint(20) NOT NULL,
-  `maHP` varchar(255) DEFAULT NULL,
+  `maHP` varchar(255) NOT NULL,
   `maLop` varchar(255) NOT NULL,
-  PRIMARY KEY (`maLop`,`user_id`),
+  `hocky` varchar(255) NOT NULL,
+  PRIMARY KEY (`maLop`,`maHP`,`user_id`),
   KEY `maHP` (`maHP`,`maLop`),
   KEY `user_id` (`user_id`),
-  CONSTRAINT `mh_gv_ibfk_2` FOREIGN KEY (`maHP`, `maLop`) REFERENCES `mon_hoc` (`maHP`, `maLop`),
+  CONSTRAINT `mh_gv_ibfk_2` FOREIGN KEY (`maHP`, `maLop`,`hocky`) REFERENCES `mon_hoc` (`maHP`, `maLop`,`hocky`),
   CONSTRAINT `mh_gv_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -213,7 +215,7 @@ CREATE TABLE `bang_diem` (
   `diem` float DEFAULT NULL,
   PRIMARY KEY (`user_id`,`maHP`,`maLop`),
   KEY `maHP` (`maHP`,`maLop`),
-  CONSTRAINT `bang_diem_ibfk_2` FOREIGN KEY (`maHP`, `maLop`) REFERENCES `mon_hoc` (`maHP`, `maLop`),
+  CONSTRAINT `bang_diem_ibfk_2` FOREIGN KEY (`maHP`, `maLop`, `hocky`) REFERENCES `mon_hoc` (`maHP`, `maLop`, `hocky`),
   CONSTRAINT `bang_diem_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;

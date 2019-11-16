@@ -8,6 +8,7 @@ package com.qlsv.controller;
 import com.qlsv.dao.UserDAO;
 import com.qlsv.models.*;
 import com.toedter.calendar.JDateChooser;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 //import datechooser.beans.DateChooserCombo;
@@ -18,7 +19,7 @@ import javax.swing.JOptionPane;
  *
  * @author Hiddenpants-H
  */
-public class TaiKhoanController extends Controller{
+public class TaiKhoanController extends Controller {
 
     private User user;
     private JLabel userIdJLabel;
@@ -28,11 +29,12 @@ public class TaiKhoanController extends Controller{
     private JTextField diaChijTextField;
     private JTextField sDTjTextField;
     private JLabel dacTrungJLabel;
+    private JComboBox<String> sexjComboBox;
 
     public TaiKhoanController() {
     }
 
-    public TaiKhoanController(JLabel userIdJLabel, JTextField tenjTextField, JTextField emailjTextField, JDateChooser dateChooser, JTextField diaChijTextField, JTextField sDTjTextField, JLabel dacTrungJLabel) {
+    public TaiKhoanController(JLabel userIdJLabel, JTextField tenjTextField, JTextField emailjTextField, JDateChooser dateChooser, JTextField diaChijTextField, JTextField sDTjTextField, JLabel dacTrungJLabel, JComboBox<String> sexjComboBox) {
         this.userIdJLabel = userIdJLabel;
         this.tenjTextField = tenjTextField;
         this.emailjTextField = emailjTextField;
@@ -40,6 +42,7 @@ public class TaiKhoanController extends Controller{
         this.diaChijTextField = diaChijTextField;
         this.sDTjTextField = sDTjTextField;
         this.dacTrungJLabel = dacTrungJLabel;
+        this.sexjComboBox = sexjComboBox;
     }
 
     public void setData(User user) {
@@ -55,8 +58,9 @@ public class TaiKhoanController extends Controller{
             dacTrungJLabel.setText("Level: " + ((GiangVien) user).getLevel());
         } else {
             dacTrungJLabel.setText("");
-
         }
+        sexjComboBox.setSelectedIndex(user.getGt());
+
     }
 
     public User getData() {
@@ -82,6 +86,7 @@ public class TaiKhoanController extends Controller{
         user.setNgaySinh(new java.sql.Date(dateChooser.getDate().getTime()));
         user.setDiaChi(diaChijTextField.getText());
         user.setSdt(sDTjTextField.getText());
+        user.setGt(sexjComboBox.getSelectedIndex());
         return user;
     }
 

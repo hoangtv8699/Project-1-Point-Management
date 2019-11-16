@@ -5,6 +5,7 @@ public class MH_GV {
 	private long user_id;
 	private String maHP;
 	private String maLop;
+        private String hocKy;
 	public long getUser_id() {
 		return user_id;
 	}
@@ -23,5 +24,14 @@ public class MH_GV {
 	public void setMaLop(String maLop) {
 		this.maLop = maLop;
 	}
+
+    public String getHocKy() {
+        return hocKy;
+    }
+
+    public void setHocKy(String hocKy) {
+        this.hocKy = hocKy;
+    }
+        
 	
 }

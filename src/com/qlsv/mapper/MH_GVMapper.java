@@ -13,6 +13,7 @@ public class MH_GVMapper implements RowMapper<MH_GV> {
 			bd.setUser_id(result.getLong("user_id"));
 			bd.setMaHP(result.getString("maHP"));
 			bd.setMaLop(result.getString("maLop"));
+                        bd.setHocKy(result.getString("hocky"));
 			return bd;
 		}catch (SQLException e) {
 			e.printStackTrace();;

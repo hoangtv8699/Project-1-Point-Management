@@ -13,6 +13,7 @@ public class MonHocMapper implements RowMapper<MonHoc> {
 			mh.setTenHP(result.getString("tenHP"));
 			mh.setMaHP(result.getString("maHP"));
 			mh.setMaLop(result.getString("maLop"));
+                        mh.setHocKy(result.getString("hocky"));
 			mh.setSoTC(result.getInt("soTinChi"));
 			return mh;
 		}catch (SQLException e) {

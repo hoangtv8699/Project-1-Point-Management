@@ -39,7 +39,7 @@ public class UserDAO extends CommonDAO<User> {
         String sql = "insert into users(password) value(?);";
         id = insert(sql, password);
         return id;
-        
+
     }
 
     public void saveRole(User user) {
@@ -49,7 +49,7 @@ public class UserDAO extends CommonDAO<User> {
         } else if (user instanceof GiangVien) {
             insert(sql, user.getUser_id(), 2);
         } else if (user instanceof Admin) {
-            insert(sql, user.getUser_id(), 3);
+            insert(sql, user.getUser_id(), 0);
         }
     }
 
@@ -90,7 +90,7 @@ public class UserDAO extends CommonDAO<User> {
             }
             return users.get(0);
         } else if (user instanceof Admin) {
-            List<Admin> users = query(sql, new AdminMapper(), user.getUser_id(), user.getPassword(), 3);
+            List<Admin> users = query(sql, new AdminMapper(), user.getUser_id(), user.getPassword(), 0);
             if (users.isEmpty()) {
                 return null;
             }
@@ -114,7 +114,7 @@ public class UserDAO extends CommonDAO<User> {
             }
             return users.get(0);
         } else if (user instanceof Admin) {
-            List<Admin> users = query(sql, new AdminMapper(), user.getUser_id(), 3);
+            List<Admin> users = query(sql, new AdminMapper(), user.getUser_id(), 0);
             if (users.isEmpty()) {
                 return null;
             }
@@ -186,6 +186,12 @@ public class UserDAO extends CommonDAO<User> {
         return users;
     }
 
+    public List<SinhVien> find(String maHP, String maLop, String hocky) {
+        String sql = "select users.* from users inner join bang_diem on bang_diem.user_id = users.user_id where maHP=? and maLop=? and hocky=?";
+        List<SinhVien> users = query(sql, new SinhVienMapper(), maHP, maLop, hocky);
+        return users;
+    }
+
     public void delete(User u) {
         String sql = "delete from role where user_id=?";
         delete(sql, u.getUser_id());
@@ -196,9 +202,11 @@ public class UserDAO extends CommonDAO<User> {
         sql = "delete from users where user_id=?";
         delete(sql, u.getUser_id());
     }
-    
-    public long count(int i){
-        if(i < 0 || i > 3) return 0;
+
+    public long count(int i) {
+        if (i < 0 || i > 2) {
+            return 0;
+        }
         String sql = "select count(0) from users inner join role on users.user_id = role.user_id where roles = ?;";
         long count = count(sql, i);
         return count;

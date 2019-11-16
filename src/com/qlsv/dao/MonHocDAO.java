@@ -7,8 +7,8 @@ import com.qlsv.models.MonHoc;
 
 public class MonHocDAO extends CommonDAO<MonHoc> {
 	public void insert(MonHoc mh) {
-		String sql = "insert into mon_hoc(tenHP, maHP, maLop, soTinChi) value(?,?,?,?,?,?)";
-		insert(sql, mh.getTenHP(), mh.getMaHP(), mh.getMaLop(), mh.getSoTC());
+		String sql = "insert into mon_hoc(tenHP, maHP, maLop, hocky, soTinChi) value(?,?,?,?,?)";
+		insert(sql, mh.getTenHP(), mh.getMaHP(), mh.getMaLop(), mh.getHocKy(), mh.getSoTC());
 	}
 	
 	public void delete(MonHoc mh) {
@@ -26,9 +26,9 @@ public class MonHocDAO extends CommonDAO<MonHoc> {
 		return mh;
 	}
         
-        public List<MonHoc> findName(String maLop, String maHP) {
-		String sql = "select * from mon_hoc where maHP=? and maLop=?";
-		List<MonHoc> mh = query(sql, new MonHocMapper(), maHP, maLop);
+        public List<MonHoc> find(String maLop, String maHP, String hocky) {
+		String sql = "select * from mon_hoc where maHP=? and maLop=? and hocky=?";
+		List<MonHoc> mh = query(sql, new MonHocMapper(), maHP, maLop, hocky);
 		return mh;
 	}
 	
@@ -48,6 +48,12 @@ public class MonHocDAO extends CommonDAO<MonHoc> {
 		String sql = "select * from mon_hoc where maLop like ?";
 		List<MonHoc> mhs = query(sql, new MonHocMapper(), "%" + mh.getMaLop() + "%");
 		return mhs;
+	}
+        
+        public List<MonHoc> find(Long id) {
+		String sql = "select mon_hoc.* from mon_hoc inner join mh_gv on mh_gv.hocky = mon_hoc.hocky and  mh_gv.maHP = mon_hoc.maHP and  mh_gv.maLop = mon_hoc.maLop WHERE user_id = ?";
+		List<MonHoc> mh = query(sql, new MonHocMapper(), id);
+		return mh;
 	}
 	
 	public long count(){

@@ -52,6 +52,10 @@ public class BangDiem {
         return diem;
     }
 
+    public void setDiem() {
+        this.diem = diemQT * 0.3f + diemCK * 0.7f;
+    }
+    
     public void setDiem(float diem) {
         this.diem = diem;
     }

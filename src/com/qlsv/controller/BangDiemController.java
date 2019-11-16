@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Hiddenpants-H
  */
-public class BangDiemController extends Controller{
+public class BangDiemController extends Controller {
 
     private JTable bangDiemjTable;
     private JTable tongKetjTable;
@@ -50,9 +50,10 @@ public class BangDiemController extends Controller{
 
     public void setTextBangDiem(User user) {
         DefaultTableModel model = (DefaultTableModel) bangDiemjTable.getModel();
+        model.setRowCount(0);
         List<BangDiem> tmp = ((SinhVien) user).getBangDiem();
         for (BangDiem tmp1 : tmp) {
-            MonHoc mh = new MonHocDAO().findName(tmp1.getMaLop(), tmp1.getMaHP()).get(0);
+            MonHoc mh = new MonHocDAO().find(tmp1.getMaLop(), tmp1.getMaHP(), tmp1.getHocKy()).get(0);
             model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getMaHP(), mh.getTenHP(),
                 mh.getSoTC(), tmp1.getMaLop(), tmp1.getDiemQT(), tmp1.getDiemCK(), getDiemBangChu(tmp1.getDiem())});
         }
@@ -60,6 +61,7 @@ public class BangDiemController extends Controller{
 
     public void setTextTongKet(User user) {
         DefaultTableModel model = (DefaultTableModel) tongKetjTable.getModel();
+        model.setRowCount(0);
         List<BangDiem> tmp = ((SinhVien) user).getBangDiem();
         List<String> hocky = new ArrayList<>();
         float GPA = 0.0f, CPA = 0.0f, GPAtmp, CPAtmp;
@@ -72,11 +74,11 @@ public class BangDiemController extends Controller{
         for (String hockyS : hocky) {
             GPA = 0.0f;
             tcQua = 0;
-            for (BangDiem bd : tmp) {
-                if (bd.getHocKy().equals(hockyS)) {
-                    MonHoc mh = new MonHocDAO().findName(bd.getMaLop(), bd.getMaHP()).get(0);
+            for (BangDiem tmp1 : tmp) {
+                if (tmp1.getHocKy().equals(hockyS)) {
+                    MonHoc mh = new MonHocDAO().find(tmp1.getMaLop(), tmp1.getMaHP(), tmp1.getHocKy()).get(0);
                     tcQua += mh.getSoTC();
-                    GPA += getDiemBangSo(getDiemBangChu(bd.getDiem())) * mh.getSoTC();
+                    GPA += getDiemBangSo(getDiemBangChu(tmp1.getDiem())) * mh.getSoTC();
                 }
             }
             CPA += GPA;
@@ -153,7 +155,7 @@ public class BangDiemController extends Controller{
 
     public void hocKyFilter(User user) {
         String hocKy = hocKyjTextField.getText();
-        
+
         DefaultTableModel model = (DefaultTableModel) bangDiemjTable.getModel();
         model.setRowCount(0);
         if (hocKy.equals("")) {
@@ -162,8 +164,8 @@ public class BangDiemController extends Controller{
         }
         List<BangDiem> tmp = ((SinhVien) user).getBangDiem();
         for (BangDiem tmp1 : tmp) {
-            if (tmp1.getHocKy().toLowerCase().matches("(.*)"+hocKy.toLowerCase()+"(.*)")) {
-                MonHoc mh = new MonHocDAO().findName(tmp1.getMaLop(), tmp1.getMaHP()).get(0);
+            if (tmp1.getHocKy().toLowerCase().matches("(.*)" + hocKy.toLowerCase() + "(.*)")) {
+                MonHoc mh = new MonHocDAO().find(tmp1.getMaLop(), tmp1.getMaHP(), tmp1.getHocKy()).get(0);
                 model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getMaHP(), mh.getTenHP(),
                     mh.getSoTC(), tmp1.getMaLop(), tmp1.getDiemQT(), tmp1.getDiemCK(), getDiemBangChu(tmp1.getDiem())});
             }
@@ -180,8 +182,8 @@ public class BangDiemController extends Controller{
         }
         List<BangDiem> tmp = ((SinhVien) user).getBangDiem();
         for (BangDiem tmp1 : tmp) {
-            if (tmp1.getMaHP().toLowerCase().matches("(.*)"+maHP.toLowerCase()+"(.*)")) {
-                MonHoc mh = new MonHocDAO().findName(tmp1.getMaLop(), tmp1.getMaHP()).get(0);
+            if (tmp1.getMaHP().toLowerCase().matches("(.*)" + maHP.toLowerCase() + "(.*)")) {
+                MonHoc mh = new MonHocDAO().find(tmp1.getMaLop(), tmp1.getMaHP(), tmp1.getHocKy()).get(0);
                 model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getMaHP(), mh.getTenHP(),
                     mh.getSoTC(), tmp1.getMaLop(), tmp1.getDiemQT(), tmp1.getDiemCK(), getDiemBangChu(tmp1.getDiem())});
             }
@@ -198,14 +200,14 @@ public class BangDiemController extends Controller{
         }
         List<BangDiem> tmp = ((SinhVien) user).getBangDiem();
         for (BangDiem tmp1 : tmp) {
-            MonHoc mh = new MonHocDAO().findName(tmp1.getMaLop(), tmp1.getMaHP()).get(0);
-            if (mh.getTenHP().toLowerCase().matches("(.*)"+tenHP.toLowerCase()+"(.*)")) {
+            MonHoc mh = new MonHocDAO().find(tmp1.getMaLop(), tmp1.getMaHP(), tmp1.getHocKy()).get(0);
+            if (mh.getTenHP().toLowerCase().matches("(.*)" + tenHP.toLowerCase() + "(.*)")) {
                 model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getMaHP(), mh.getTenHP(),
                     mh.getSoTC(), tmp1.getMaLop(), tmp1.getDiemQT(), tmp1.getDiemCK(), getDiemBangChu(tmp1.getDiem())});
             }
         }
     }
-    
+
     public void tcFilter(User user) {
         DefaultTableModel model = (DefaultTableModel) bangDiemjTable.getModel();
         model.setRowCount(0);
@@ -216,13 +218,14 @@ public class BangDiemController extends Controller{
         int tc = Integer.parseInt(tCjTextField.getText());
         List<BangDiem> tmp = ((SinhVien) user).getBangDiem();
         for (BangDiem tmp1 : tmp) {
-            MonHoc mh = new MonHocDAO().findName(tmp1.getMaLop(), tmp1.getMaHP()).get(0);
+            MonHoc mh = new MonHocDAO().find(tmp1.getMaLop(), tmp1.getMaHP(), tmp1.getHocKy()).get(0);
             if (mh.getSoTC() == tc) {
                 model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getMaHP(), mh.getTenHP(),
                     mh.getSoTC(), tmp1.getMaLop(), tmp1.getDiemQT(), tmp1.getDiemCK(), getDiemBangChu(tmp1.getDiem())});
             }
         }
     }
+
     public void maLopFilter(User user) {
         String maLop = maLopjTextField.getText();
         DefaultTableModel model = (DefaultTableModel) bangDiemjTable.getModel();
@@ -233,16 +236,16 @@ public class BangDiemController extends Controller{
         }
         List<BangDiem> tmp = ((SinhVien) user).getBangDiem();
         for (BangDiem tmp1 : tmp) {
-            if (tmp1.getMaLop().matches("(.*)"+maLop+"(.*)")) {
-                MonHoc mh = new MonHocDAO().findName(tmp1.getMaLop(), tmp1.getMaHP()).get(0);
+            if (tmp1.getMaLop().matches("(.*)" + maLop + "(.*)")) {
+                MonHoc mh = new MonHocDAO().find(tmp1.getMaLop(), tmp1.getMaHP(), tmp1.getHocKy()).get(0);
                 model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getMaHP(), mh.getTenHP(),
                     mh.getSoTC(), tmp1.getMaLop(), tmp1.getDiemQT(), tmp1.getDiemCK(), getDiemBangChu(tmp1.getDiem())});
             }
         }
     }
-    
+
     public void diemQTFilter(User user) {
-        
+
         DefaultTableModel model = (DefaultTableModel) bangDiemjTable.getModel();
         model.setRowCount(0);
         if (qTjTextField.getText().equals("") || !qTjTextField.getText().matches("[+-]?([0-9]*[.])?[0-9]+")) {
@@ -253,15 +256,15 @@ public class BangDiemController extends Controller{
         List<BangDiem> tmp = ((SinhVien) user).getBangDiem();
         for (BangDiem tmp1 : tmp) {
             if (tmp1.getDiemQT() == diemQT) {
-                MonHoc mh = new MonHocDAO().findName(tmp1.getMaLop(), tmp1.getMaHP()).get(0);
+                MonHoc mh = new MonHocDAO().find(tmp1.getMaLop(), tmp1.getMaHP(), tmp1.getHocKy()).get(0);
                 model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getMaHP(), mh.getTenHP(),
                     mh.getSoTC(), tmp1.getMaLop(), tmp1.getDiemQT(), tmp1.getDiemCK(), getDiemBangChu(tmp1.getDiem())});
             }
         }
     }
-    
+
     public void diemCKFilter(User user) {
-        
+
         DefaultTableModel model = (DefaultTableModel) bangDiemjTable.getModel();
         model.setRowCount(0);
         if (cKjTextField.getText().equals("") || !cKjTextField.getText().matches("[+-]?([0-9]*[.])?[0-9]+")) {
@@ -272,15 +275,15 @@ public class BangDiemController extends Controller{
         List<BangDiem> tmp = ((SinhVien) user).getBangDiem();
         for (BangDiem tmp1 : tmp) {
             if (tmp1.getDiemCK() == diemCK) {
-                MonHoc mh = new MonHocDAO().findName(tmp1.getMaLop(), tmp1.getMaHP()).get(0);
+                MonHoc mh = new MonHocDAO().find(tmp1.getMaLop(), tmp1.getMaHP(), tmp1.getHocKy()).get(0);
                 model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getMaHP(), mh.getTenHP(),
                     mh.getSoTC(), tmp1.getMaLop(), tmp1.getDiemQT(), tmp1.getDiemCK(), getDiemBangChu(tmp1.getDiem())});
             }
         }
     }
-    
+
     public void diemChuFilter(User user) {
-        
+
         DefaultTableModel model = (DefaultTableModel) bangDiemjTable.getModel();
         model.setRowCount(0);
         if (DiemjTextField.getText().equals("")) {
@@ -290,12 +293,21 @@ public class BangDiemController extends Controller{
         String diemChu = DiemjTextField.getText();
         List<BangDiem> tmp = ((SinhVien) user).getBangDiem();
         for (BangDiem tmp1 : tmp) {
-            if (getDiemBangChu(tmp1.getDiem()).toLowerCase().matches("(.*)"+diemChu.toLowerCase()+"(.*)")) {
-                MonHoc mh = new MonHocDAO().findName(tmp1.getMaLop(), tmp1.getMaHP()).get(0);
+            if (getDiemBangChu(tmp1.getDiem()).toLowerCase().matches("(.*)" + diemChu.toLowerCase() + "(.*)")) {
+                MonHoc mh = new MonHocDAO().find(tmp1.getMaLop(), tmp1.getMaHP(), tmp1.getHocKy()).get(0);
                 model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getMaHP(), mh.getTenHP(),
                     mh.getSoTC(), tmp1.getMaLop(), tmp1.getDiemQT(), tmp1.getDiemCK(), getDiemBangChu(tmp1.getDiem())});
             }
         }
     }
 
+    public void setNULL() {
+        hocKyjTextField.setText("");
+        maHPjTextField.setText("");
+        tenHPjTextField.setText("");
+        maLopjTextField.setText("");
+        qTjTextField.setText("");
+        cKjTextField.setText("");
+        DiemjTextField.setText("");
+    }
 }
