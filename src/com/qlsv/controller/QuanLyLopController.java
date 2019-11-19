@@ -17,6 +17,7 @@ import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -76,8 +77,8 @@ public class QuanLyLopController extends Controller {
         return tmp;
     }
 
-    public List<MonHoc> getDSL(int start, int end) {
-        List<MonHoc> tmp = new MonHocDAO().find(start, end);
+    public List<MonHoc> getAllDSL() {
+        List<MonHoc> tmp = new MonHocDAO().find();
         return tmp;
     }
 
@@ -86,7 +87,7 @@ public class QuanLyLopController extends Controller {
         if (getUser() instanceof GiangVien) {
             tmp = getDSL();
         } else if (getUser() instanceof Admin) {
-            tmp = getDSL(1, 100);
+            tmp = getAllDSL();
         }
         DefaultTableModel model = (DefaultTableModel) dSLopjTable.getModel();
         model.setRowCount(0);
@@ -98,14 +99,13 @@ public class QuanLyLopController extends Controller {
 
     public void hocKyFilter() {
         String hocKy = hocKyjTextField.getText();
-
         DefaultTableModel model = (DefaultTableModel) dSLopjTable.getModel();
         model.setRowCount(0);
         if (hocKy.equals("")) {
             setTextDSL();
             return;
         }
-        List<MonHoc> tmp = getDSL();
+        List<MonHoc> tmp = getAllDSL();
         for (MonHoc tmp1 : tmp) {
             if (tmp1.getHocKy().toLowerCase().matches("(.*)" + hocKy.toLowerCase() + "(.*)")) {
                  model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getSoTC(), tmp1.getqT(), new MH_GVDAO().find(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy()).getUser_id(),
@@ -122,7 +122,7 @@ public class QuanLyLopController extends Controller {
             setTextDSL();
             return;
         }
-        List<MonHoc> tmp = getDSL();
+        List<MonHoc> tmp = getAllDSL();
         for (MonHoc tmp1 : tmp) {
             if (tmp1.getTenHP().toLowerCase().matches("(.*)" + tenHP.toLowerCase() + "(.*)")) {
                 model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getSoTC(), tmp1.getqT(), new MH_GVDAO().find(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy()).getUser_id(),
@@ -139,7 +139,7 @@ public class QuanLyLopController extends Controller {
             setTextDSL();
             return;
         }
-        List<MonHoc> tmp = getDSL();
+        List<MonHoc> tmp = getAllDSL();
         for (MonHoc tmp1 : tmp) {
             if (tmp1.getMaHP().toLowerCase().matches("(.*)" + maHP.toLowerCase() + "(.*)")) {
                 model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getSoTC(), tmp1.getqT(), new MH_GVDAO().find(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy()).getUser_id(),
@@ -156,7 +156,7 @@ public class QuanLyLopController extends Controller {
             setTextDSL();
             return;
         }
-        List<MonHoc> tmp = getDSL();
+        List<MonHoc> tmp = getAllDSL();
         for (MonHoc tmp1 : tmp) {
             if (tmp1.getMaLop().matches("(.*)" + maLop + "(.*)")) {
                  model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getSoTC(), tmp1.getqT(), new MH_GVDAO().find(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy()).getUser_id(),
@@ -173,7 +173,7 @@ public class QuanLyLopController extends Controller {
             setTextDSL();
             return;
         }
-        List<MonHoc> tmp = getDSL();
+        List<MonHoc> tmp = getAllDSL();
         for (MonHoc tmp1 : tmp) {
             if (tmp1.getSoTC() == Long.valueOf(tC)) {
                  model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getSoTC(), tmp1.getqT(), new MH_GVDAO().find(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy()).getUser_id(),
@@ -190,9 +190,9 @@ public class QuanLyLopController extends Controller {
             setTextDSL();
             return;
         }
-        List<MonHoc> tmp = getDSL();
+        List<MonHoc> tmp = getAllDSL();
         for (MonHoc tmp1 : tmp) {
-            if (tmp1.getqT() == Float.valueOf(qT)) {
+            if (tmp1.getqT() == Float.parseFloat(qT)) {
                  model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getSoTC(), tmp1.getqT(), new MH_GVDAO().find(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy()).getUser_id(),
                 new BangDiemDAO().count(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy())});
             }
@@ -207,7 +207,7 @@ public class QuanLyLopController extends Controller {
             setTextDSL();
             return;
         }
-        List<MonHoc> tmp = getDSL();
+        List<MonHoc> tmp = getAllDSL();
         for (MonHoc tmp1 : tmp) {
             if (String.valueOf(new MH_GVDAO().find(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy()).getUser_id()).matches("(.*)" + maGV + "(.*)")) {
                  model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getSoTC(), tmp1.getqT(), new MH_GVDAO().find(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy()).getUser_id(),
@@ -224,7 +224,7 @@ public class QuanLyLopController extends Controller {
             return;
         }
         Long maGV = Long.valueOf(soSVjTextField.getText());
-        List<MonHoc> tmp = getDSL();
+        List<MonHoc> tmp = getAllDSL();
         for (MonHoc tmp1 : tmp) {
             Long count = new BangDiemDAO().count(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy());
             if (count == maGV) {
@@ -263,6 +263,11 @@ public class QuanLyLopController extends Controller {
     }
     
     public void addLop(){
-        
+        String defaultCurrentDirectoryPath = "C:\\Users\\Hiddenpants-H\\Downloads";
+        JFileChooser excelFileChooser = new JFileChooser(defaultCurrentDirectoryPath);
+        int excelChooser = excelFileChooser.showOpenDialog(null);
+        if(excelChooser == JFileChooser.APPROVE_OPTION){
+               XSSFWorkBook workBook;
+        }
     }
 }

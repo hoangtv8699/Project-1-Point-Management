@@ -19,7 +19,11 @@ public class MonHocDAO extends CommonDAO<MonHoc> {
 		sql = "delete from mon_hoc where maHP=? and maLop=?";
 		delete(sql,  mh.getMaHP(), mh.getMaLop());
 	}
-	
+	public List<MonHoc> find() {
+		String sql = "select * from mon_hoc";
+		List<MonHoc> mh = query(sql, new MonHocMapper());
+		return mh;
+	}
 	public List<MonHoc> find(int start, int limit) {
 		String sql = "select * from mon_hoc limit ?,?";
 		List<MonHoc> mh = query(sql, new MonHocMapper(), start, limit);

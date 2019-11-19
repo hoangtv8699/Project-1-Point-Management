@@ -63,7 +63,7 @@ public class UserDAO extends CommonDAO<User> {
             update(sql, user.getTen(), user.getEmail(), user.getNgaySinh(), user.getDiaChi(),
                     user.getSdt(), user.getGt(), ((GiangVien) user).getLevel(), user.getUser_id());
         } else if (user instanceof Admin) {
-            String sql = "update users set ten=?, email=?, ngaySinh=?, diaChi=?, sdt=?, gioiTinh=?, where user_id=?";
+            String sql = "update users set ten=?, email=?, ngaySinh=?, diaChi=?, sdt=?, gioiTinh=? where user_id=?";
             update(sql, user.getTen(), user.getEmail(), user.getNgaySinh(), user.getDiaChi(),
                     user.getSdt(), user.getGt(), user.getUser_id());
         }
