@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `quanlydiemsv` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE  IF NOT EXISTS `quanlydiemsv` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_swedish_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `quanlydiemsv`;
 -- MySQL dump 10.13  Distrib 8.0.17, for Win64 (x86_64)
 --
@@ -23,12 +23,12 @@ USE `quanlydiemsv`;
 
 DROP TABLE IF EXISTS `mh_gv`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `mh_gv` (
   `user_id` bigint(20) NOT NULL,
-  `maHP` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `maLop` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `hocky` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `maHP` varchar(255) CHARACTER SET utf8 COLLATE utf8_swedish_ci NOT NULL,
+  `maLop` varchar(255) CHARACTER SET utf8 COLLATE utf8_swedish_ci NOT NULL,
+  `hocky` varchar(255) CHARACTER SET utf8 COLLATE utf8_swedish_ci NOT NULL,
   PRIMARY KEY (`maLop`,`maHP`,`user_id`),
   KEY `maHP` (`maHP`,`maLop`),
   KEY `user_id` (`user_id`),
