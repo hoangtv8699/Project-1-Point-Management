@@ -25,8 +25,8 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="jPanel1" pref="850" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -47,9 +47,37 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jScrollPane1" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="hocKyjTextField1" max="32767" attributes="0"/>
+                              <Component id="jLabel2" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel3" min="-2" pref="281" max="-2" attributes="0"/>
+                              <Component id="tenHPjTextField1" min="-2" pref="284" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="maHPjTextField1" min="-2" pref="170" max="-2" attributes="0"/>
+                              <Component id="jLabel4" min="-2" pref="170" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jLabel5" max="32767" attributes="0"/>
+                              <Component id="maLopjTextField1" alignment="0" pref="166" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jLabel6" max="32767" attributes="0"/>
+                              <Component id="maGVjTextField1" pref="176" max="32767" attributes="0"/>
+                              <Component id="jButton10" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Component id="jButton4" max="32767" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
@@ -58,9 +86,9 @@
                                   <Component id="jButton1" min="-2" pref="25" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="tenHPjTextField" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jButton2" min="-2" pref="25" max="-2" attributes="0"/>
@@ -82,7 +110,8 @@
                                   <Component id="jButton8" min="-2" pref="25" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="281" max="-2" attributes="0"/>
+                                  <Component id="jButton11" min="-2" pref="166" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="279" max="-2" attributes="0"/>
                                   <Component id="jButton3" min="-2" pref="103" max="-2" attributes="0"/>
@@ -103,7 +132,10 @@
                           <Component id="jLabel1" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                           <Component id="jButton3" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jButton4" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jButton4" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="jButton11" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -125,8 +157,26 @@
                       <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="645" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="554" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel2" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="jLabel3" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="jLabel4" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="jLabel5" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="jLabel6" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="maHPjTextField1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="tenHPjTextField1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="hocKyjTextField1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="maLopjTextField1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="maGVjTextField1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jButton10" min="-2" pref="25" max="-2" attributes="0"/>
+                  <EmptySpace pref="93" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -293,7 +343,7 @@
         <Component class="javax.swing.JButton" name="jButton7">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="12" style="0"/>
+              <Font name="Arial" size="12" style="1"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0)" type="code"/>
@@ -389,6 +439,125 @@
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton4MouseClicked"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="hocKyjTextField1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="12" style="0"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0)" type="code"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hocKyjTextField1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tenHPjTextField1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="12" style="0"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0)" type="code"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="maHPjTextField1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="12" style="0"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0)" type="code"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="maHPjTextField1MouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="maHPjTextField1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="maLopjTextField1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="12" style="0"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0)" type="code"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="maLopjTextField1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="maGVjTextField1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="12" style="0"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0)" type="code"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="maGVjTextField1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel2">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="H&#x1ecd;c k&#x1ef3;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel3">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="T&#xea;n h&#x1ecd;c ph&#x1ea7;n"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel4">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="M&#xe3; h&#x1ecd;c ph&#x1ea7;n"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel5">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="M&#xe3; L&#x1edb;p"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel6">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="M&#xe3; gi&#x1ea3;ng vi&#xea;n"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton10">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Th&#xea;m L&#x1edb;p sv"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton11">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="X&#xf3;a l&#x1edb;p &#x111;&#xe3; ch&#x1ecd;n"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

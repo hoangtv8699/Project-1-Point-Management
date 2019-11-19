@@ -3,19 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/models/MH_GV.java</file>
-            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/view/BangDiemCaNhan.java</file>
+            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/view/GVJPanel.java</file>
             <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/controller/QuanLyLopController.java</file>
             <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/view/ManageCourseJPanel.java</file>
-            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/dao/UserDAO.java</file>
-            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/dao/MH_GVDAO.java</file>
-            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/controller/BangDiemController.java</file>
+            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/controller/ChangePanelMenuController.java</file>
             <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/view/MainJFrame.java</file>
             <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/main/Main.java</file>
-            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/mapper/MH_GVMapper.java</file>
-            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/view/ListStudentJPanel.java</file>
-            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/mapper/MonHocMapper.java</file>
-            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/controller/ListStudentController.java</file>
         </group>
     </open-files>
 </project-private>
