@@ -7,6 +7,15 @@ public class MonHoc {
     private String maLop;
     private String hocKy;
     private int soTC;
+    private Float qT;
+
+    public Float getqT() {
+        return qT;
+    }
+
+    public void setqT(Float qT) {
+        this.qT = qT;
+    }
 
     public String getTenHP() {
         return tenHP;

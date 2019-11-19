@@ -35,6 +35,7 @@ public class CaiDatJPanel extends CommonJPanel {
         jPanel2 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(204, 255, 204));
+        setPreferredSize(null);
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
@@ -100,7 +101,7 @@ public class CaiDatJPanel extends CommonJPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(521, Short.MAX_VALUE))
+                .addContainerGap(704, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 204));
@@ -109,7 +110,7 @@ public class CaiDatJPanel extends CommonJPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 849, Short.MAX_VALUE)
+            .addGap(0, 996, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

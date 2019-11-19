@@ -8,9 +8,10 @@ import com.qlsv.view.MainJFrame;
 import com.qlsv.view.SVJPanel;
 
 public class Main {
-    public static User user;
+    
     public static void main(String[] args) {
         try {
+            User user;
             user = new Admin();
             user.setUser_id(20000014);
             user.setPassword("12345");

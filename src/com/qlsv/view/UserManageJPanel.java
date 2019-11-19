@@ -48,6 +48,8 @@ public class UserManageJPanel extends CommonJPanel {
         MatKhaujPanel = new javax.swing.JPanel();
         ViewjPanel = new javax.swing.JPanel();
 
+        setPreferredSize(new java.awt.Dimension(1262, 850));
+
         MenujPanel.setBackground(new java.awt.Color(204, 255, 255));
 
         MatKhaujLabel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -112,7 +114,7 @@ public class UserManageJPanel extends CommonJPanel {
                 .addGroup(MenujPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(MatKhaujLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(MatKhaujPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(521, Short.MAX_VALUE))
+                .addContainerGap(694, Short.MAX_VALUE))
         );
 
         ViewjPanel.setBackground(new java.awt.Color(204, 255, 255));
@@ -121,7 +123,7 @@ public class UserManageJPanel extends CommonJPanel {
         ViewjPanel.setLayout(ViewjPanelLayout);
         ViewjPanelLayout.setHorizontalGroup(
             ViewjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 867, Short.MAX_VALUE)
+            .addGap(0, 996, Short.MAX_VALUE)
         );
         ViewjPanelLayout.setVerticalGroup(
             ViewjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
