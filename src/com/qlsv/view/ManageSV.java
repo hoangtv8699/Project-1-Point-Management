@@ -18,7 +18,6 @@ public class ManageSV extends CommonJPanel {
      */
     public ManageSV(User user) {
         initComponents();
-        setUser(user);
     }
 
     /**

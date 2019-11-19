@@ -24,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Hiddenpants-H
  */
 public class ListStudentController extends Controller {
-
+    private MonHoc monHoc;
     private JTable dSSVjTable;
     private JTextField sTTjTextField;
     private JTextField maSVjTextField;
@@ -38,9 +38,9 @@ public class ListStudentController extends Controller {
     private JLabel tenHPjLabel;
     private JLabel hocKyjLabel;
 
-    public ListStudentController(JTable dSSVjTable, JTextField sTTjTextField, JTextField maSVjTextField, JTextField tenSVjTextField,
-            JTextField diemGKjTextField, JTextField diemCKjTextField, JLabel maHPjLabel, JLabel maLopjLabel, JLabel tenHPjLabel, JLabel hocKyjLabel,
-            JTextField changeDiemGKjTextField, JTextField changeDiemCKjTextField) {
+    public ListStudentController(MonHoc monHoc, JTable dSSVjTable, JTextField sTTjTextField, JTextField maSVjTextField, JTextField tenSVjTextField, JTextField diemGKjTextField, JTextField diemCKjTextField, JTextField changeDiemGKjTextField, JTextField changeDiemCKjTextField, JLabel maHPjLabel, JLabel maLopjLabel, JLabel tenHPjLabel, JLabel hocKyjLabel, User user) {
+        super(user);
+        this.monHoc = monHoc;
         this.dSSVjTable = dSSVjTable;
         this.sTTjTextField = sTTjTextField;
         this.maSVjTextField = maSVjTextField;
@@ -53,9 +53,9 @@ public class ListStudentController extends Controller {
         this.maLopjLabel = maLopjLabel;
         this.tenHPjLabel = tenHPjLabel;
         this.hocKyjLabel = hocKyjLabel;
-    }
+    }  
 
-    public void setTextDSSV(User user, MonHoc monHoc) {
+    public void setTextDSSV() {
         DefaultTableModel model = (DefaultTableModel) dSSVjTable.getModel();
         int count = 1;
         model.setRowCount(0);
@@ -67,11 +67,11 @@ public class ListStudentController extends Controller {
         }
     }
 
-    public void sTTFilter(User user, MonHoc monHoc) {
+    public void sTTFilter() {
         DefaultTableModel model = (DefaultTableModel) dSSVjTable.getModel();
         model.setRowCount(0);
         if (sTTjTextField.getText().equals("") || !sTTjTextField.getText().matches("^[0-9]{0,}$")) {
-            setTextDSSV(user, monHoc);
+            setTextDSSV();
             return;
         }
         Long sTT = Long.valueOf(sTTjTextField.getText());
@@ -86,12 +86,12 @@ public class ListStudentController extends Controller {
         }
     }
 
-    public void maSVFilter(User user, MonHoc monHoc) {
+    public void maSVFilter() {
         String maSV = maSVjTextField.getText();
         DefaultTableModel model = (DefaultTableModel) dSSVjTable.getModel();
         model.setRowCount(0);
         if (maSV.equals("") || !maSV.matches("^[0-9]{0,}$")) {
-            setTextDSSV(user, monHoc);
+            setTextDSSV();
             return;
         }
         List<SinhVien> tmp = new UserDAO().find(monHoc.getMaHP(), monHoc.getMaLop(), monHoc.getHocKy());
@@ -105,12 +105,12 @@ public class ListStudentController extends Controller {
         }
     }
 
-    public void tenHPFilter(User user, MonHoc monHoc) {
+    public void tenHPFilter() {
         String tenHP = tenSVjTextField.getText();
         DefaultTableModel model = (DefaultTableModel) dSSVjTable.getModel();
         model.setRowCount(0);
         if (tenHP.equals("")) {
-            setTextDSSV(user, monHoc);
+            setTextDSSV();
             return;
         }
         List<SinhVien> tmp = new UserDAO().find(monHoc.getMaHP(), monHoc.getMaLop(), monHoc.getHocKy());
@@ -124,11 +124,11 @@ public class ListStudentController extends Controller {
         }
     }
 
-    public void diemCKFilter(User user, MonHoc monHoc) {
+    public void diemCKFilter() {
         DefaultTableModel model = (DefaultTableModel) dSSVjTable.getModel();
         model.setRowCount(0);
         if (diemCKjTextField.getText().equals("") || !diemCKjTextField.getText().matches("[+-]?([0-9]*[.])?[0-9]+")) {
-            setTextDSSV(user, monHoc);
+            setTextDSSV();
             return;
         }
         float diemCK = Float.parseFloat(diemCKjTextField.getText());
@@ -143,11 +143,11 @@ public class ListStudentController extends Controller {
         }
     }
 
-    public void diemGKFilter(User user, MonHoc monHoc) {
+    public void diemGKFilter() {
         DefaultTableModel model = (DefaultTableModel) dSSVjTable.getModel();
         model.setRowCount(0);
         if (diemGKjTextField.getText().equals("") || !diemGKjTextField.getText().matches("[+-]?([0-9]*[.])?[0-9]+")) {
-            setTextDSSV(user, monHoc);
+            setTextDSSV();
             return;
         }
         float diemGK = Float.parseFloat(diemGKjTextField.getText());
@@ -170,11 +170,11 @@ public class ListStudentController extends Controller {
         diemCKjTextField.setText("");
     }
 
-    public void setLabel(MonHoc monhoc) {
-        tenHPjLabel.setText("Tên học phần: " + monhoc.getTenHP());
-        maHPjLabel.setText("Mã học phần: " + monhoc.getMaHP());
-        maLopjLabel.setText("Mã lớp: " + monhoc.getMaLop());
-        hocKyjLabel.setText("Học kỳ: " + monhoc.getHocKy());
+    public void setLabel() {
+        tenHPjLabel.setText("Tên học phần: " + monHoc.getTenHP());
+        maHPjLabel.setText("Mã học phần: " + monHoc.getMaHP());
+        maLopjLabel.setText("Mã lớp: " + monHoc.getMaLop());
+        hocKyjLabel.setText("Học kỳ: " + monHoc.getHocKy());
     }
 
     public void setTextSelectedRow() {
@@ -186,7 +186,7 @@ public class ListStudentController extends Controller {
         }
     }
 
-    public void updateDiem(MonHoc monHoc) {
+    public void updateDiem() {
         BangDiem bangDiem = new BangDiem();
         bangDiem.setHocKy(monHoc.getHocKy());
         bangDiem.setMaHP(monHoc.getMaHP());
@@ -201,7 +201,6 @@ public class ListStudentController extends Controller {
                 bangDiem.setDiemQT(Float.parseFloat(changeDiemGKjTextField.getText()));
                 bangDiem.setDiemCK(Float.parseFloat(changeDiemCKjTextField.getText()));
                 bangDiem.setDiem();
-                System.out.println(bangDiem.getDiemQT() + " " + bangDiem.getDiemCK());
                 new BangDiemDAO().update(bangDiem, sinhVien.getUser_id());
                 JOptionPane.showMessageDialog(new JFrame(), "Cập nhật điểm thành công");
             }

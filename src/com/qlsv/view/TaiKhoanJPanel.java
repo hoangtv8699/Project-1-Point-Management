@@ -23,10 +23,9 @@ public class TaiKhoanJPanel extends CommonJPanel {
      * Creates new form TaiKhoanJPanel
      */
     public TaiKhoanJPanel(User user) {
-        setUser(user);
         initComponents();
-        setController(new TaiKhoanController(userIdJLabel, tenjTextField, emailjTextField, dateChooser, diaChijTextField, sDTjTextField, dacTrungJLabel, sexjComboBox));
-        ((TaiKhoanController)controller).setData(user);
+        setController(new TaiKhoanController(userIdJLabel, tenjTextField, emailjTextField, dateChooser, diaChijTextField, sDTjTextField, dacTrungJLabel, sexjComboBox, user));
+        ((TaiKhoanController)controller).setData();
     }
 
     /**
@@ -389,7 +388,7 @@ public class TaiKhoanJPanel extends CommonJPanel {
 
     private void capNhatjTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_capNhatjTextFieldMouseClicked
 
-        ((TaiKhoanController)controller).saveData(user);
+        ((TaiKhoanController)controller).saveData();
         
     }//GEN-LAST:event_capNhatjTextFieldMouseClicked
 

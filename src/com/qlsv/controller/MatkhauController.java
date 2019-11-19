@@ -21,14 +21,17 @@ public class MatkhauController extends Controller{
     private JPasswordField MatKhauMoijPasswordField;
     private JPasswordField XacNhanjPasswordField;
 
-    public MatkhauController(JPasswordField MatKhauCujPasswordField, JPasswordField MatKhauMoijPasswordField, JPasswordField XacNhanjPasswordField) {
+    public MatkhauController(JPasswordField MatKhauCujPasswordField, JPasswordField MatKhauMoijPasswordField, JPasswordField XacNhanjPasswordField, User user) {
+        super(user);
         this.MatKhauCujPasswordField = MatKhauCujPasswordField;
         this.MatKhauMoijPasswordField = MatKhauMoijPasswordField;
         this.XacNhanjPasswordField = XacNhanjPasswordField;
     }
 
-    public void doiMatKhau(User user) {
-        if (!new String(MatKhauCujPasswordField.getPassword()).equals(user.getPassword())) {
+    
+
+    public void doiMatKhau() {
+        if (!new String(MatKhauCujPasswordField.getPassword()).equals(getUser().getPassword())) {
             JOptionPane.showMessageDialog(new JFrame(), "Mật khẩu cũ không chính xác");
             return;
         }
@@ -40,8 +43,8 @@ public class MatkhauController extends Controller{
             JOptionPane.showMessageDialog(new JFrame(), "Xác nhận mật khẩu không chính xác");
             return;
         }
-        user.setPassword(new String(MatKhauMoijPasswordField.getPassword()));
-        new UserDAO().update(user);
+        getUser().setPassword(new String(MatKhauMoijPasswordField.getPassword()));
+        new UserDAO().update(getUser());
         JOptionPane.showMessageDialog(new JFrame(), "Cập nhật mật khẩu thành công");
     }
 

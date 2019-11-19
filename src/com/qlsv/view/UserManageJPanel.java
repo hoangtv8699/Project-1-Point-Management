@@ -21,7 +21,6 @@ public class UserManageJPanel extends CommonJPanel {
      */
     public UserManageJPanel(User user) {
         initComponents();
-        setUser(user);
         ChangePanelMenuController controller = new ChangePanelMenuController(ViewjPanel ,user);
         
         List<DanhMucBean> listItem = new ArrayList<>();

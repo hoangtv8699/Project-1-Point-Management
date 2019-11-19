@@ -23,18 +23,16 @@ public class BangDiemCaNhan extends CommonJPanel {
      */
     public BangDiemCaNhan(User user) {
         initComponents();
-        setUser(user);
         bangDiemjTable.getTableHeader().setFont(new Font("Arial",Font.BOLD,12));
         bangDiemjTable.getTableHeader().setBackground(new Color(255,102,102));
         bangDiemjTable.getTableHeader().setForeground(new Color(255,255,255));
         tongKetjTable.getTableHeader().setFont(new Font("Arial",Font.BOLD,12));
         tongKetjTable.getTableHeader().setBackground(new Color(255,102,102));
         tongKetjTable.getTableHeader().setForeground(new Color(255,255,255));
-        setController(new BangDiemController(bangDiemjTable, tongKetjTable, hocKyjTextField,
-                maHPjTextField, tenHPjTextField, tCjTextField, maLopjTextField, qTjTextField, cKjTextField, DiemjTextField));
-        ((BangDiemController)controller).setBangDiem(user);
-        ((BangDiemController)controller).setTextBangDiem(user);
-        ((BangDiemController)controller).setTextTongKet(user);
+        setController(new BangDiemController(bangDiemjTable, tongKetjTable, hocKyjTextField, maHPjTextField, tenHPjTextField, tCjTextField, maLopjTextField, qTjTextField, cKjTextField, DiemjTextField, user));
+        ((BangDiemController)controller).setBangDiem();
+        ((BangDiemController)controller).setTextBangDiem();
+        ((BangDiemController)controller).setTextTongKet();
     }
 
     /**
@@ -332,41 +330,41 @@ public class BangDiemCaNhan extends CommonJPanel {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        ((BangDiemController)controller).hocKyFilter(user);
+        ((BangDiemController)controller).hocKyFilter();
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        ((BangDiemController)controller).maHPFilter(user);
+        ((BangDiemController)controller).maHPFilter();
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        ((BangDiemController)controller).tenHPFilter(user);
+        ((BangDiemController)controller).tenHPFilter();
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-        ((BangDiemController)controller).tcFilter(user);
+        ((BangDiemController)controller).tcFilter();
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-        ((BangDiemController)controller).maLopFilter(user);
+        ((BangDiemController)controller).maLopFilter();
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
-        ((BangDiemController)controller).diemQTFilter(user);
+        ((BangDiemController)controller).diemQTFilter();
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
-        ((BangDiemController)controller).diemCKFilter(user);
+        ((BangDiemController)controller).diemCKFilter();
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
-        ((BangDiemController)controller).diemChuFilter(user);
+        ((BangDiemController)controller).diemChuFilter();
     }//GEN-LAST:event_jButton8MouseClicked
 
     private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
-        ((BangDiemController)controller).setBangDiem(user);
-        ((BangDiemController)controller).setTextBangDiem(user);
-        ((BangDiemController)controller).setTextTongKet(user);
+        ((BangDiemController)controller).setBangDiem();
+        ((BangDiemController)controller).setTextBangDiem();
+        ((BangDiemController)controller).setTextTongKet();
         ((BangDiemController)controller).setNULL();
         
     }//GEN-LAST:event_jButton9MouseClicked

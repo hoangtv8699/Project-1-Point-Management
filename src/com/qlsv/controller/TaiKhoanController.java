@@ -20,8 +20,6 @@ import javax.swing.JOptionPane;
  * @author Hiddenpants-H
  */
 public class TaiKhoanController extends Controller {
-
-    private User user;
     private JLabel userIdJLabel;
     private JTextField tenjTextField;
     private JTextField emailjTextField;
@@ -31,10 +29,8 @@ public class TaiKhoanController extends Controller {
     private JLabel dacTrungJLabel;
     private JComboBox<String> sexjComboBox;
 
-    public TaiKhoanController() {
-    }
-
-    public TaiKhoanController(JLabel userIdJLabel, JTextField tenjTextField, JTextField emailjTextField, JDateChooser dateChooser, JTextField diaChijTextField, JTextField sDTjTextField, JLabel dacTrungJLabel, JComboBox<String> sexjComboBox) {
+    public TaiKhoanController(JLabel userIdJLabel, JTextField tenjTextField, JTextField emailjTextField, JDateChooser dateChooser, JTextField diaChijTextField, JTextField sDTjTextField, JLabel dacTrungJLabel, JComboBox<String> sexjComboBox, User user) {
+        super(user);
         this.userIdJLabel = userIdJLabel;
         this.tenjTextField = tenjTextField;
         this.emailjTextField = emailjTextField;
@@ -45,21 +41,22 @@ public class TaiKhoanController extends Controller {
         this.sexjComboBox = sexjComboBox;
     }
 
-    public void setData(User user) {
-        userIdJLabel.setText("" + user.getUser_id());
-        tenjTextField.setText(user.getTen());
-        emailjTextField.setText(user.getEmail());
-        diaChijTextField.setText(user.getDiaChi());
-        dateChooser.setDate(user.getNgaySinh());
-        sDTjTextField.setText(user.getSdt());
-        if (user instanceof SinhVien) {
-            dacTrungJLabel.setText("Chương trình: " + ((SinhVien) user).getChuongTrinh());
-        } else if (user instanceof GiangVien) {
-            dacTrungJLabel.setText("Level: " + ((GiangVien) user).getLevel());
+    public void setData() {
+        User u = getUser();
+        userIdJLabel.setText("" + u.getUser_id());
+        tenjTextField.setText(u.getTen());
+        emailjTextField.setText(u.getEmail());
+        diaChijTextField.setText(u.getDiaChi());
+        dateChooser.setDate(u.getNgaySinh());
+        sDTjTextField.setText(u.getSdt());
+        if (u instanceof SinhVien) {
+            dacTrungJLabel.setText("Chương trình: " + ((SinhVien) u).getChuongTrinh());
+        } else if (u instanceof GiangVien) {
+            dacTrungJLabel.setText("Level: " + ((GiangVien) u).getLevel());
         } else {
             dacTrungJLabel.setText("");
         }
-        sexjComboBox.setSelectedIndex(user.getGt());
+        sexjComboBox.setSelectedIndex(u.getGt());
 
     }
 
@@ -110,10 +107,11 @@ public class TaiKhoanController extends Controller {
         return true;
     }
 
-    public void saveData(User user) {
+    public void saveData() {
         if (checkData()) {
-            user = getData();
-            new UserDAO().update(user);
+            User u = getUser();
+            u = getData();
+            new UserDAO().update(u);
             JOptionPane.showMessageDialog(new JFrame(), "cập nhật thông tin thành công");
         }
     }

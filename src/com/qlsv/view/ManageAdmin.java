@@ -18,7 +18,6 @@ public class ManageAdmin extends CommonJPanel {
      */
     public ManageAdmin(User user) {
         initComponents();
-        setUser(user);
     }
 
     /**

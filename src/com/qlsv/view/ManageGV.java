@@ -18,7 +18,6 @@ public class ManageGV extends CommonJPanel {
      */
     public ManageGV(User user) {
         initComponents();
-        setUser(user);
     }
 
     /**

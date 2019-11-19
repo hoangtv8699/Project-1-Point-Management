@@ -24,12 +24,11 @@ public class ManageCourseJPanel extends CommonJPanel {
      */
     public ManageCourseJPanel(User user) {
         initComponents();
-        setUser(user);
         dSLopjTable.getTableHeader().setFont(new Font("Arial",Font.BOLD,12));
         dSLopjTable.getTableHeader().setBackground(new Color(255,102,102));
         dSLopjTable.getTableHeader().setForeground(new Color(255,255,255));
-        setController(new QuanLyLopController(dSLopjTable, hocKyjTextField, maHPjTextField, maLopjTextField, maGVjTextField, soSVjTextField, tenHPjTextField, jPanel1));
-        ((QuanLyLopController)controller).setTextDSL(user);
+        setController(new QuanLyLopController(dSLopjTable, hocKyjTextField, maHPjTextField, maLopjTextField, maGVjTextField, soSVjTextField, tenHPjTextField, jPanel1, user));
+        ((QuanLyLopController)controller).setTextDSL();
 
     }
 
@@ -451,16 +450,16 @@ public class ManageCourseJPanel extends CommonJPanel {
     }//GEN-LAST:event_soSVjTextFieldActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        ((QuanLyLopController)controller).hocKyFilter(user);
+        ((QuanLyLopController)controller).hocKyFilter();
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        ((QuanLyLopController)controller).setTextDSL(user);
+        ((QuanLyLopController)controller).setTextDSL();
         ((QuanLyLopController)controller).setNULL();
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        ((QuanLyLopController)controller).tenHPFilter(user);
+        ((QuanLyLopController)controller).tenHPFilter();
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void maHPjTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maHPjTextFieldMouseClicked
@@ -468,19 +467,19 @@ public class ManageCourseJPanel extends CommonJPanel {
     }//GEN-LAST:event_maHPjTextFieldMouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-        ((QuanLyLopController)controller).maHPFilter(user);
+        ((QuanLyLopController)controller).maHPFilter();
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
-        ((QuanLyLopController)controller).maLopFilter(user);
+        ((QuanLyLopController)controller).maLopFilter();
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
-        ((QuanLyLopController)controller).maGVFilter(user);
+        ((QuanLyLopController)controller).maGVFilter();
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
-        ((QuanLyLopController)controller).soSVFilter(user);
+        ((QuanLyLopController)controller).soSVFilter();
         
     }//GEN-LAST:event_jButton8MouseClicked
 

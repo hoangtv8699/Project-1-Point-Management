@@ -23,8 +23,7 @@ public class MatKhauJPanel extends CommonJPanel {
      */
     public MatKhauJPanel(User user) {
         initComponents();
-        setUser(user);
-        setController(new MatkhauController(MatKhauCujPasswordField, MatKhauMoijPasswordField, XacNhanjPasswordField));
+        setController(new MatkhauController(MatKhauCujPasswordField, MatKhauMoijPasswordField, XacNhanjPasswordField, user));
         
     }
 
@@ -217,7 +216,7 @@ public class MatKhauJPanel extends CommonJPanel {
     }//GEN-LAST:event_MatKhauCujPasswordFieldActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        ((MatkhauController)controller).doiMatKhau(user);
+        ((MatkhauController)controller).doiMatKhau();
     }//GEN-LAST:event_jButton1MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

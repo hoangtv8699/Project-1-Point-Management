@@ -7,6 +7,7 @@ package com.qlsv.controller;
 
 import com.qlsv.dao.MonHocDAO;
 import com.qlsv.dao.UserDAO;
+import com.qlsv.models.User;
 import javax.swing.JLabel;
 
 /**
@@ -18,7 +19,8 @@ public class HomeController extends Controller{
     private JLabel count2;
     private JLabel count3;
 
-    public HomeController(JLabel count1, JLabel count2, JLabel count3) {
+    public HomeController(JLabel count1, JLabel count2, JLabel count3, User user) {
+        super(user);
         this.count1 = count1;
         this.count2 = count2;
         this.count3 = count3;

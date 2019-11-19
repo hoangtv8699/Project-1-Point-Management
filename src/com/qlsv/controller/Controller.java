@@ -5,10 +5,25 @@
  */
 package com.qlsv.controller;
 
+import com.qlsv.models.User;
+
 /**
  *
  * @author Hiddenpants-H
  */
 public abstract class Controller {
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Controller(User user) {
+        this.user = user;
+    }
     
 }

@@ -13,17 +13,8 @@ import com.qlsv.models.User;
  * @author Hiddenpants-H
  */
 public class CommonJPanel extends javax.swing.JPanel {
-    public User user;
     public Controller controller;
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
+    
     public Controller getController() {
         return controller;
     }

@@ -34,14 +34,13 @@ public class ListStudentJPanel extends CommonJPanel {
      */
     public ListStudentJPanel(User user, MonHoc monHoc) {
         initComponents();
-        setUser(user);
         setMonHoc(monHoc);
         dSSVjTable.getTableHeader().setFont(new Font("Arial",Font.BOLD,12));
         dSSVjTable.getTableHeader().setBackground(new Color(255,102,102));
         dSSVjTable.getTableHeader().setForeground(new Color(255,255,255));
-        setController(new ListStudentController(dSSVjTable, sTTjTextField, maSVjTextField, tenSVjTextField, diemGKjTextField, diemCKjTextField, maHPjLabel, maLopjLabel, tenHPjLabel, hocKyjLabel, changeDiemGKjTextField, ChangeDiemCKjTextField));
-        ((ListStudentController)controller).setTextDSSV(user, monHoc);
-        ((ListStudentController)controller).setLabel(monHoc);
+        setController(new ListStudentController(monHoc, dSSVjTable, sTTjTextField, maSVjTextField, tenSVjTextField, diemGKjTextField, diemCKjTextField, changeDiemGKjTextField, ChangeDiemCKjTextField, maHPjLabel, maLopjLabel, tenHPjLabel, hocKyjLabel, user));
+        ((ListStudentController)controller).setTextDSSV();
+        ((ListStudentController)controller).setLabel();
         
     }
 
@@ -381,39 +380,39 @@ public class ListStudentJPanel extends CommonJPanel {
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
         jPanel1.removeAll();
         jPanel1.setLayout(new BorderLayout());
-        jPanel1.add(new ManageCourseJPanel(user));
+        jPanel1.add(new ManageCourseJPanel(controller.getUser()));
         jPanel1.validate();
         jPanel1.repaint();
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        ((ListStudentController)controller).sTTFilter(user, monHoc);
+        ((ListStudentController)controller).sTTFilter();
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        ((ListStudentController)controller).maSVFilter(user, monHoc);
+        ((ListStudentController)controller).maSVFilter();
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        ((ListStudentController)controller).tenHPFilter(user, monHoc);
+        ((ListStudentController)controller).tenHPFilter();
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-        ((ListStudentController)controller).diemGKFilter(user, monHoc);
+        ((ListStudentController)controller).diemGKFilter();
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
-        ((ListStudentController)controller).diemCKFilter(user, monHoc);
+        ((ListStudentController)controller).diemCKFilter();
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
         ((ListStudentController)controller).setNULL();
-        ((ListStudentController)controller).setTextDSSV(user, monHoc);
+        ((ListStudentController)controller).setTextDSSV();
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
-        ((ListStudentController)controller).updateDiem(monHoc);
-        ((ListStudentController)controller).setTextDSSV(user, monHoc);
+        ((ListStudentController)controller).updateDiem();
+        ((ListStudentController)controller).setTextDSSV();
     }//GEN-LAST:event_jButton8MouseClicked
 
 

@@ -20,7 +20,7 @@ public class TrangChuJPanel extends CommonJPanel {
     public TrangChuJPanel(User user) {
         initComponents();
     
-        setController(new HomeController(count1, count2, count3));
+        setController(new HomeController(count1, count2, count3, user));
         ((HomeController)controller).setCount();
     }
 

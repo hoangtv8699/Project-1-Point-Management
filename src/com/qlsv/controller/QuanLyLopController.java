@@ -39,7 +39,8 @@ public class QuanLyLopController extends Controller {
     private JTextField tenHPjTextField;
     private JPanel jPanel1;
 
-    public QuanLyLopController(JTable dSLopjTable, JTextField hocKyjTextField, JTextField maHPjTextField, JTextField maLopjTextField, JTextField maGVjTextField, JTextField soSVjTextField, JTextField tenHPjTextField, JPanel jPanel1) {
+    public QuanLyLopController(JTable dSLopjTable, JTextField hocKyjTextField, JTextField maHPjTextField, JTextField maLopjTextField, JTextField maGVjTextField, JTextField soSVjTextField, JTextField tenHPjTextField, JPanel jPanel1, User user) {
+        super(user);
         this.dSLopjTable = dSLopjTable;
         this.hocKyjTextField = hocKyjTextField;
         this.maHPjTextField = maHPjTextField;
@@ -50,21 +51,21 @@ public class QuanLyLopController extends Controller {
         this.jPanel1 = jPanel1;
     }
 
-    public List<MonHoc> getDSL(User user) {
-        List<MonHoc> tmp = new MonHocDAO().find(user.getUser_id());
+    public List<MonHoc> getDSL() {
+        List<MonHoc> tmp = new MonHocDAO().find(getUser().getUser_id());
         return tmp;
     }
-    public List<MonHoc> getDSL() {
-        List<MonHoc> tmp = new MonHocDAO().find(0, 100);
+    public List<MonHoc> getDSL(int start, int end) {
+        List<MonHoc> tmp = new MonHocDAO().find(start, end);
         return tmp;
     }
 
-    public void setTextDSL(User user) {
+    public void setTextDSL() {
         List<MonHoc> tmp = new ArrayList<>();
-        if(user instanceof GiangVien){
-            tmp = getDSL(user);
-        }else if(user instanceof Admin){
+        if(getUser() instanceof GiangVien){
             tmp = getDSL();
+        }else if(getUser() instanceof Admin){
+            tmp = getDSL(1, 100);
         }
         DefaultTableModel model = (DefaultTableModel) dSLopjTable.getModel();
         model.setRowCount(0);
@@ -74,16 +75,16 @@ public class QuanLyLopController extends Controller {
         }
     }
 
-    public void hocKyFilter(User user) {
+    public void hocKyFilter() {
         String hocKy = hocKyjTextField.getText();
 
         DefaultTableModel model = (DefaultTableModel) dSLopjTable.getModel();
         model.setRowCount(0);
         if (hocKy.equals("")) {
-            setTextDSL(user);
+            setTextDSL();
             return;
         }
-        List<MonHoc> tmp = getDSL(user);
+        List<MonHoc> tmp = getDSL();
         for (MonHoc tmp1 : tmp) {
             if (tmp1.getHocKy().toLowerCase().matches("(.*)" + hocKy.toLowerCase() + "(.*)")) {
                 model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), user.getUser_id(),
@@ -92,15 +93,15 @@ public class QuanLyLopController extends Controller {
         }
     }
 
-    public void tenHPFilter(User user) {
+    public void tenHPFilter() {
         String tenHP = tenHPjTextField.getText();
         DefaultTableModel model = (DefaultTableModel) dSLopjTable.getModel();
         model.setRowCount(0);
         if (tenHP.equals("")) {
-            setTextDSL(user);
+            setTextDSL();
             return;
         }
-        List<MonHoc> tmp = getDSL(user);
+        List<MonHoc> tmp = getDSL();
         for (MonHoc tmp1 : tmp) {
             if (tmp1.getTenHP().toLowerCase().matches("(.*)" + tenHP.toLowerCase() + "(.*)")) {
                 model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), user.getUser_id(),
@@ -109,15 +110,15 @@ public class QuanLyLopController extends Controller {
         }
     }
 
-    public void maHPFilter(User user) {
+    public void maHPFilter() {
         String maHP = maHPjTextField.getText();
         DefaultTableModel model = (DefaultTableModel) dSLopjTable.getModel();
         model.setRowCount(0);
         if (maHP.equals("")) {
-            setTextDSL(user);
+            setTextDSL();
             return;
         }
-        List<MonHoc> tmp = getDSL(user);
+        List<MonHoc> tmp = getDSL();
         for (MonHoc tmp1 : tmp) {
             if (tmp1.getMaHP().toLowerCase().matches("(.*)" + maHP.toLowerCase() + "(.*)")) {
                 model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), user.getUser_id(),
@@ -126,15 +127,15 @@ public class QuanLyLopController extends Controller {
         }
     }
 
-    public void maLopFilter(User user) {
+    public void maLopFilter() {
         String maLop = maLopjTextField.getText();
         DefaultTableModel model = (DefaultTableModel) dSLopjTable.getModel();
         model.setRowCount(0);
         if (maLop.equals("") || !maLop.matches("^[0-9]{0,}$")) {
-            setTextDSL(user);
+            setTextDSL();
             return;
         }
-        List<MonHoc> tmp = getDSL(user);
+        List<MonHoc> tmp = getDSL();
         for (MonHoc tmp1 : tmp) {
             if (tmp1.getMaLop().matches("(.*)" + maLop + "(.*)")) {
                 model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), user.getUser_id(),
@@ -143,15 +144,15 @@ public class QuanLyLopController extends Controller {
         }
     }
 
-    public void maGVFilter(User user) {
+    public void maGVFilter() {
         String maGV = maGVjTextField.getText();
         DefaultTableModel model = (DefaultTableModel) dSLopjTable.getModel();
         model.setRowCount(0);
         if (maGV.equals("") || !maGV.matches("^[0-9]{0,}$")) {
-            setTextDSL(user);
+            setTextDSL();
             return;
         }
-        List<MonHoc> tmp = getDSL(user);
+        List<MonHoc> tmp = getDSL();
         for (MonHoc tmp1 : tmp) {
             if (String.valueOf(user.getUser_id()).matches("(.*)" + maGV + "(.*)")) {
                 model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), user.getUser_id(),
@@ -160,15 +161,15 @@ public class QuanLyLopController extends Controller {
         }
     }
 
-    public void soSVFilter(User user) {
+    public void soSVFilter() {
         DefaultTableModel model = (DefaultTableModel) dSLopjTable.getModel();
         model.setRowCount(0);
         if (soSVjTextField.getText().equals("") || !soSVjTextField.getText().matches("^[0-9]{0,}$")) {
-            setTextDSL(user);
+            setTextDSL();
             return;
         }
         Long maGV = Long.valueOf(soSVjTextField.getText());
-        List<MonHoc> tmp = getDSL(user);
+        List<MonHoc> tmp = getDSL();
         for (MonHoc tmp1 : tmp) {
             Long count = new BangDiemDAO().count(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy());
             if (count == maGV) {
