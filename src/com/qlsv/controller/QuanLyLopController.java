@@ -6,10 +6,11 @@
 package com.qlsv.controller;
 
 import com.qlsv.dao.BangDiemDAO;
-import com.qlsv.dao.MH_GVDAO;
 import com.qlsv.dao.MonHocDAO;
+import com.qlsv.dao.UserDAO;
 import com.qlsv.mapper.MonHocExcelMapper;
 import com.qlsv.models.Admin;
+import com.qlsv.models.BangDiem;
 import com.qlsv.models.GiangVien;
 import com.qlsv.models.MonHoc;
 import com.qlsv.models.User;
@@ -93,7 +94,7 @@ public class QuanLyLopController extends Controller {
         DefaultTableModel model = (DefaultTableModel) dSLopjTable.getModel();
         model.setRowCount(0);
         for (MonHoc tmp1 : tmp) {
-            model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getSoTC(), tmp1.getqT(), new MH_GVDAO().find(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy()).getUser_id(),
+            model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getSoTC(), tmp1.getqT(), tmp1.getUser_id(),
                 new BangDiemDAO().count(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy())});
         }
     }
@@ -109,7 +110,7 @@ public class QuanLyLopController extends Controller {
         List<MonHoc> tmp = getAllDSL();
         for (MonHoc tmp1 : tmp) {
             if (tmp1.getHocKy().toLowerCase().matches("(.*)" + hocKy.toLowerCase() + "(.*)")) {
-                model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getSoTC(), tmp1.getqT(), new MH_GVDAO().find(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy()).getUser_id(),
+                model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getSoTC(), tmp1.getqT(), tmp1.getUser_id(),
                     new BangDiemDAO().count(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy())});
             }
         }
@@ -126,7 +127,7 @@ public class QuanLyLopController extends Controller {
         List<MonHoc> tmp = getAllDSL();
         for (MonHoc tmp1 : tmp) {
             if (tmp1.getTenHP().toLowerCase().matches("(.*)" + tenHP.toLowerCase() + "(.*)")) {
-                model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getSoTC(), tmp1.getqT(), new MH_GVDAO().find(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy()).getUser_id(),
+                model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getSoTC(), tmp1.getqT(), tmp1.getUser_id(),
                     new BangDiemDAO().count(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy())});
             }
         }
@@ -143,7 +144,7 @@ public class QuanLyLopController extends Controller {
         List<MonHoc> tmp = getAllDSL();
         for (MonHoc tmp1 : tmp) {
             if (tmp1.getMaHP().toLowerCase().matches("(.*)" + maHP.toLowerCase() + "(.*)")) {
-                model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getSoTC(), tmp1.getqT(), new MH_GVDAO().find(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy()).getUser_id(),
+                model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getSoTC(), tmp1.getqT(), tmp1.getUser_id(),
                     new BangDiemDAO().count(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy())});
             }
         }
@@ -160,7 +161,7 @@ public class QuanLyLopController extends Controller {
         List<MonHoc> tmp = getAllDSL();
         for (MonHoc tmp1 : tmp) {
             if (tmp1.getMaLop().matches("(.*)" + maLop + "(.*)")) {
-                model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getSoTC(), tmp1.getqT(), new MH_GVDAO().find(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy()).getUser_id(),
+                model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getSoTC(), tmp1.getqT(), tmp1.getUser_id(),
                     new BangDiemDAO().count(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy())});
             }
         }
@@ -177,7 +178,7 @@ public class QuanLyLopController extends Controller {
         List<MonHoc> tmp = getAllDSL();
         for (MonHoc tmp1 : tmp) {
             if (tmp1.getSoTC() == Long.valueOf(tC)) {
-                model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getSoTC(), tmp1.getqT(), new MH_GVDAO().find(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy()).getUser_id(),
+                model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getSoTC(), tmp1.getqT(), tmp1.getUser_id(),
                     new BangDiemDAO().count(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy())});
             }
         }
@@ -194,7 +195,7 @@ public class QuanLyLopController extends Controller {
         List<MonHoc> tmp = getAllDSL();
         for (MonHoc tmp1 : tmp) {
             if (tmp1.getqT() == Float.parseFloat(qT)) {
-                model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getSoTC(), tmp1.getqT(), new MH_GVDAO().find(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy()).getUser_id(),
+                model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getSoTC(), tmp1.getqT(), tmp1.getUser_id(),
                     new BangDiemDAO().count(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy())});
             }
         }
@@ -210,8 +211,8 @@ public class QuanLyLopController extends Controller {
         }
         List<MonHoc> tmp = getAllDSL();
         for (MonHoc tmp1 : tmp) {
-            if (String.valueOf(new MH_GVDAO().find(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy()).getUser_id()).matches("(.*)" + maGV + "(.*)")) {
-                model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getSoTC(), tmp1.getqT(), new MH_GVDAO().find(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy()).getUser_id(),
+            if (String.valueOf(tmp1.getUser_id()).matches("(.*)" + maGV + "(.*)")) {
+                model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getSoTC(), tmp1.getqT(), tmp1.getUser_id(),
                     new BangDiemDAO().count(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy())});
             }
         }
@@ -229,7 +230,7 @@ public class QuanLyLopController extends Controller {
         for (MonHoc tmp1 : tmp) {
             Long count = new BangDiemDAO().count(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy());
             if (count == maGV) {
-                model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getSoTC(), tmp1.getqT(), new MH_GVDAO().find(tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getHocKy()).getUser_id(), count});
+                model.addRow(new Object[]{tmp1.getHocKy(), tmp1.getTenHP(), tmp1.getMaHP(), tmp1.getMaLop(), tmp1.getSoTC(), tmp1.getqT(), tmp1.getUser_id(), count});
             }
         }
     }
@@ -272,12 +273,38 @@ public class QuanLyLopController extends Controller {
 
         int excelChooser = excelFileChooser.showOpenDialog(null);
         if (excelChooser == JFileChooser.APPROVE_OPTION) {
+            MonHocDAO dao = new MonHocDAO();
+            UserDAO udao = new UserDAO();
             excelFile = excelFileChooser.getSelectedFile();
             path = excelFile.getPath();
             List<MonHoc> list = new ReadExcel<MonHoc>().readExcel(path, new MonHocExcelMapper());
             for (MonHoc m : list) {
-                System.out.println(m.getTenHP() + " " + m.getMaHP() + " " + m.getMaLop() + " " + m.getHocKy() + " " + m.getSoTC() + " " + m.getqT());
+                if(udao.findGV(m.getUser_id()) == null){
+                    JOptionPane.showMessageDialog(new JFrame(), "có mã giảng viên không tồn tại");
+                }
             }
+            for (MonHoc m : list) {
+                if(dao.find(m.getMaLop(), m.getMaHP(), m.getHocKy()).size() == 0){
+                    dao.insert(m);
+                }
+            }
+            JOptionPane.showMessageDialog(new JFrame(), "Thêm lớp thành công!");
+            setTextDSL();
+        }
+    }
+    public void deleteLop(){
+        MonHoc monHoc = new MonHoc();
+        DefaultTableModel model = (DefaultTableModel) dSLopjTable.getModel();
+        int selected = dSLopjTable.getSelectedRow();
+        if (selected >= 0) {
+            monHoc.setHocKy(model.getValueAt(selected, 0).toString());
+            monHoc.setMaHP(model.getValueAt(selected, 2).toString());
+            monHoc.setMaLop(model.getValueAt(selected, 3).toString());
+            new MonHocDAO().delete(monHoc);
+            setTextDSL();
+        } else {
+            JOptionPane.showMessageDialog(new JFrame(), "Bạn phải chọn lớp muốn xóa");
+            return;
         }
     }
 }

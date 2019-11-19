@@ -17,6 +17,7 @@ public class BangDiemMapper implements RowMapper<BangDiem> {
 			bd.setDiemQT(result.getFloat("diemQT"));
 			bd.setDiemCK(result.getFloat("diemCK"));
 			bd.setDiem(result.getFloat("diem"));
+                        bd.setUser_id(result.getLong("user_id"));
 			return bd;
 		}catch (SQLException e) {
 			e.printStackTrace();;

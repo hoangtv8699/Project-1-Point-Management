@@ -8,6 +8,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
  
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -94,7 +96,7 @@ public class ReadExcel<T> {
         } else if (excelFilePath.endsWith("xls")) {
             workbook = new HSSFWorkbook(inputStream);
         } else {
-            throw new IllegalArgumentException("The specified file is not Excel file");
+            JOptionPane.showMessageDialog(new JFrame(), "File bạn chọn không đúng định dạng(Excel)");
         }
         return workbook;
     }

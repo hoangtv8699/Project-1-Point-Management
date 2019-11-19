@@ -123,7 +123,7 @@ public class UserDAO extends CommonDAO<User> {
         return null;
     }
 
-    public List<SinhVien> findAll(SinhVien user) {
+    public List<SinhVien> find(SinhVien user) {
         String sql = "select * from users inner join role on users.user_id = role.user_id where roles=1";
         List<SinhVien> users = query(sql, new SinhVienMapper());
         return users;
@@ -210,5 +210,21 @@ public class UserDAO extends CommonDAO<User> {
         String sql = "select count(0) from users inner join role on users.user_id = role.user_id where roles = ?;";
         long count = count(sql, i);
         return count;
+    }
+
+    public SinhVien findSV(Long id) {
+        String sql = "select * from users inner join role on users.user_id = role.user_id where roles=1 and users.user_id=?";
+        List<SinhVien> users = query(sql, new SinhVienMapper(), id);
+        if (users.isEmpty()) {
+            return null;
+        }
+        return users.get(0);
+    }public GiangVien findGV(Long id) {
+        String sql = "select * from users inner join role on users.user_id = role.user_id where roles=2 and users.user_id=?";
+        List<GiangVien> users = query(sql, new GiangVienMapper(), id);
+        if (users.isEmpty()) {
+            return null;
+        }
+        return users.get(0);
     }
 }

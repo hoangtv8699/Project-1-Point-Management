@@ -31,7 +31,9 @@ CREATE TABLE `mon_hoc` (
   `hocky` varchar(255) CHARACTER SET utf8 COLLATE utf8_swedish_ci NOT NULL,
   `soTinChi` tinyint(4) DEFAULT NULL,
   `qt` float DEFAULT NULL,
-  PRIMARY KEY (`maHP`,`maLop`,`hocky`)
+  `user_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`maHP`,`maLop`,`hocky`),
+  CONSTRAINT `mh_gv_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -41,7 +43,7 @@ CREATE TABLE `mon_hoc` (
 
 LOCK TABLES `mon_hoc` WRITE;
 /*!40000 ALTER TABLE `mon_hoc` DISABLE KEYS */;
-INSERT INTO `mon_hoc` VALUES ('Nhập môn CNTT và TT','IT2000','99584','20171',3,0.3),('Cấu trúc dữ liệu và thuật toán','IT3011','108515','20171',2,0.3),('Mạng máy tính','IT3080','689529','20171',3,0.3),('Cơ sở dữ liệu','IT3090','111565','20171',3,0.3),('Lập trình hướng đối tượng','IT3100','110494','20171',2,0.3),('Xử lý tín hiệu','IT4172','111569','20171',2,0.3);
+INSERT INTO `mon_hoc` VALUES ('Nhập môn CNTT và TT','IT2000','99584','20171',3,0.3,20000010),('Cấu trúc dữ liệu và thuật toán','IT3011','108515','20171',2,0.3,20000009),('Mạng máy tính','IT3080','689529','20171',3,0.3,20000008),('Cơ sở dữ liệu','IT3090','111565','20171',3,0.3,20000013),('Lập trình hướng đối tượng','IT3100','110494','20171',2,0.3,20000011),('Xử lý tín hiệu','IT4172','111569','20171',2,0.3,20000012);
 /*!40000 ALTER TABLE `mon_hoc` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

@@ -1,6 +1,8 @@
 package com.qlsv.models;
 
 public class BangDiem {
+    private long user_id;
+
     private String hocKy;
     private String maLop;
     private String maHP;
@@ -8,6 +10,13 @@ public class BangDiem {
     private float diemCK;
     private float diem;
 
+    public long getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(long user_id) {
+        this.user_id = user_id;
+    }
     public String getHocKy() {
         return hocKy;
     }

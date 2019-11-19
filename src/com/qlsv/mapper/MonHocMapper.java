@@ -16,6 +16,7 @@ public class MonHocMapper implements RowMapper<MonHoc> {
                         mh.setHocKy(result.getString("hocky"));
 			mh.setSoTC(result.getInt("soTinChi"));
                         mh.setqT(result.getFloat("qt"));
+                        mh.setUser_id(result.getLong("user_id"));
 			return mh;
 		}catch (SQLException e) {
 			e.printStackTrace();;

@@ -7,17 +7,15 @@ import com.qlsv.models.MonHoc;
 
 public class MonHocDAO extends CommonDAO<MonHoc> {
 	public void insert(MonHoc mh) {
-		String sql = "insert into mon_hoc(tenHP, maHP, maLop, hocky, soTinChi) value(?,?,?,?,?)";
-		insert(sql, mh.getTenHP(), mh.getMaHP(), mh.getMaLop(), mh.getHocKy(), mh.getSoTC());
+		String sql = "insert into mon_hoc(tenHP, maHP, maLop, hocky, soTinChi, user_id) value(?,?,?,?,?,?)";
+		insert(sql, mh.getTenHP(), mh.getMaHP(), mh.getMaLop(), mh.getHocKy(), mh.getSoTC(), mh.getUser_id());
 	}
 	
 	public void delete(MonHoc mh) {
-		String sql = "delete from bang_diem where maHP=? and maLop=?";
-		delete(sql,  mh.getMaHP(), mh.getMaLop());
-		sql = "delete from mh_gv where maHP=? and maLop=?";
-		delete(sql,  mh.getMaHP(), mh.getMaLop());
-		sql = "delete from mon_hoc where maHP=? and maLop=?";
-		delete(sql,  mh.getMaHP(), mh.getMaLop());
+		String sql = "delete from bang_diem where maHP=? and maLop=? and hocky=?";
+		delete(sql,  mh.getMaHP(), mh.getMaLop(), mh.getHocKy());
+		sql = "delete from mon_hoc where maHP=? and maLop=? and hocky=?";
+		delete(sql,  mh.getMaHP(), mh.getMaLop(), mh.getHocKy());
 	}
 	public List<MonHoc> find() {
 		String sql = "select * from mon_hoc";

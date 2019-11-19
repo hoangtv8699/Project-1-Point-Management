@@ -25,6 +25,7 @@ public class MonHocExcelMapper implements ExcelMapper<MonHoc> {
     public static final int MA_LOP = 3;
     public static final int SO_TIN_CHI = 4;
     public static final int TRONG_SO = 5;
+    public static final int MA_GIANG_VIEN = 6;
     
     @Override
     public MonHoc mapRow(Iterator<Cell> cellIterator) {
@@ -33,7 +34,7 @@ public class MonHocExcelMapper implements ExcelMapper<MonHoc> {
             //Read cell
             Cell cell = cellIterator.next();
             
-            if (cell.getColumnIndex() > 5) {
+            if (cell.getColumnIndex() > 6) {
                 continue;
             }
             // Set value for book object
@@ -56,6 +57,9 @@ public class MonHocExcelMapper implements ExcelMapper<MonHoc> {
                     break;
                 case TRONG_SO:
                     monHoc.setqT(((Double)new ReadExcel<>().getCellValue(cell)).floatValue());
+                    break;
+                case MA_GIANG_VIEN:
+                    monHoc.setUser_id(((Double)new ReadExcel<>().getCellValue(cell)).longValue());
                     break;
                 default:
                     break;
