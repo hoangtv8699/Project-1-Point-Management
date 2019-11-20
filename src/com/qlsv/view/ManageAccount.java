@@ -5,6 +5,7 @@
  */
 package com.qlsv.view;
 
+import com.qlsv.controller.ManageAccountController;
 import com.qlsv.controller.TextBubbleBorder;
 import com.qlsv.models.User;
 import java.awt.Color;
@@ -20,6 +21,10 @@ public class ManageAccount extends CommonJPanel {
      */
     public ManageAccount(User user) {
         initComponents();
+        usernamejTextField.setEditable(false);
+        passwordjTextField.setEditable(false);
+        setController(new ManageAccountController(sVjRadioButton, gVjRadioButton, adminjRadioButton, themTkjButton, deletejButton, resetjButton, usernamejTextField, passwordjTextField, iDjTextField, dacTrungjTextField, dacTrungjLabel, user));
+        
     }
 
     /**
@@ -31,55 +36,91 @@ public class ManageAccount extends CommonJPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        themTkjButton = new javax.swing.JButton();
+        sVjRadioButton = new javax.swing.JRadioButton();
+        gVjRadioButton = new javax.swing.JRadioButton();
+        adminjRadioButton = new javax.swing.JRadioButton();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        iDjTextField = new javax.swing.JTextField();
+        deletejButton = new javax.swing.JButton();
+        resetjButton = new javax.swing.JButton();
+        passwordjTextField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        dacTrungjLabel = new javax.swing.JLabel();
+        usernamejTextField = new javax.swing.JTextField();
+        dacTrungjTextField = new javax.swing.JTextField();
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 
-        jButton1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jButton1.setText("Thêm tài khoản");
-        jButton1.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        themTkjButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        themTkjButton.setText("Thêm tài khoản");
+        themTkjButton.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
+        themTkjButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                themTkjButtonMouseClicked(evt);
+            }
+        });
+        themTkjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                themTkjButtonActionPerformed(evt);
             }
         });
 
-        jRadioButton1.setText("Giảng Viên");
+        sVjRadioButton.setBackground(new java.awt.Color(204, 255, 255));
+        buttonGroup1.add(sVjRadioButton);
+        sVjRadioButton.setText("Sinh viên");
+        sVjRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sVjRadioButtonActionPerformed(evt);
+            }
+        });
 
-        jRadioButton2.setText("Sinh viên");
+        gVjRadioButton.setBackground(new java.awt.Color(204, 255, 255));
+        buttonGroup1.add(gVjRadioButton);
+        gVjRadioButton.setText("Giảng viên");
+        gVjRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gVjRadioButtonActionPerformed(evt);
+            }
+        });
 
-        jRadioButton3.setText("Admin");
+        adminjRadioButton.setBackground(new java.awt.Color(204, 255, 255));
+        buttonGroup1.add(adminjRadioButton);
+        adminjRadioButton.setText("Admin");
+        adminjRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adminjRadioButtonActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("ID tài khoản");
 
-        jTextField1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextField1.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
+        iDjTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        iDjTextField.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
 
-        jButton2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jButton2.setText("xóa tài khoản");
-        jButton2.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
+        deletejButton.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        deletejButton.setText("xóa tài khoản");
+        deletejButton.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
+        deletejButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deletejButtonMouseClicked(evt);
+            }
+        });
+        deletejButton.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                deletejButtonKeyPressed(evt);
+            }
+        });
 
-        jButton3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jButton3.setText("đổi mật khẩu về mặc định");
-        jButton3.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
+        resetjButton.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        resetjButton.setText("đổi mật khẩu về mặc định");
+        resetjButton.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
 
-        jTextField2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextField2.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
-
-        jTextField3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextField3.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
+        passwordjTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        passwordjTextField.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel4.setText("Username");
@@ -87,31 +128,42 @@ public class ManageAccount extends CommonJPanel {
         jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel5.setText("Password");
 
+        dacTrungjLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        dacTrungjLabel.setText("Chương Trình or Level");
+
+        usernamejTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        usernamejTextField.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
+
+        dacTrungjTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        dacTrungjTextField.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField2)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(dacTrungjLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(passwordjTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(sVjRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(gVjRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE)
-                    .addComponent(jButton1)
-                    .addComponent(jTextField3))
-                .addGap(344, 344, 344)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(adminjRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE)
+                    .addComponent(usernamejTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dacTrungjTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(themTkjButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(312, 312, 312)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(deletejButton, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3))
-                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(resetjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(iDjTextField)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
@@ -120,31 +172,33 @@ public class ManageAccount extends CommonJPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3)
+                    .addComponent(sVjRadioButton)
+                    .addComponent(gVjRadioButton)
+                    .addComponent(adminjRadioButton)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(10, 10, 10)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(iDjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3))
-                        .addGap(1, 1, 1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(deletejButton)
+                            .addComponent(resetjButton)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(dacTrungjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)))
+                        .addComponent(dacTrungjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(20, 20, 20)
+                .addComponent(themTkjButton)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(usernamejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(493, Short.MAX_VALUE))
+                .addComponent(passwordjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(433, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -163,24 +217,53 @@ public class ManageAccount extends CommonJPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void themTkjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_themTkjButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_themTkjButtonActionPerformed
+
+    private void adminjRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminjRadioButtonActionPerformed
+        ((ManageAccountController)controller).setVisable(false);
+    }//GEN-LAST:event_adminjRadioButtonActionPerformed
+
+    private void gVjRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gVjRadioButtonActionPerformed
+        ((ManageAccountController)controller).setVisable(true);
+        ((ManageAccountController)controller).setView();
+    }//GEN-LAST:event_gVjRadioButtonActionPerformed
+
+    private void sVjRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sVjRadioButtonActionPerformed
+        ((ManageAccountController)controller).setVisable(true);
+        ((ManageAccountController)controller).setView();
+    }//GEN-LAST:event_sVjRadioButtonActionPerformed
+
+    private void themTkjButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_themTkjButtonMouseClicked
+        ((ManageAccountController)controller).addAccount();
+    }//GEN-LAST:event_themTkjButtonMouseClicked
+
+    private void deletejButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_deletejButtonKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deletejButtonKeyPressed
+
+    private void deletejButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deletejButtonMouseClicked
+        ((ManageAccountController)controller).deleteUser();
+    }//GEN-LAST:event_deletejButtonMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JRadioButton adminjRadioButton;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel dacTrungjLabel;
+    private javax.swing.JTextField dacTrungjTextField;
+    private javax.swing.JButton deletejButton;
+    private javax.swing.JRadioButton gVjRadioButton;
+    private javax.swing.JTextField iDjTextField;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField passwordjTextField;
+    private javax.swing.JButton resetjButton;
+    private javax.swing.JRadioButton sVjRadioButton;
+    private javax.swing.JButton themTkjButton;
+    private javax.swing.JTextField usernamejTextField;
     // End of variables declaration//GEN-END:variables
 }

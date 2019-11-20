@@ -44,7 +44,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jScrollPane1" min="-2" pref="1200" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="212" max="-2" attributes="0"/>
+                      <Component id="XemDSLjButton" min="-2" pref="212" max="-2" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="IDjTextField" min="-2" pref="60" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -87,7 +87,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <Component id="XemDSLjButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="LeveljTextField" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
@@ -211,7 +211,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="XemDSLjButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="12" style="0"/>
@@ -221,6 +221,9 @@
               <Connection code="new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0)" type="code"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="XemDSLjButtonMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="LeveljTextField">
           <Properties>

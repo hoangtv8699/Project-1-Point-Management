@@ -9,37 +9,77 @@ import com.qlsv.models.Admin;
 import com.qlsv.models.GiangVien;
 import com.qlsv.models.SinhVien;
 import com.qlsv.models.User;
+import java.sql.Date;
 
 public class UserDAO extends CommonDAO<User> {
 
-    public long save(User user) {
+//    public long save(User user) {
+//        long id = -1;
+//        if (user instanceof SinhVien) {
+//            String sql = "insert into users(password, ten, email, ngaySinh, diaChi, sdt, gioiTinh, chuongtrinh) value(?,?,?,?,?,?,?,?);";
+//            id = insert(sql, user.getPassword(), user.getTen(), user.getEmail(), user.getNgaySinh(), user.getDiaChi(),
+//                    user.getSdt(), user.getGt(), ((SinhVien) user).getChuongTrinh());
+//            user.setUser_id(id);
+//        } else if (user instanceof GiangVien) {
+//            String sql = "insert into users(password, ten, email, ngaySinh, diaChi, sdt, gioiTinh, level) value(?,?,?,?,?,?,?,?)";
+//            id = insert(sql, user.getPassword(), user.getTen(), user.getEmail(), user.getNgaySinh(), user.getDiaChi(),
+//                    user.getSdt(), user.getGt(), ((GiangVien) user).getLevel());
+//            user.setUser_id(id);
+//        } else if (user instanceof Admin) {
+//            String sql = "insert into users(password, ten, email, ngaySinh, diaChi, sdt, gioiTinh) value(?,?,?,?,?,?,?)";
+//            id = insert(sql, user.getPassword(), user.getTen(), user.getEmail(), user.getNgaySinh(), user.getDiaChi(),
+//                    user.getSdt(), user.getGt());
+//            user.setUser_id(id);
+//        }
+//        saveRole(user);
+//        return id;
+//    }
+    public long save(SinhVien sv) {
         long id = -1;
-        if (user instanceof SinhVien) {
-            String sql = "insert into users(password, ten, email, ngaySinh, diaChi, sdt, gioiTinh, chuongtrinh) value(?,?,?,?,?,?,?,?);";
-            id = insert(sql, user.getPassword(), user.getTen(), user.getEmail(), user.getNgaySinh(), user.getDiaChi(),
-                    user.getSdt(), user.getGt(), ((SinhVien) user).getChuongTrinh());
-            user.setUser_id(id);
-        } else if (user instanceof GiangVien) {
-            String sql = "insert into users(password, ten, email, ngaySinh, diaChi, sdt, gioiTinh, level) value(?,?,?,?,?,?,?,?)";
-            id = insert(sql, user.getPassword(), user.getTen(), user.getEmail(), user.getNgaySinh(), user.getDiaChi(),
-                    user.getSdt(), user.getGt(), ((GiangVien) user).getLevel());
-            user.setUser_id(id);
-        } else if (user instanceof Admin) {
-            String sql = "insert into users(password, ten, email, ngaySinh, diaChi, sdt, gioiTinh) value(?,?,?,?,?,?,?)";
-            id = insert(sql, user.getPassword(), user.getTen(), user.getEmail(), user.getNgaySinh(), user.getDiaChi(),
-                    user.getSdt(), user.getGt());
-            user.setUser_id(id);
-        }
-        saveRole(user);
+        sv.setPassword("12345");
+        sv.setDiaChi("null");
+        sv.setEmail("null");
+        sv.setGt(0);
+        sv.setNgaySinh(new Date(System.currentTimeMillis()));
+        sv.setSdt("null");
+        sv.setTen("null");
+        String sql = "insert into users(password, ten, email, ngaySinh, diaChi, sdt, gioiTinh, chuongTrinh) value(?,?,?,?,?,?,?,?);";
+        id = insert(sql, sv.getPassword(), sv.getTen(), sv.getEmail(), sv.getNgaySinh(), sv.getDiaChi(), sv.getSdt(), sv.getGt(), sv.getChuongTrinh());
+        sv.setUser_id(id);
+        saveRole(sv);
         return id;
     }
 
-    public long save(String password) {
+    public long save(GiangVien sv) {
         long id = -1;
-        String sql = "insert into users(password) value(?);";
-        id = insert(sql, password);
+        sv.setPassword("12345");
+        sv.setDiaChi("null");
+        sv.setEmail("null");
+        sv.setGt(0);
+        sv.setNgaySinh(new Date(System.currentTimeMillis()));
+        sv.setSdt("null");
+        sv.setTen("null");
+        String sql = "insert into users(password, ten, email, ngaySinh, diaChi, sdt, gioiTinh, level) value(?,?,?,?,?,?,?,?);";
+        id = insert(sql, sv.getPassword(), sv.getTen(), sv.getEmail(), sv.getNgaySinh(), sv.getDiaChi(), sv.getSdt(), sv.getGt(), sv.getLevel());
+        sv.setUser_id(id);
+        saveRole(sv);
         return id;
+    }
 
+    public long save(Admin sv) {
+        long id = -1;
+        sv.setPassword("12345");
+        sv.setDiaChi("null");
+        sv.setEmail("null");
+        sv.setGt(0);
+        sv.setNgaySinh(new Date(System.currentTimeMillis()));
+        sv.setSdt("null");
+        sv.setTen("null");
+        String sql = "insert into users(password, ten, email, ngaySinh, diaChi, sdt, gioiTinh) value(?,?,?,?,?,?,?);";
+        id = insert(sql, sv.getPassword(), sv.getTen(), sv.getEmail(), sv.getNgaySinh(), sv.getDiaChi(), sv.getSdt(), sv.getGt());
+        sv.setUser_id(id);
+        saveRole(sv);
+        return id;
     }
 
     public void saveRole(User user) {
@@ -123,6 +163,15 @@ public class UserDAO extends CommonDAO<User> {
         return null;
     }
 
+    public User findById(Long id) {
+        String sql = "select * from users where user_id=?";
+        List<Admin> users = query(sql, new AdminMapper(), id);
+        if (users.isEmpty()) {
+            return null;
+        }
+        return users.get(0);
+    }
+
     public List<SinhVien> find(SinhVien user) {
         String sql = "select * from users inner join role on users.user_id = role.user_id where roles=1";
         List<SinhVien> users = query(sql, new SinhVienMapper());
@@ -195,8 +244,6 @@ public class UserDAO extends CommonDAO<User> {
     public void delete(User u) {
         String sql = "delete from role where user_id=?";
         delete(sql, u.getUser_id());
-        sql = "delete from mh_gv where user_id=?";
-        delete(sql, u.getUser_id());
         sql = "delete from bang_diem where user_id=?";
         delete(sql, u.getUser_id());
         sql = "delete from users where user_id=?";
@@ -219,7 +266,9 @@ public class UserDAO extends CommonDAO<User> {
             return null;
         }
         return users.get(0);
-    }public GiangVien findGV(Long id) {
+    }
+
+    public GiangVien findGV(Long id) {
         String sql = "select * from users inner join role on users.user_id = role.user_id where roles=2 and users.user_id=?";
         List<GiangVien> users = query(sql, new GiangVienMapper(), id);
         if (users.isEmpty()) {

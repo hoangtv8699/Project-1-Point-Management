@@ -28,7 +28,7 @@ public class ManageGV extends CommonJPanel {
         jTable.getTableHeader().setFont(new Font("Arial",Font.BOLD,12));
         jTable.getTableHeader().setBackground(new Color(255,102,102));
         jTable.getTableHeader().setForeground(new Color(255,255,255));
-        setController(new ManageUserController(jTable, IDjTextField, TenjTextField, NgaySinhjTextField, SDTjTextField, EmailjTextField, DiaChijTextField, GioiTinhjTextField, LeveljTextField, user));
+        setController(new ManageUserController(jTable, IDjTextField, TenjTextField, NgaySinhjTextField, SDTjTextField, EmailjTextField, DiaChijTextField, GioiTinhjTextField, LeveljTextField, XemDSLjButton, jPanel1, user));
         ((ManageUserController)controller).setText(new GiangVien());
     }
 
@@ -44,7 +44,7 @@ public class ManageGV extends CommonJPanel {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        XemDSLjButton = new javax.swing.JButton();
         LeveljTextField = new javax.swing.JTextField();
         IDjTextField = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
@@ -95,9 +95,14 @@ public class ManageGV extends CommonJPanel {
             jTable.getColumnModel().getColumn(7).setMaxWidth(100);
         }
 
-        jButton1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jButton1.setText("Xem danh sách lớp giảng dạy");
-        jButton1.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
+        XemDSLjButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        XemDSLjButton.setText("Xem danh sách lớp giảng dạy");
+        XemDSLjButton.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
+        XemDSLjButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                XemDSLjButtonMouseClicked(evt);
+            }
+        });
 
         LeveljTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         LeveljTextField.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
@@ -200,7 +205,7 @@ public class ManageGV extends CommonJPanel {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(XemDSLjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(IDjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -239,7 +244,7 @@ public class ManageGV extends CommonJPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jButton1)
+                .addComponent(XemDSLjButton)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(LeveljTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -311,6 +316,10 @@ public class ManageGV extends CommonJPanel {
         ((ManageUserController)controller).dacTrungFilter(new GiangVien());
     }//GEN-LAST:event_jButton9MouseClicked
 
+    private void XemDSLjButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_XemDSLjButtonMouseClicked
+        ((ManageUserController)controller).xemDSL();
+    }//GEN-LAST:event_XemDSLjButtonMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField DiaChijTextField;
@@ -321,7 +330,7 @@ public class ManageGV extends CommonJPanel {
     private javax.swing.JTextField NgaySinhjTextField;
     private javax.swing.JTextField SDTjTextField;
     private javax.swing.JTextField TenjTextField;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton XemDSLjButton;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

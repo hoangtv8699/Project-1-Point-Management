@@ -5,15 +5,20 @@
  */
 package com.qlsv.controller;
 
-import com.qlsv.dao.BangDiemDAO;
 import com.qlsv.dao.UserDAO;
 import com.qlsv.models.Admin;
-import com.qlsv.models.BangDiem;
 import com.qlsv.models.GiangVien;
 import com.qlsv.models.SinhVien;
 import com.qlsv.models.User;
+import com.qlsv.view.BangDiemCaNhan;
+import com.qlsv.view.ManageCourseJPanel;
+import java.awt.BorderLayout;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -22,7 +27,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Hiddenpants-H
  */
-public class ManageUserController extends Controller{
+public class ManageUserController extends Controller {
 
     private JTable jTable;
     private JTextField IDjTextField;
@@ -33,8 +38,10 @@ public class ManageUserController extends Controller{
     private JTextField DiaChijTextField;
     private JTextField GioiTinhjTextField;
     private JTextField dactrungjTextField;
+    private JButton button;
+    private JPanel jPanel1;
 
-    public ManageUserController(JTable jTable, JTextField IDjTextField, JTextField TenjTextField, JTextField NgaySinhjTextField, JTextField SDTjTextField, JTextField EmailjTextField, JTextField DiaChijTextField, JTextField GioiTinhjTextField, JTextField dactrungjTextField, User user) {
+    public ManageUserController(JTable jTable, JTextField IDjTextField, JTextField TenjTextField, JTextField NgaySinhjTextField, JTextField SDTjTextField, JTextField EmailjTextField, JTextField DiaChijTextField, JTextField GioiTinhjTextField, JTextField dactrungjTextField, JButton button, JPanel jPanel1, User user) {
         super(user);
         this.jTable = jTable;
         this.IDjTextField = IDjTextField;
@@ -45,6 +52,8 @@ public class ManageUserController extends Controller{
         this.DiaChijTextField = DiaChijTextField;
         this.GioiTinhjTextField = GioiTinhjTextField;
         this.dactrungjTextField = dactrungjTextField;
+        this.button = button;
+        this.jPanel1 = jPanel1;
     }
 
     public ManageUserController(JTable jTable, JTextField IDjTextField, JTextField TenjTextField, JTextField NgaySinhjTextField, JTextField SDTjTextField, JTextField EmailjTextField, JTextField DiaChijTextField, JTextField GioiTinhjTextField, User user) {
@@ -59,16 +68,15 @@ public class ManageUserController extends Controller{
         this.GioiTinhjTextField = GioiTinhjTextField;
     }
 
-    
-    public String gT(int i){
-        if(i == 1){
+    public String gT(int i) {
+        if (i == 1) {
             return "Nam";
-        }else if (i == 0) {
+        } else if (i == 0) {
             return "Nữ";
         }
         return null;
     }
-    
+
     public void setText(SinhVien sv) {
         DefaultTableModel model = (DefaultTableModel) jTable.getModel();
         model.setRowCount(0);
@@ -77,6 +85,7 @@ public class ManageUserController extends Controller{
             model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt()), tmp1.getChuongTrinh()});
         }
     }
+
     public void setText(GiangVien sv) {
         DefaultTableModel model = (DefaultTableModel) jTable.getModel();
         model.setRowCount(0);
@@ -84,7 +93,8 @@ public class ManageUserController extends Controller{
         for (GiangVien tmp1 : tmp) {
             model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt()), tmp1.getLevel()});
         }
-    } 
+    }
+
     public void setText(Admin sv) {
         DefaultTableModel model = (DefaultTableModel) jTable.getModel();
         model.setRowCount(0);
@@ -92,7 +102,7 @@ public class ManageUserController extends Controller{
         for (Admin tmp1 : tmp) {
             model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt())});
         }
-    } 
+    }
 
     public void iDFilter(SinhVien user) {
         String maSV = IDjTextField.getText();
@@ -109,6 +119,7 @@ public class ManageUserController extends Controller{
             }
         }
     }
+
     public void iDFilter(GiangVien user) {
         String maSV = IDjTextField.getText();
         DefaultTableModel model = (DefaultTableModel) jTable.getModel();
@@ -124,6 +135,7 @@ public class ManageUserController extends Controller{
             }
         }
     }
+
     public void iDFilter(Admin user) {
         String maSV = IDjTextField.getText();
         DefaultTableModel model = (DefaultTableModel) jTable.getModel();
@@ -139,7 +151,7 @@ public class ManageUserController extends Controller{
             }
         }
     }
-    
+
     public void tenFilter(SinhVien sv) {
         String tenHP = TenjTextField.getText();
         DefaultTableModel model = (DefaultTableModel) jTable.getModel();
@@ -152,10 +164,11 @@ public class ManageUserController extends Controller{
         int count = 1;
         for (SinhVien tmp1 : tmp) {
             if (tmp1.getTen().toLowerCase().matches("(.*)" + tenHP.toLowerCase() + "(.*)")) {
-               model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt()), tmp1.getChuongTrinh()});
+                model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt()), tmp1.getChuongTrinh()});
             }
         }
     }
+
     public void tenFilter(Admin sv) {
         String tenHP = TenjTextField.getText();
         DefaultTableModel model = (DefaultTableModel) jTable.getModel();
@@ -168,10 +181,11 @@ public class ManageUserController extends Controller{
         int count = 1;
         for (Admin tmp1 : tmp) {
             if (tmp1.getTen().toLowerCase().matches("(.*)" + tenHP.toLowerCase() + "(.*)")) {
-               model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt())});
+                model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt())});
             }
         }
     }
+
     public void tenFilter(GiangVien sv) {
         String tenHP = TenjTextField.getText();
         DefaultTableModel model = (DefaultTableModel) jTable.getModel();
@@ -184,10 +198,11 @@ public class ManageUserController extends Controller{
         int count = 1;
         for (GiangVien tmp1 : tmp) {
             if (tmp1.getTen().toLowerCase().matches("(.*)" + tenHP.toLowerCase() + "(.*)")) {
-               model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt()), tmp1.getLevel()});
+                model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt()), tmp1.getLevel()});
             }
         }
     }
+
     public void sDTFilter(SinhVien user) {
         String maSV = SDTjTextField.getText();
         DefaultTableModel model = (DefaultTableModel) jTable.getModel();
@@ -203,6 +218,7 @@ public class ManageUserController extends Controller{
             }
         }
     }
+
     public void sDTFilter(GiangVien user) {
         String maSV = SDTjTextField.getText();
         DefaultTableModel model = (DefaultTableModel) jTable.getModel();
@@ -218,6 +234,7 @@ public class ManageUserController extends Controller{
             }
         }
     }
+
     public void sDTFilter(Admin user) {
         String maSV = SDTjTextField.getText();
         DefaultTableModel model = (DefaultTableModel) jTable.getModel();
@@ -233,6 +250,7 @@ public class ManageUserController extends Controller{
             }
         }
     }
+
     public void emailFilter(SinhVien sv) {
         String tenHP = EmailjTextField.getText();
         DefaultTableModel model = (DefaultTableModel) jTable.getModel();
@@ -244,10 +262,11 @@ public class ManageUserController extends Controller{
         List<SinhVien> tmp = new UserDAO().find(sv);
         for (SinhVien tmp1 : tmp) {
             if (tmp1.getEmail().toLowerCase().matches("(.*)" + tenHP.toLowerCase() + "(.*)")) {
-               model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt()), tmp1.getChuongTrinh()});
+                model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt()), tmp1.getChuongTrinh()});
             }
         }
     }
+
     public void emailFilter(GiangVien sv) {
         String tenHP = EmailjTextField.getText();
         DefaultTableModel model = (DefaultTableModel) jTable.getModel();
@@ -259,10 +278,11 @@ public class ManageUserController extends Controller{
         List<GiangVien> tmp = new UserDAO().find(sv);
         for (GiangVien tmp1 : tmp) {
             if (tmp1.getEmail().toLowerCase().matches("(.*)" + tenHP.toLowerCase() + "(.*)")) {
-               model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt()), tmp1.getLevel()});
+                model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt()), tmp1.getLevel()});
             }
         }
     }
+
     public void emailFilter(Admin sv) {
         String tenHP = EmailjTextField.getText();
         DefaultTableModel model = (DefaultTableModel) jTable.getModel();
@@ -274,10 +294,11 @@ public class ManageUserController extends Controller{
         List<Admin> tmp = new UserDAO().find(sv);
         for (Admin tmp1 : tmp) {
             if (tmp1.getEmail().toLowerCase().matches("(.*)" + tenHP.toLowerCase() + "(.*)")) {
-               model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt())});
+                model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt())});
             }
         }
     }
+
     public void diaChiFilter(SinhVien sv) {
         String tenHP = DiaChijTextField.getText();
         DefaultTableModel model = (DefaultTableModel) jTable.getModel();
@@ -289,10 +310,11 @@ public class ManageUserController extends Controller{
         List<SinhVien> tmp = new UserDAO().find(sv);
         for (SinhVien tmp1 : tmp) {
             if (tmp1.getDiaChi().toLowerCase().matches("(.*)" + tenHP.toLowerCase() + "(.*)")) {
-               model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt()), tmp1.getChuongTrinh()});
+                model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt()), tmp1.getChuongTrinh()});
             }
         }
     }
+
     public void diaChiFilter(GiangVien sv) {
         String tenHP = DiaChijTextField.getText();
         DefaultTableModel model = (DefaultTableModel) jTable.getModel();
@@ -304,10 +326,11 @@ public class ManageUserController extends Controller{
         List<GiangVien> tmp = new UserDAO().find(sv);
         for (GiangVien tmp1 : tmp) {
             if (tmp1.getDiaChi().toLowerCase().matches("(.*)" + tenHP.toLowerCase() + "(.*)")) {
-               model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt()), tmp1.getLevel()});
+                model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt()), tmp1.getLevel()});
             }
         }
     }
+
     public void diaChiFilter(Admin sv) {
         String tenHP = DiaChijTextField.getText();
         DefaultTableModel model = (DefaultTableModel) jTable.getModel();
@@ -319,10 +342,11 @@ public class ManageUserController extends Controller{
         List<Admin> tmp = new UserDAO().find(sv);
         for (Admin tmp1 : tmp) {
             if (tmp1.getDiaChi().toLowerCase().matches("(.*)" + tenHP.toLowerCase() + "(.*)")) {
-               model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt())});
+                model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt())});
             }
         }
     }
+
     public void gioiTinhFilter(SinhVien sv) {
         String tenHP = GioiTinhjTextField.getText();
         DefaultTableModel model = (DefaultTableModel) jTable.getModel();
@@ -335,10 +359,11 @@ public class ManageUserController extends Controller{
         for (SinhVien tmp1 : tmp) {
             String gt = gT(tmp1.getGt());
             if (gt.toLowerCase().matches("(.*)" + tenHP.toLowerCase() + "(.*)")) {
-               model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt()), tmp1.getChuongTrinh()});
+                model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt()), tmp1.getChuongTrinh()});
             }
         }
     }
+
     public void gioiTinhFilter(GiangVien sv) {
         String tenHP = GioiTinhjTextField.getText();
         DefaultTableModel model = (DefaultTableModel) jTable.getModel();
@@ -351,10 +376,11 @@ public class ManageUserController extends Controller{
         for (GiangVien tmp1 : tmp) {
             String gt = gT(tmp1.getGt());
             if (gt.toLowerCase().matches("(.*)" + tenHP.toLowerCase() + "(.*)")) {
-               model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt()), tmp1.getLevel()});
+                model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt()), tmp1.getLevel()});
             }
         }
     }
+
     public void gioiTinhFilter(Admin sv) {
         String tenHP = GioiTinhjTextField.getText();
         DefaultTableModel model = (DefaultTableModel) jTable.getModel();
@@ -367,10 +393,11 @@ public class ManageUserController extends Controller{
         for (Admin tmp1 : tmp) {
             String gt = gT(tmp1.getGt());
             if (gt.toLowerCase().matches("(.*)" + tenHP.toLowerCase() + "(.*)")) {
-               model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt())});
+                model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt())});
             }
         }
     }
+
     public void dacTrungFilter(SinhVien sv) {
         String tenHP = dactrungjTextField.getText();
         DefaultTableModel model = (DefaultTableModel) jTable.getModel();
@@ -382,10 +409,11 @@ public class ManageUserController extends Controller{
         List<SinhVien> tmp = new UserDAO().find(sv);
         for (SinhVien tmp1 : tmp) {
             if (tmp1.getChuongTrinh().toLowerCase().matches("(.*)" + tenHP.toLowerCase() + "(.*)")) {
-               model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt()), tmp1.getChuongTrinh()});
+                model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt()), tmp1.getChuongTrinh()});
             }
         }
     }
+
     public void dacTrungFilter(GiangVien sv) {
         String tenHP = dactrungjTextField.getText();
         DefaultTableModel model = (DefaultTableModel) jTable.getModel();
@@ -397,11 +425,11 @@ public class ManageUserController extends Controller{
         List<GiangVien> tmp = new UserDAO().find(sv);
         for (GiangVien tmp1 : tmp) {
             if (String.valueOf(tmp1.getLevel()).toLowerCase().matches("(.*)" + tenHP.toLowerCase() + "(.*)")) {
-               model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt()), tmp1.getLevel()});
+                model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt()), tmp1.getLevel()});
             }
         }
     }
-    
+
     public void ngaySinhFilter(SinhVien sv) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String tenHP = NgaySinhjTextField.getText();
@@ -414,10 +442,11 @@ public class ManageUserController extends Controller{
         List<SinhVien> tmp = new UserDAO().find(sv);
         for (SinhVien tmp1 : tmp) {
             if (sdf.format(tmp1.getNgaySinh()).matches("(.*)" + tenHP + "(.*)")) {
-               model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt()), tmp1.getChuongTrinh()});
+                model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt()), tmp1.getChuongTrinh()});
             }
         }
     }
+
     public void ngaySinhFilter(GiangVien sv) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String tenHP = NgaySinhjTextField.getText();
@@ -430,10 +459,11 @@ public class ManageUserController extends Controller{
         List<GiangVien> tmp = new UserDAO().find(sv);
         for (GiangVien tmp1 : tmp) {
             if (sdf.format(tmp1.getNgaySinh()).matches("(.*)" + tenHP + "(.*)")) {
-               model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt()), tmp1.getLevel()});
+                model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt()), tmp1.getLevel()});
             }
         }
     }
+
     public void ngaySinhFilter(Admin sv) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String tenHP = NgaySinhjTextField.getText();
@@ -446,8 +476,46 @@ public class ManageUserController extends Controller{
         List<Admin> tmp = new UserDAO().find(sv);
         for (Admin tmp1 : tmp) {
             if (sdf.format(tmp1.getNgaySinh()).matches("(.*)" + tenHP + "(.*)")) {
-               model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt())});
+                model.addRow(new Object[]{tmp1.getUser_id(), tmp1.getTen(), tmp1.getNgaySinh(), tmp1.getSdt(), tmp1.getEmail(), tmp1.getDiaChi(), gT(tmp1.getGt())});
             }
         }
+    }
+
+    public void xemBangDiem() {
+        DefaultTableModel model = (DefaultTableModel) jTable.getModel();
+        int selected = jTable.getSelectedRow();
+        User u = new SinhVien();
+        if (selected >= 0) {
+            u.setUser_id(Long.parseLong(model.getValueAt(selected, 0).toString()));
+            u = new UserDAO().findById(u);
+            jPanel1.removeAll();
+            jPanel1.setLayout(new BorderLayout());
+            jPanel1.add(new BangDiemCaNhan(u));
+            jPanel1.validate();
+            jPanel1.repaint();
+        } else {
+            JOptionPane.showMessageDialog(new JFrame(), "Bạn phải chọn sinh viên muốn xem chi tiết");
+            return;
+        }
+
+    }
+    
+    public void xemDSL() {
+        DefaultTableModel model = (DefaultTableModel) jTable.getModel();
+        int selected = jTable.getSelectedRow();
+        User u = new GiangVien();
+        if (selected >= 0) {
+            u.setUser_id(Long.parseLong(model.getValueAt(selected, 0).toString()));
+            u = new UserDAO().findById(u);
+            jPanel1.removeAll();
+            jPanel1.setLayout(new BorderLayout());
+            jPanel1.add(new ManageCourseJPanel(u));
+            jPanel1.validate();
+            jPanel1.repaint();
+        } else {
+            JOptionPane.showMessageDialog(new JFrame(), "Bạn phải chọn giảng viên muốn xem danh sách lớp");
+            return;
+        }
+
     }
 }
