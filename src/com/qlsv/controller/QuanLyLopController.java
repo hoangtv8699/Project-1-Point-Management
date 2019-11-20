@@ -26,6 +26,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -270,6 +272,9 @@ public class QuanLyLopController extends Controller {
 
         String defaultCurrentDirectoryPath = "C:\\Users\\Hiddenpants-H\\Downloads";
         JFileChooser excelFileChooser = new JFileChooser(defaultCurrentDirectoryPath);
+        FileFilter filter = new FileNameExtensionFilter("Files", "xlsx"); 
+        excelFileChooser.setAcceptAllFileFilterUsed(false);
+        excelFileChooser.addChoosableFileFilter(filter);
 
         int excelChooser = excelFileChooser.showOpenDialog(null);
         if (excelChooser == JFileChooser.APPROVE_OPTION) {
@@ -278,6 +283,9 @@ public class QuanLyLopController extends Controller {
             excelFile = excelFileChooser.getSelectedFile();
             path = excelFile.getPath();
             List<MonHoc> list = new ReadExcel<MonHoc>().readExcel(path, new MonHocExcelMapper());
+            if(list == null){
+                return;
+            }
             for (MonHoc m : list) {
                 if(udao.findGV(m.getUser_id()) == null){
                     JOptionPane.showMessageDialog(new JFrame(), "có mã giảng viên không tồn tại");

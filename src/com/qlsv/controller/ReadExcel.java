@@ -62,8 +62,9 @@ public class ReadExcel<T> {
         }
  
         
-        }catch(IOException e){
-            e.printStackTrace();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(new JFrame(), "File bạn chọn không đúng format");
+            return null;
         }finally{
             if(workbook != null){
                 try{

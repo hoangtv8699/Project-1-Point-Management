@@ -17,8 +17,8 @@ public class BangDiemDAO extends CommonDAO<BangDiem> {
     }
 
     public void update(BangDiem bd) {
-        String sql = "update bang_diem set diemQT=?, diemCK=? where user_id=? and maHP=? and maLop=? and hocky=?";
-        update(sql, bd.getDiemQT(), bd.getDiemCK(), bd.getUser_id(), bd.getMaHP(), bd.getMaLop(), bd.getHocKy());
+        String sql = "update bang_diem set diemQT=?, diemCK=?, diem=? where user_id=? and maHP=? and maLop=? and hocky=?";
+        update(sql, bd.getDiemQT(), bd.getDiemCK(), bd.getDiem(), bd.getUser_id(), bd.getMaHP(), bd.getMaLop(), bd.getHocKy());
     }
 
     public void delete(BangDiem bd) {

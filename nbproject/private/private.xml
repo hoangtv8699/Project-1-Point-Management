@@ -7,12 +7,8 @@
             <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/controller/QuanLyLopController.java</file>
             <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/models/BangDiem.java</file>
             <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/view/ManageCourseJPanel.java</file>
-            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/mapper/BangDiemMapper.java</file>
             <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/dao/BangDiemDAO.java</file>
-            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/dao/UserDAO.java</file>
-            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/mapper/BangDiemExcelMapper.java</file>
-            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/dao/CommonDAO.java</file>
-            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/mapper/MonHocExcelMapper.java</file>
+            <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/dao/MonHocDAO.java</file>
             <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/main/Main.java</file>
             <file>file:/C:/Users/Hiddenpants-H/Documents/NetBeansProjects/QuanLyDiemSV/src/com/qlsv/controller/ListStudentController.java</file>
         </group>

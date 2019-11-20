@@ -6,6 +6,7 @@
 package com.qlsv.controller;
 
 import com.qlsv.dao.BangDiemDAO;
+import com.qlsv.dao.MonHocDAO;
 import com.qlsv.dao.UserDAO;
 import com.qlsv.mapper.BangDiemExcelMapper;
 import com.qlsv.models.Admin;
@@ -217,7 +218,8 @@ public class ListStudentController extends Controller {
                     && changeDiemCKjTextField.getText().equals("") || !changeDiemCKjTextField.getText().matches("[+-]?([0-9]*[.])?[0-9]+"))) {
                 bangDiem.setDiemQT(Float.parseFloat(changeDiemGKjTextField.getText()));
                 bangDiem.setDiemCK(Float.parseFloat(changeDiemCKjTextField.getText()));
-                bangDiem.setDiem();
+                float trongSo = new MonHocDAO().find(bangDiem.getMaLop(), bangDiem.getMaHP(), bangDiem.getHocKy()).get(0).getqT();
+                bangDiem.setDiem(bangDiem.getDiemQT()* trongSo + bangDiem.getDiemCK() * trongSo);
                 new BangDiemDAO().update(bangDiem);
                 JOptionPane.showMessageDialog(new JFrame(), "Cập nhật điểm thành công");
             }
@@ -241,6 +243,9 @@ public class ListStudentController extends Controller {
             excelFile = excelFileChooser.getSelectedFile();
             path = excelFile.getPath();
             List<BangDiem> list = new ReadExcel<BangDiem>().readExcel(path, new BangDiemExcelMapper());
+            if(list == null){
+                return;
+            }
             for (BangDiem m : list) {
                 if(uDao.findSV(m.getUser_id()) == null){
                     JOptionPane.showMessageDialog(new JFrame(), "có mã sinh viên không tồn tại");
@@ -276,16 +281,20 @@ public class ListStudentController extends Controller {
             excelFile = excelFileChooser.getSelectedFile();
             path = excelFile.getPath();
             List<BangDiem> list = new ReadExcel<BangDiem>().readExcel(path, new BangDiemExcelMapper());
+            if(list == null){
+                return;
+            }
             for (BangDiem m : list) {
                 if(uDao.findSV(m.getUser_id()) == null){
                     JOptionPane.showMessageDialog(new JFrame(), "có mã sinh viên không tồn tại");
-//                    return;
                 }
             }
             for (BangDiem m : list) {
                 m.setMaHP(monHoc.getMaHP());
                 m.setMaLop(monHoc.getMaLop());
                 m.setHocKy(monHoc.getHocKy());
+                float trongSo = new MonHocDAO().find(m.getMaLop(), m.getMaHP(), m.getHocKy()).get(0).getqT();
+                m.setDiem(m.getDiemQT()* trongSo + m.getDiemCK() * trongSo);
                 if(bdDao.find(monHoc.getMaHP(), monHoc.getMaLop(), monHoc.getHocKy(), m.getUser_id()) != null){
                     bdDao.update(m);
                 }
