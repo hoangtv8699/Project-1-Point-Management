@@ -5,7 +5,10 @@
  */
 package com.qlsv.view;
 
+import com.qlsv.controller.QuanLyNguoiDungController;
+import com.qlsv.controller.TextBubbleBorder;
 import com.qlsv.models.User;
+import java.awt.Color;
 
 /**
  *
@@ -18,6 +21,8 @@ public class ManageUserJPanel extends CommonJPanel {
      */
     public ManageUserJPanel(User user) {
         initComponents();
+        setController(new QuanLyNguoiDungController(SVjButton, GVjButton, AdjButton, taiKhoanjButton, jPanel, user));
+        ((QuanLyNguoiDungController)controller).changeSV();
     }
 
     /**
@@ -30,58 +35,86 @@ public class ManageUserJPanel extends CommonJPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
+        SVjButton = new javax.swing.JButton();
+        GVjButton = new javax.swing.JButton();
+        AdjButton = new javax.swing.JButton();
+        jPanel = new javax.swing.JPanel();
+        taiKhoanjButton = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1067, 768));
 
-        jButton1.setText("quản lý sinh viên");
-
-        jButton2.setText("quản lý giảng viên");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+        SVjButton.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        SVjButton.setText("quản lý sinh viên");
+        SVjButton.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
+        SVjButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SVjButtonMouseClicked(evt);
             }
         });
 
-        jButton3.setText("quản lý admin");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        GVjButton.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        GVjButton.setText("quản lý giảng viên");
+        GVjButton.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
+        GVjButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                GVjButtonMouseClicked(evt);
+            }
+        });
+        GVjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                GVjButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1067, Short.MAX_VALUE)
+        AdjButton.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        AdjButton.setText("quản lý admin");
+        AdjButton.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
+        AdjButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AdjButtonMouseClicked(evt);
+            }
+        });
+        AdjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdjButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
+        jPanel.setLayout(jPanelLayout);
+        jPanelLayout.setHorizontalGroup(
+            jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1240, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanelLayout.setVerticalGroup(
+            jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 716, Short.MAX_VALUE)
         );
 
-        jButton4.setText("quản lý tài khoản");
+        taiKhoanjButton.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        taiKhoanjButton.setText("quản lý tài khoản");
+        taiKhoanjButton.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
+        taiKhoanjButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                taiKhoanjButtonMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(SVjButton)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(GVjButton)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(AdjButton)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(taiKhoanjButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -89,12 +122,12 @@ public class ManageUserJPanel extends CommonJPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(SVjButton)
+                    .addComponent(GVjButton)
+                    .addComponent(AdjButton)
+                    .addComponent(taiKhoanjButton))
                 .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -102,7 +135,7 @@ public class ManageUserJPanel extends CommonJPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1240, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
@@ -113,21 +146,37 @@ public class ManageUserJPanel extends CommonJPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void GVjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GVjButtonActionPerformed
+        
+    }//GEN-LAST:event_GVjButtonActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void AdjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdjButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_AdjButtonActionPerformed
+
+    private void SVjButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SVjButtonMouseClicked
+        ((QuanLyNguoiDungController)controller).changeSV();
+    }//GEN-LAST:event_SVjButtonMouseClicked
+
+    private void GVjButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GVjButtonMouseClicked
+        ((QuanLyNguoiDungController)controller).changeGV();
+    }//GEN-LAST:event_GVjButtonMouseClicked
+
+    private void AdjButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AdjButtonMouseClicked
+        ((QuanLyNguoiDungController)controller).changeAd();
+    }//GEN-LAST:event_AdjButtonMouseClicked
+
+    private void taiKhoanjButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_taiKhoanjButtonMouseClicked
+        ((QuanLyNguoiDungController)controller).changeQLTaiKhoan();
+    }//GEN-LAST:event_taiKhoanjButtonMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton AdjButton;
+    private javax.swing.JButton GVjButton;
+    private javax.swing.JButton SVjButton;
+    private javax.swing.JPanel jPanel;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton taiKhoanjButton;
     // End of variables declaration//GEN-END:variables
 }

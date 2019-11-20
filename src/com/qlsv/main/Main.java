@@ -1,15 +1,16 @@
 package com.qlsv.main;
 
-import com.qlsv.dao.*;
-import com.qlsv.models.*;
+import com.qlsv.dao.UserDAO;
+import com.qlsv.models.Admin;
+import com.qlsv.models.User;
 import com.qlsv.view.AdminJPanel;
-import com.qlsv.view.GVJPanel;
 import com.qlsv.view.MainJFrame;
-import com.qlsv.view.SVJPanel;
+import java.text.SimpleDateFormat;
 
 public class Main {
-    
+
     public static void main(String[] args) {
+
         try {
             User user;
             user = new Admin();

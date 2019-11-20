@@ -129,14 +129,14 @@ public class UserDAO extends CommonDAO<User> {
         return users;
     }
 
-    public List<GiangVien> findAll(GiangVien user) {
+    public List<GiangVien> find(GiangVien user) {
         String sql = "select * from users inner join role on users.user_id = role.user_id where roles=2";
         List<GiangVien> users = query(sql, new GiangVienMapper());
         return users;
     }
 
-    public List<Admin> findAll(Admin user) {
-        String sql = "select * from users inner join role on users.user_id = role.user_id where roles=3";
+    public List<Admin> find(Admin user) {
+        String sql = "select * from users inner join role on users.user_id = role.user_id where roles=0";
         List<Admin> users = query(sql, new AdminMapper());
         return users;
     }
