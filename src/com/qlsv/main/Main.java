@@ -12,11 +12,11 @@ public class Main {
     public static void main(String[] args) {
         try {
             User user;
-            user = new Admin();
-            user.setUser_id(20000014);
+            user = new GiangVien();
+            user.setUser_id(20000010);
             user.setPassword("12345");
             user = new UserDAO().findByUsernameAndPassword(user);
-            MainJFrame frame = new MainJFrame(new AdminJPanel(), user);
+            MainJFrame frame = new MainJFrame(new GVJPanel(), user);
             frame.setVisible(true);
         } catch (Exception e) {
             e.printStackTrace();

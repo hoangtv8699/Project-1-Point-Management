@@ -8,10 +8,14 @@ package com.qlsv.controller;
 import com.qlsv.dao.BangDiemDAO;
 import com.qlsv.dao.MonHocDAO;
 import com.qlsv.models.*;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JFileChooser;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -309,5 +313,23 @@ public class BangDiemController extends Controller {
         qTjTextField.setText("");
         cKjTextField.setText("");
         DiemjTextField.setText("");
+    }
+    
+    public void exportBD(){
+        File excelFile;
+        String path;
+
+        String defaultCurrentDirectoryPath = "C:\\Users\\Hiddenpants-H\\Downloads";
+        JFileChooser excelFileChooser = new JFileChooser(defaultCurrentDirectoryPath);
+        FileFilter filter = new FileNameExtensionFilter("Files", "xlsx"); 
+        excelFileChooser.setAcceptAllFileFilterUsed(false);
+        excelFileChooser.addChoosableFileFilter(filter);
+        excelFileChooser.setSelectedFile(new File("Bảng điểm cá nhân.xlsx"));
+        
+        int excelChooser = excelFileChooser.showOpenDialog(null);
+        if (excelChooser == JFileChooser.APPROVE_OPTION) {
+            path = excelFileChooser.getSelectedFile().getAbsolutePath();
+            new WriteExcel().writeExcel(bangDiemjTable, path);
+        }
     }
 }

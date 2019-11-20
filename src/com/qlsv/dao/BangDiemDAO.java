@@ -12,13 +12,13 @@ public class BangDiemDAO extends CommonDAO<BangDiem> {
         insert(sql, bd.getUser_id(), bd.getMaHP(), bd.getMaLop(), bd.getHocKy());
     }
     public void insertFull(BangDiem bd) {
-        String sql = "insert into bang_diem(user_id, maHP, maLop, hocky, diemQT, diemCK) value(?,?,?,?,?)";
+        String sql = "insert into bang_diem(user_id, maHP, maLop, hocky, diemQT, diemCK) value(?,?,?,?,?,?)";
         insert(sql, bd.getUser_id(), bd.getMaHP(), bd.getMaLop(), bd.getHocKy(), bd.getDiemQT(), bd.getDiemCK());
     }
 
     public void update(BangDiem bd) {
-        String sql = "update bang_diem set diemQT=?, diemCK=?, diem=? where user_id=? and maHP=? and maLop=? and hocky=?";
-        update(sql, bd.getDiemQT(), bd.getDiemCK(), bd.getDiem(), bd.getUser_id(), bd.getMaHP(), bd.getMaLop(), bd.getHocKy());
+        String sql = "update bang_diem set diemQT=?, diemCK=? where user_id=? and maHP=? and maLop=? and hocky=?";
+        update(sql, bd.getDiemQT(), bd.getDiemCK(), bd.getUser_id(), bd.getMaHP(), bd.getMaLop(), bd.getHocKy());
     }
 
     public void delete(BangDiem bd) {

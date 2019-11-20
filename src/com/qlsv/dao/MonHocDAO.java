@@ -53,7 +53,7 @@ public class MonHocDAO extends CommonDAO<MonHoc> {
 	}
         
         public List<MonHoc> find(Long id) {
-		String sql = "select mon_hoc.* from mon_hoc inner join mh_gv on mh_gv.hocky = mon_hoc.hocky and  mh_gv.maHP = mon_hoc.maHP and  mh_gv.maLop = mon_hoc.maLop WHERE user_id = ?";
+		String sql = "select mon_hoc.* from mon_hoc WHERE user_id = ?";
 		List<MonHoc> mh = query(sql, new MonHocMapper(), id);
 		return mh;
 	}

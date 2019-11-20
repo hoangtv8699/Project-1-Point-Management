@@ -6,21 +6,24 @@
 package com.qlsv.controller;
 
 import com.qlsv.dao.BangDiemDAO;
-import com.qlsv.dao.MonHocDAO;
 import com.qlsv.dao.UserDAO;
 import com.qlsv.mapper.BangDiemExcelMapper;
+import com.qlsv.models.Admin;
 import com.qlsv.models.BangDiem;
 import com.qlsv.models.MonHoc;
 import com.qlsv.models.SinhVien;
 import com.qlsv.models.User;
 import java.io.File;
 import java.util.List;
+import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -41,8 +44,9 @@ public class ListStudentController extends Controller {
     private JLabel maLopjLabel;
     private JLabel tenHPjLabel;
     private JLabel hocKyjLabel;
+    private JButton themSVjButton;
 
-    public ListStudentController(MonHoc monHoc, JTable dSSVjTable, JTextField sTTjTextField, JTextField maSVjTextField, JTextField tenSVjTextField, JTextField diemGKjTextField, JTextField diemCKjTextField, JTextField changeDiemGKjTextField, JTextField changeDiemCKjTextField, JLabel maHPjLabel, JLabel maLopjLabel, JLabel tenHPjLabel, JLabel hocKyjLabel, User user) {
+    public ListStudentController(MonHoc monHoc, JTable dSSVjTable, JTextField sTTjTextField, JTextField maSVjTextField, JTextField tenSVjTextField, JTextField diemGKjTextField, JTextField diemCKjTextField, JTextField changeDiemGKjTextField, JTextField changeDiemCKjTextField, JLabel maHPjLabel, JLabel maLopjLabel, JLabel tenHPjLabel, JLabel hocKyjLabel, JButton themSVjButton, User user) {
         super(user);
         this.monHoc = monHoc;
         this.dSSVjTable = dSSVjTable;
@@ -57,7 +61,17 @@ public class ListStudentController extends Controller {
         this.maLopjLabel = maLopjLabel;
         this.tenHPjLabel = tenHPjLabel;
         this.hocKyjLabel = hocKyjLabel;
-    }  
+        this.themSVjButton = themSVjButton;
+    }
+    
+    public void setView(){
+        if(getUser() instanceof Admin){
+            themSVjButton.setVisible(true);
+            
+        }else{
+            themSVjButton.setVisible(false);
+        }
+    }
 
     public void setTextDSSV() {
         DefaultTableModel model = (DefaultTableModel) dSSVjTable.getModel();
@@ -216,6 +230,9 @@ public class ListStudentController extends Controller {
 
         String defaultCurrentDirectoryPath = "C:\\Users\\Hiddenpants-H\\Downloads";
         JFileChooser excelFileChooser = new JFileChooser(defaultCurrentDirectoryPath);
+        FileFilter filter = new FileNameExtensionFilter("Files", "xlsx"); //filter to show only that
+        excelFileChooser.setAcceptAllFileFilterUsed(false); //to show or not all other files
+        excelFileChooser.addChoosableFileFilter(filter);
 
         int excelChooser = excelFileChooser.showOpenDialog(null);
         if (excelChooser == JFileChooser.APPROVE_OPTION) {
@@ -227,16 +244,53 @@ public class ListStudentController extends Controller {
             for (BangDiem m : list) {
                 if(uDao.findSV(m.getUser_id()) == null){
                     JOptionPane.showMessageDialog(new JFrame(), "có mã sinh viên không tồn tại");
+//                    return;
                 }
             }
             for (BangDiem m : list) {
-                if(bdDao.find(m.getMaLop(), m.getMaHP(), m.getHocKy(), m.getUser_id()) == null){
+                m.setMaHP(monHoc.getMaHP());
+                m.setMaLop(monHoc.getMaLop());
+                m.setHocKy(monHoc.getHocKy());
+                if(bdDao.find(monHoc.getMaHP(), monHoc.getMaLop(), monHoc.getHocKy(), m.getUser_id()) == null){
                     bdDao.insertFull(m);
-                }else{
-                    bdDao.insert(m);
                 }
             }
             JOptionPane.showMessageDialog(new JFrame(), "Cập nhật lớp sv thành công!");
+            setTextDSSV();
+        }
+    }
+    public void updateSV(){
+        File excelFile;
+        String path;
+
+        String defaultCurrentDirectoryPath = "C:\\Users\\Hiddenpants-H\\Downloads";
+        JFileChooser excelFileChooser = new JFileChooser(defaultCurrentDirectoryPath);
+        FileFilter filter = new FileNameExtensionFilter("Files", "xlsx"); //filter to show only that
+        excelFileChooser.setAcceptAllFileFilterUsed(false); //to show or not all other files
+        excelFileChooser.addChoosableFileFilter(filter);
+
+        int excelChooser = excelFileChooser.showOpenDialog(null);
+        if (excelChooser == JFileChooser.APPROVE_OPTION) {
+            BangDiemDAO bdDao = new BangDiemDAO();
+            UserDAO uDao = new UserDAO();
+            excelFile = excelFileChooser.getSelectedFile();
+            path = excelFile.getPath();
+            List<BangDiem> list = new ReadExcel<BangDiem>().readExcel(path, new BangDiemExcelMapper());
+            for (BangDiem m : list) {
+                if(uDao.findSV(m.getUser_id()) == null){
+                    JOptionPane.showMessageDialog(new JFrame(), "có mã sinh viên không tồn tại");
+//                    return;
+                }
+            }
+            for (BangDiem m : list) {
+                m.setMaHP(monHoc.getMaHP());
+                m.setMaLop(monHoc.getMaLop());
+                m.setHocKy(monHoc.getHocKy());
+                if(bdDao.find(monHoc.getMaHP(), monHoc.getMaLop(), monHoc.getHocKy(), m.getUser_id()) != null){
+                    bdDao.update(m);
+                }
+            }
+            JOptionPane.showMessageDialog(new JFrame(), "Cập nhật điểm sv thành công!");
             setTextDSSV();
         }
     }
@@ -258,4 +312,22 @@ public class ListStudentController extends Controller {
             return;
         }
     }
+    public void exportSV(){
+        File excelFile;
+        String path;
+
+        String defaultCurrentDirectoryPath = "C:\\Users\\Hiddenpants-H\\Downloads";
+        JFileChooser excelFileChooser = new JFileChooser(defaultCurrentDirectoryPath);
+        FileFilter filter = new FileNameExtensionFilter("Files", "xlsx"); 
+        excelFileChooser.setAcceptAllFileFilterUsed(false);
+        excelFileChooser.addChoosableFileFilter(filter);
+        excelFileChooser.setSelectedFile(new File("DSSV.xlsx"));
+        
+        int excelChooser = excelFileChooser.showOpenDialog(null);
+        if (excelChooser == JFileChooser.APPROVE_OPTION) {
+            path = excelFileChooser.getSelectedFile().getAbsolutePath();
+            new WriteExcel().writeExcel(dSSVjTable, path);
+        }
+    }
+    
 }
