@@ -196,6 +196,30 @@ public class UserDAO extends CommonDAO<User> {
         }
         return users.get(0);
     }
+    public SinhVien findById(SinhVien sv) {
+        String sql = "select * from users inner join role on role.user_id = users.user_id where users.user_id=? and roles=1;";
+        List<SinhVien> users = query(sql, new SinhVienMapper(), sv.getUser_id());
+        if (users.isEmpty()) {
+            return null;
+        }
+        return users.get(0);
+    }
+    public GiangVien findById(GiangVien sv) {
+        String sql = "select * from users inner join role on role.user_id = users.user_id where users.user_id=? and roles=1;";
+        List<GiangVien> users = query(sql, new GiangVienMapper(), sv.getUser_id());
+        if (users.isEmpty()) {
+            return null;
+        }
+        return users.get(0);
+    }
+    public Admin findById(Admin sv) {
+        String sql = "select * from users inner join role on role.user_id = users.user_id where users.user_id=? and roles=1;";
+        List<Admin> users = query(sql, new AdminMapper(), sv.getUser_id());
+        if (users.isEmpty()) {
+            return null;
+        }
+        return users.get(0);
+    }
 
     public List<SinhVien> find(SinhVien user) {
         String sql = "select * from users inner join role on users.user_id = role.user_id where roles=1";

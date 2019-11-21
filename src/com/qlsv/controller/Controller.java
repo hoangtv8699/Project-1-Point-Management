@@ -5,6 +5,7 @@
  */
 package com.qlsv.controller;
 
+import com.qlsv.dao.UserDAO;
 import com.qlsv.models.User;
 
 /**
@@ -23,7 +24,7 @@ public abstract class Controller {
     }
 
     public Controller(User user) {
-        this.user = user;
+        this.user = new UserDAO().findById(user);
     }
     
 }
