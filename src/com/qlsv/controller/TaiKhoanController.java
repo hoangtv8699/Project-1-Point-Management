@@ -92,7 +92,7 @@ public class TaiKhoanController extends Controller {
     }
 
     public boolean CheckSDT(String sDT) {
-        return sDT.matches("[09|03|07|08|05]+[0-9]{8}");
+        return sDT.matches("[09|03|07|08|05]"+"[0-9]{9}");
     }
 
     public boolean checkData() {
@@ -112,6 +112,7 @@ public class TaiKhoanController extends Controller {
             User u = getUser();
             u = getData();
             new UserDAO().update(u);
+            setUser(u);
             JOptionPane.showMessageDialog(new JFrame(), "cập nhật thông tin thành công");
         }
     }
