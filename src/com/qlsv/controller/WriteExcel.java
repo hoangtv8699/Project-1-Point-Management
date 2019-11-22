@@ -8,8 +8,6 @@ package com.qlsv.controller;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -21,14 +19,12 @@ import org.apache.poi.ss.usermodel.BuiltinFormats;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.CellType;
-import org.apache.poi.ss.usermodel.DataFormat;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.util.CellReference;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class WriteExcel {
@@ -120,11 +116,16 @@ public class WriteExcel {
         
         for (int i = 0; i < model.getColumnCount(); i++) {
             Cell cell = row.createCell(i);
-            cell.setCellValue(model.getValueAt(rowIndex, i).toString());
+            String tmp = model.getValueAt(rowIndex, i).toString();
+            if(tmp.matches("[+-]?([0-9]*[.])?[0-9]+")){
+                cell.setCellValue(Double.parseDouble(model.getValueAt(rowIndex, i).toString()));
+            }else{
+                cell.setCellValue(model.getValueAt(rowIndex, i).toString());
+            }
+            
         }
 
     }
-
     // Create CellStyle for header
     public CellStyle createStyleForHeader(Sheet sheet) {
         // Create font

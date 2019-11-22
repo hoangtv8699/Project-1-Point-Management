@@ -1,5 +1,6 @@
 package com.qlsv.dao;
 
+import com.qlsv.bean.Properties;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -13,12 +14,12 @@ import java.util.List;
 
 import com.qlsv.mapper.RowMapper;
 
-public class CommonDAO<T> {
+public class CommonDAO<T> implements Properties{
 	public Connection getConnection() {
 		Connection con = null;
-		String url = "jdbc:mysql://localhost:3306/quanlydiemsv";
-		String user = "root";
-		String password = "1999";
+		String url = DATABASE_PATH;
+		String user = USERNAME;
+		String password = PASSWORD;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager.getConnection(url, user, password);

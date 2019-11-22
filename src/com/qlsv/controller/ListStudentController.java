@@ -5,6 +5,7 @@
  */
 package com.qlsv.controller;
 
+import com.qlsv.bean.Properties;
 import com.qlsv.dao.BangDiemDAO;
 import com.qlsv.dao.MonHocDAO;
 import com.qlsv.dao.UserDAO;
@@ -31,7 +32,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Hiddenpants-H
  */
-public class ListStudentController extends Controller {
+public class ListStudentController extends Controller implements Properties{
     private MonHoc monHoc;
     private JTable dSSVjTable;
     private JTextField sTTjTextField;
@@ -230,7 +231,7 @@ public class ListStudentController extends Controller {
         File excelFile;
         String path;
 
-        String defaultCurrentDirectoryPath = "C:\\Users\\Hiddenpants-H\\Downloads";
+        String defaultCurrentDirectoryPath = DEFAULT_FILE_PATH;
         JFileChooser excelFileChooser = new JFileChooser(defaultCurrentDirectoryPath);
         FileFilter filter = new FileNameExtensionFilter("Files", "xlsx"); //filter to show only that
         excelFileChooser.setAcceptAllFileFilterUsed(false); //to show or not all other files
@@ -268,7 +269,7 @@ public class ListStudentController extends Controller {
         File excelFile;
         String path;
 
-        String defaultCurrentDirectoryPath = "C:\\Users\\Hiddenpants-H\\Downloads";
+        String defaultCurrentDirectoryPath = DEFAULT_FILE_PATH;
         JFileChooser excelFileChooser = new JFileChooser(defaultCurrentDirectoryPath);
         FileFilter filter = new FileNameExtensionFilter("Files", "xlsx"); //filter to show only that
         excelFileChooser.setAcceptAllFileFilterUsed(false); //to show or not all other files
@@ -287,6 +288,7 @@ public class ListStudentController extends Controller {
             for (BangDiem m : list) {
                 if(uDao.findSV(m.getUser_id()) == null){
                     JOptionPane.showMessageDialog(new JFrame(), "có mã sinh viên không tồn tại");
+                    return;
                 }
             }
             for (BangDiem m : list) {
@@ -325,12 +327,12 @@ public class ListStudentController extends Controller {
         File excelFile;
         String path;
 
-        String defaultCurrentDirectoryPath = "C:\\Users\\Hiddenpants-H\\Downloads";
+        String defaultCurrentDirectoryPath = DEFAULT_FILE_PATH;
         JFileChooser excelFileChooser = new JFileChooser(defaultCurrentDirectoryPath);
         FileFilter filter = new FileNameExtensionFilter("Files", "xlsx"); 
         excelFileChooser.setAcceptAllFileFilterUsed(false);
         excelFileChooser.addChoosableFileFilter(filter);
-        excelFileChooser.setSelectedFile(new File("DSSV.xlsx"));
+        excelFileChooser.setSelectedFile(new File("Danh sách sinh viên.xlsx"));
         
         int excelChooser = excelFileChooser.showOpenDialog(null);
         if (excelChooser == JFileChooser.APPROVE_OPTION) {

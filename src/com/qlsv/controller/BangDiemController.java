@@ -5,6 +5,7 @@
  */
 package com.qlsv.controller;
 
+import com.qlsv.bean.Properties;
 import com.qlsv.dao.BangDiemDAO;
 import com.qlsv.dao.MonHocDAO;
 import com.qlsv.models.*;
@@ -22,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Hiddenpants-H
  */
-public class BangDiemController extends Controller {
+public class BangDiemController extends Controller implements Properties{
     private JTable bangDiemjTable;
     private JTable tongKetjTable;
     private JTextField hocKyjTextField;
@@ -319,7 +320,7 @@ public class BangDiemController extends Controller {
         File excelFile;
         String path;
 
-        String defaultCurrentDirectoryPath = "C:\\Users\\Hiddenpants-H\\Downloads";
+        String defaultCurrentDirectoryPath = DEFAULT_FILE_PATH;
         JFileChooser excelFileChooser = new JFileChooser(defaultCurrentDirectoryPath);
         FileFilter filter = new FileNameExtensionFilter("Files", "xlsx"); 
         excelFileChooser.setAcceptAllFileFilterUsed(false);
