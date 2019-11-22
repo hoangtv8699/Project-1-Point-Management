@@ -77,6 +77,7 @@ public class TaiKhoanController extends Controller {
                 user = new Admin();
                 break;
         }
+        
         user.setUser_id(Long.parseLong(userIdJLabel.getText()));
         user.setTen(tenjTextField.getText());
         user.setEmail(emailjTextField.getText());
@@ -84,6 +85,7 @@ public class TaiKhoanController extends Controller {
         user.setDiaChi(diaChijTextField.getText());
         user.setSdt(sDTjTextField.getText());
         user.setGt(sexjComboBox.getSelectedIndex());
+        user.setPassword(getUser().getPassword());
         return user;
     }
 
@@ -94,6 +96,12 @@ public class TaiKhoanController extends Controller {
     public boolean CheckSDT(String sDT) {
         return sDT.matches("[09|03|07|08|05]"+"[0-9]{9}");
     }
+    public boolean CheckTen(String Ten) {
+        return !Ten.isEmpty();
+    }
+    public boolean CheckDiaChi(String diaChi) {
+        return !diaChi.isEmpty();
+    }
 
     public boolean checkData() {
         if (!checkEmail(emailjTextField.getText())) {
@@ -102,6 +110,14 @@ public class TaiKhoanController extends Controller {
         }
         if (!CheckSDT(sDTjTextField.getText())) {
             JOptionPane.showMessageDialog(new JFrame(), "Số điện thoại bạn nhập không hợp lệ");
+            return false;
+        }
+        if (!CheckTen(tenjTextField.getText())) {
+            JOptionPane.showMessageDialog(new JFrame(), "Bạn phải nhập tên");
+            return false;
+        }
+        if (!CheckDiaChi(diaChijTextField.getText())) {
+            JOptionPane.showMessageDialog(new JFrame(), "Bạn phải nhập địa chỉ");
             return false;
         }
         return true;

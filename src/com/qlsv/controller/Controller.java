@@ -26,5 +26,7 @@ public abstract class Controller {
     public Controller(User user) {
         this.user = new UserDAO().findById(user);
     }
+    public Controller() {
+    }
     
 }

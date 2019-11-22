@@ -35,7 +35,7 @@ public class LoginController extends Controller {
     private JTextField usernamejTextField;
 
     public LoginController(JRadioButton adminjRadioButton, JButton dangNhapjButton, JRadioButton gVjRadioButton, JPasswordField passwordjPasswordField, JRadioButton sVjRadioButton, JTextField usernamejTextField, User user) {
-        super(user);
+        super();
         this.adminjRadioButton = adminjRadioButton;
         this.dangNhapjButton = dangNhapjButton;
         this.gVjRadioButton = gVjRadioButton;

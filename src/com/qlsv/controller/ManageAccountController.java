@@ -122,4 +122,24 @@ public class ManageAccountController extends Controller {
             JOptionPane.showMessageDialog(new JFrame(), "xóa tài khoản thành công");
         }
     }
+    
+    public void resetPassword(){
+        String iD = iDjTextField.getText();
+        if (iD == null) {
+            JOptionPane.showMessageDialog(new JFrame(), "Bạn phải nhập ID muốn xóa");
+            return;
+        } else if (!iD.matches("^[0-9]{0,}$")) {
+            JOptionPane.showMessageDialog(new JFrame(), "ID bạn nhập không phải là số");
+            return;
+        }
+        User user = new UserDAO().findById(Long.parseLong(iD));
+        if(user == null){
+            JOptionPane.showMessageDialog(new JFrame(), "ID bạn nhập không tồn tại");
+            return;
+        }else{
+            user.setPassword("12345");
+            new UserDAO().updatePassword(user);
+            JOptionPane.showMessageDialog(new JFrame(), "Reset password thành công, password mặc định là 12345");
+        }
+    }
 }

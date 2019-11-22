@@ -118,6 +118,14 @@ public class ManageAccount extends CommonJPanel {
         resetjButton.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         resetjButton.setText("đổi mật khẩu về mặc định");
         resetjButton.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
+        resetjButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                resetjButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                resetjButtonMouseEntered(evt);
+            }
+        });
 
         passwordjTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         passwordjTextField.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
@@ -246,6 +254,14 @@ public class ManageAccount extends CommonJPanel {
     private void deletejButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deletejButtonMouseClicked
         ((ManageAccountController)controller).deleteUser();
     }//GEN-LAST:event_deletejButtonMouseClicked
+
+    private void resetjButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetjButtonMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_resetjButtonMouseEntered
+
+    private void resetjButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetjButtonMouseClicked
+        ((ManageAccountController)controller).resetPassword();
+    }//GEN-LAST:event_resetjButtonMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

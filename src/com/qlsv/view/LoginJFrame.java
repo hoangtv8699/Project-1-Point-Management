@@ -53,6 +53,7 @@ public class LoginJFrame extends javax.swing.JFrame {
         dangNhapjButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(232, 64, 60));
 

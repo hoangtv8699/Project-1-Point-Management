@@ -95,16 +95,16 @@ public class UserDAO extends CommonDAO<User> {
 
     public void update(User user) {
         if (user instanceof SinhVien) {
-            String sql = "update users set ten=?, email=?, ngaySinh=?, diaChi=?, sdt=?, gioiTinh=?, chuongtrinh=? where user_id=?";
-            update(sql, user.getTen(), user.getEmail(), user.getNgaySinh(), user.getDiaChi(),
+            String sql = "update users set password=?, ten=?, email=?, ngaySinh=?, diaChi=?, sdt=?, gioiTinh=?, chuongtrinh=? where user_id=?";
+            update(sql, user.getPassword(), user.getTen(), user.getEmail(), user.getNgaySinh(), user.getDiaChi(),
                     user.getSdt(), user.getGt(), ((SinhVien) user).getChuongTrinh(), user.getUser_id());
         } else if (user instanceof GiangVien) {
-            String sql = "update users set ten=?, email=?, ngaySinh=?, diaChi=?, sdt=?, gioiTinh=?, level=? where user_id=?";
-            update(sql, user.getTen(), user.getEmail(), user.getNgaySinh(), user.getDiaChi(),
+            String sql = "update users set password=?, ten=?, email=?, ngaySinh=?, diaChi=?, sdt=?, gioiTinh=?, level=? where user_id=?";
+            update(sql, user.getPassword(), user.getTen(), user.getEmail(), user.getNgaySinh(), user.getDiaChi(),
                     user.getSdt(), user.getGt(), ((GiangVien) user).getLevel(), user.getUser_id());
         } else if (user instanceof Admin) {
-            String sql = "update users set ten=?, email=?, ngaySinh=?, diaChi=?, sdt=?, gioiTinh=? where user_id=?";
-            update(sql, user.getTen(), user.getEmail(), user.getNgaySinh(), user.getDiaChi(),
+            String sql = "update users set password=?, ten=?, email=?, ngaySinh=?, diaChi=?, sdt=?, gioiTinh=? where user_id=?";
+            update(sql, user.getPassword(), user.getTen(), user.getEmail(), user.getNgaySinh(), user.getDiaChi(),
                     user.getSdt(), user.getGt(), user.getUser_id());
         }
     }
