@@ -57,46 +57,32 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="393" max="-2" attributes="0"/>
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace pref="253" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="hocKyjTextField" min="-2" pref="72" max="-2" attributes="0"/>
+                                  <Component id="hocKyjTextField" min="-2" pref="99" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jButton1" min="-2" pref="21" max="-2" attributes="0"/>
+                                  <Component id="maHPjTextField" min="-2" pref="90" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="maHPjTextField" min="-2" pref="63" max="-2" attributes="0"/>
+                                  <Component id="tenHPjTextField" min="-2" pref="195" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jButton2" min="-2" pref="21" max="-2" attributes="0"/>
+                                  <Component id="tCjTextField" min="-2" pref="94" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="tenHPjTextField" min="-2" pref="168" max="-2" attributes="0"/>
+                                  <Component id="maLopjTextField" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jButton3" min="-2" pref="21" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="tCjTextField" min="-2" pref="67" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jButton4" min="-2" pref="21" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="maLopjTextField" pref="151" max="32767" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jButton5" min="-2" pref="25" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="qTjTextField" min="-2" pref="134" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="qTjTextField" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="jButton6" min="-2" pref="21" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="cKjTextField" min="-2" pref="149" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                  <Component id="jButton7" min="-2" pref="21" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                  <Component id="cKjTextField" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="DiemjTextField" min="-2" pref="159" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                                  <Component id="jButton8" min="-2" pref="21" max="-2" attributes="0"/>
+                                  <Component id="DiemjTextField" min="-2" pref="183" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace pref="59" max="32767" attributes="0"/>
                                   <Component id="jButton10" min="-2" pref="177" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jButton9" min="-2" pref="119" max="-2" attributes="0"/>
@@ -121,21 +107,17 @@
                   </Group>
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="DiemjTextField" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="jButton8" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="cKjTextField" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="jButton7" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="qTjTextField" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="jButton6" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="jButton5" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="maLopjTextField" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="jButton4" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="DiemjTextField" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="cKjTextField" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="maLopjTextField" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="qTjTextField" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      </Group>
                       <Component id="tCjTextField" min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="tenHPjTextField" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="jButton3" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="maHPjTextField" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="jButton2" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="jButton1" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="hocKyjTextField" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -320,32 +302,6 @@
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="hocKyjTextFieldKeyReleased"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="12" style="0"/>
-            </Property>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0)" type="code"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1MouseClicked"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="12" style="0"/>
-            </Property>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0)" type="code"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton2MouseClicked"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JTextField" name="maHPjTextField">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -355,18 +311,8 @@
               <Connection code="new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0)" type="code"/>
             </Property>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="12" style="0"/>
-            </Property>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0)" type="code"/>
-            </Property>
-          </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton3MouseClicked"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="maHPjTextFieldKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="tenHPjTextField">
@@ -378,18 +324,8 @@
               <Connection code="new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0)" type="code"/>
             </Property>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton4">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="12" style="0"/>
-            </Property>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0)" type="code"/>
-            </Property>
-          </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton4MouseClicked"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tenHPjTextFieldKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="tCjTextField">
@@ -401,19 +337,8 @@
               <Connection code="new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0)" type="code"/>
             </Property>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton5">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="12" style="0"/>
-            </Property>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0)" type="code"/>
-            </Property>
-          </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton5MouseClicked"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tCjTextFieldKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="maLopjTextField">
@@ -425,18 +350,8 @@
               <Connection code="new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0)" type="code"/>
             </Property>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton6">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="12" style="0"/>
-            </Property>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0)" type="code"/>
-            </Property>
-          </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton6MouseClicked"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="maLopjTextFieldKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="qTjTextField">
@@ -448,18 +363,8 @@
               <Connection code="new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0)" type="code"/>
             </Property>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton7">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="12" style="0"/>
-            </Property>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0)" type="code"/>
-            </Property>
-          </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton7MouseClicked"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="qTjTextFieldKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="cKjTextField">
@@ -471,18 +376,8 @@
               <Connection code="new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0)" type="code"/>
             </Property>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton8">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="12" style="0"/>
-            </Property>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0)" type="code"/>
-            </Property>
-          </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton8MouseClicked"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cKjTextFieldKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="DiemjTextField">
@@ -494,6 +389,9 @@
               <Connection code="new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0)" type="code"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="DiemjTextFieldKeyReleased"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton9">
           <Properties>

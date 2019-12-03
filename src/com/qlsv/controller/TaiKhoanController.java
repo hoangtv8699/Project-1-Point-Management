@@ -8,6 +8,7 @@ package com.qlsv.controller;
 import com.qlsv.dao.UserDAO;
 import com.qlsv.models.*;
 import com.toedter.calendar.JDateChooser;
+import java.sql.Date;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -102,6 +103,9 @@ public class TaiKhoanController extends Controller {
     public boolean CheckDiaChi(String diaChi) {
         return !diaChi.isEmpty();
     }
+    public boolean CheckNgaySinh(Date date) {
+        return !(date == null);
+    }
 
     public boolean checkData() {
         if (!checkEmail(emailjTextField.getText())) {
@@ -117,6 +121,10 @@ public class TaiKhoanController extends Controller {
             return false;
         }
         if (!CheckDiaChi(diaChijTextField.getText())) {
+            JOptionPane.showMessageDialog(new JFrame(), "Bạn phải nhập địa chỉ");
+            return false;
+        }
+        if (dateChooser.getDate() == null) {
             JOptionPane.showMessageDialog(new JFrame(), "Bạn phải nhập địa chỉ");
             return false;
         }

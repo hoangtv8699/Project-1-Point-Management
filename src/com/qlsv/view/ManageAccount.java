@@ -21,6 +21,7 @@ public class ManageAccount extends CommonJPanel {
      */
     public ManageAccount(User user) {
         initComponents();
+        sVjRadioButton.setSelected(true);
         usernamejTextField.setEditable(false);
         passwordjTextField.setEditable(false);
         setController(new ManageAccountController(sVjRadioButton, gVjRadioButton, adminjRadioButton, themTkjButton, deletejButton, resetjButton, usernamejTextField, passwordjTextField, iDjTextField, dacTrungjTextField, dacTrungjLabel, user));

@@ -46,21 +46,13 @@ public class ManageSV extends CommonJPanel {
         jTable = new javax.swing.JTable();
         XemBangDiemjButton = new javax.swing.JButton();
         IDjTextField = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
         TenjTextField = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
         NgaySinhjTextField = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
         SDTjTextField = new javax.swing.JTextField();
-        jButton5 = new javax.swing.JButton();
         EmailjTextField = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
         DiaChijTextField = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
         GioiTinhjTextField = new javax.swing.JTextField();
-        jButton8 = new javax.swing.JButton();
         ChuongTrinhjTextField = new javax.swing.JTextField();
-        jButton9 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(1067, 716));
 
@@ -107,94 +99,65 @@ public class ManageSV extends CommonJPanel {
 
         IDjTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         IDjTextField.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
-
-        jButton2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jButton2.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+        IDjTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                IDjTextFieldKeyReleased(evt);
             }
         });
 
         TenjTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         TenjTextField.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
-
-        jButton3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jButton3.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
+        TenjTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TenjTextFieldKeyReleased(evt);
             }
         });
 
         NgaySinhjTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         NgaySinhjTextField.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
-
-        jButton4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jButton4.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
+        NgaySinhjTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                NgaySinhjTextFieldKeyReleased(evt);
             }
         });
 
         SDTjTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         SDTjTextField.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
-
-        jButton5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jButton5.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton5MouseClicked(evt);
+        SDTjTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                SDTjTextFieldKeyReleased(evt);
             }
         });
 
         EmailjTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         EmailjTextField.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
-
-        jButton6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jButton6.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
-        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton6MouseClicked(evt);
-            }
-        });
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+        EmailjTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                EmailjTextFieldKeyReleased(evt);
             }
         });
 
         DiaChijTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         DiaChijTextField.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
-
-        jButton7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jButton7.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
-        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton7MouseClicked(evt);
+        DiaChijTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                DiaChijTextFieldKeyReleased(evt);
             }
         });
 
         GioiTinhjTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         GioiTinhjTextField.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
-
-        jButton8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jButton8.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
-        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton8MouseClicked(evt);
+        GioiTinhjTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                GioiTinhjTextFieldKeyReleased(evt);
             }
         });
 
         ChuongTrinhjTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         ChuongTrinhjTextField.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
-
-        jButton9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jButton9.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
-        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton9MouseClicked(evt);
+        ChuongTrinhjTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                ChuongTrinhjTextFieldKeyReleased(evt);
             }
         });
 
@@ -205,40 +168,24 @@ public class ManageSV extends CommonJPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(XemBangDiemjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(IDjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(IDjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TenjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TenjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(NgaySinhjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(NgaySinhjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(SDTjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(SDTjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(EmailjTextField)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(DiaChijTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(DiaChijTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(GioiTinhjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(GioiTinhjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ChuongTrinhjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9)
-                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(ChuongTrinhjTextField))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(XemBangDiemjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -248,21 +195,14 @@ public class ManageSV extends CommonJPanel {
                 .addComponent(XemBangDiemjButton)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ChuongTrinhjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(GioiTinhjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ChuongTrinhjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(GioiTinhjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(DiaChijTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(EmailjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SDTjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(NgaySinhjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TenjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(IDjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -281,45 +221,48 @@ public class ManageSV extends CommonJPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        ((ManageUserController)controller).iDFilter(new SinhVien());
-    }//GEN-LAST:event_jButton2MouseClicked
-
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        ((ManageUserController)controller).tenFilter(new SinhVien());
-    }//GEN-LAST:event_jButton3MouseClicked
-
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-        ((ManageUserController)controller).ngaySinhFilter(new SinhVien());
-    }//GEN-LAST:event_jButton4MouseClicked
-
-    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-        ((ManageUserController)controller).sDTFilter(new SinhVien());
-    }//GEN-LAST:event_jButton5MouseClicked
-
-    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
-        ((ManageUserController)controller).emailFilter(new SinhVien());
-    }//GEN-LAST:event_jButton6MouseClicked
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
-        ((ManageUserController)controller).diaChiFilter(new SinhVien());
-    }//GEN-LAST:event_jButton7MouseClicked
-
-    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
-        ((ManageUserController)controller).gioiTinhFilter(new SinhVien());
-    }//GEN-LAST:event_jButton8MouseClicked
-
-    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
-        ((ManageUserController)controller).dacTrungFilter(new SinhVien());
-    }//GEN-LAST:event_jButton9MouseClicked
-
     private void XemBangDiemjButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_XemBangDiemjButtonMouseClicked
         ((ManageUserController)controller).xemBangDiem();
     }//GEN-LAST:event_XemBangDiemjButtonMouseClicked
+
+    private void IDjTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_IDjTextFieldKeyReleased
+        ((ManageUserController)controller).iDFilter(new SinhVien());
+    }//GEN-LAST:event_IDjTextFieldKeyReleased
+
+    private void TenjTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TenjTextFieldKeyReleased
+        // TODO add your handling code here:
+        ((ManageUserController)controller).tenFilter(new SinhVien());
+    }//GEN-LAST:event_TenjTextFieldKeyReleased
+
+    private void NgaySinhjTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NgaySinhjTextFieldKeyReleased
+        // TODO add your handling code here:
+        ((ManageUserController)controller).ngaySinhFilter(new SinhVien());
+    }//GEN-LAST:event_NgaySinhjTextFieldKeyReleased
+
+    private void SDTjTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SDTjTextFieldKeyReleased
+        // TODO add your handling code here:
+        ((ManageUserController)controller).sDTFilter(new SinhVien());
+    }//GEN-LAST:event_SDTjTextFieldKeyReleased
+
+    private void EmailjTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EmailjTextFieldKeyReleased
+        // TODO add your handling code here:
+        ((ManageUserController)controller).emailFilter(new SinhVien());
+    }//GEN-LAST:event_EmailjTextFieldKeyReleased
+
+    private void DiaChijTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DiaChijTextFieldKeyReleased
+        // TODO add your handling code here:
+        ((ManageUserController)controller).diaChiFilter(new SinhVien());
+    }//GEN-LAST:event_DiaChijTextFieldKeyReleased
+
+    private void GioiTinhjTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GioiTinhjTextFieldKeyReleased
+        // TODO add your handling code here:
+        ((ManageUserController)controller).gioiTinhFilter(new SinhVien());
+    }//GEN-LAST:event_GioiTinhjTextFieldKeyReleased
+
+    private void ChuongTrinhjTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ChuongTrinhjTextFieldKeyReleased
+        // TODO add your handling code here:
+        ((ManageUserController)controller).dacTrungFilter(new SinhVien());
+    }//GEN-LAST:event_ChuongTrinhjTextFieldKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -332,14 +275,6 @@ public class ManageSV extends CommonJPanel {
     private javax.swing.JTextField SDTjTextField;
     private javax.swing.JTextField TenjTextField;
     private javax.swing.JButton XemBangDiemjButton;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable;
