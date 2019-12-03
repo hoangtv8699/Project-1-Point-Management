@@ -37,7 +37,6 @@ public class TaiKhoanJPanel extends CommonJPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        dateChooserDialog1 = new datechooser.beans.DateChooserDialog();
         jPanel1 = new javax.swing.JPanel();
         userIdJLabel = new javax.swing.JLabel();
         EmailJLabel = new javax.swing.JLabel();
@@ -64,7 +63,7 @@ public class TaiKhoanJPanel extends CommonJPanel {
         dateChooser = new com.toedter.calendar.JDateChooser();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        sexjComboBox = new javax.swing.JComboBox<>();
+        sexjComboBox = new javax.swing.JComboBox<String>();
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 
@@ -274,7 +273,7 @@ public class TaiKhoanJPanel extends CommonJPanel {
         jLabel6.setText("giới tính");
 
         sexjComboBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        sexjComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nữ", "Nam" }));
+        sexjComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nữ", "Nam" }));
         sexjComboBox.setBorder(null);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -297,9 +296,9 @@ public class TaiKhoanJPanel extends CommonJPanel {
                             .addComponent(EmailJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(dacTrungJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(TenJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -401,7 +400,6 @@ public class TaiKhoanJPanel extends CommonJPanel {
     private javax.swing.JButton capNhatjTextField;
     private javax.swing.JLabel dacTrungJLabel;
     private com.toedter.calendar.JDateChooser dateChooser;
-    private datechooser.beans.DateChooserDialog dateChooserDialog1;
     private javax.swing.JTextField diaChijTextField;
     private javax.swing.JTextField emailjTextField;
     private javax.swing.JLabel jLabel1;

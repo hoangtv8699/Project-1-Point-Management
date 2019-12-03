@@ -122,11 +122,15 @@ public class BangDiemCaNhan extends CommonJPanel {
         ));
         tongKetjTable.setRowHeight(25);
         tongKetjTable.setSelectionBackground(new java.awt.Color(102, 255, 255));
-        tongKetjTable.setShowGrid(true);
         jScrollPane2.setViewportView(tongKetjTable);
 
         hocKyjTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         hocKyjTextField.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
+        hocKyjTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                hocKyjTextFieldKeyReleased(evt);
+            }
+        });
 
         jButton1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jButton1.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
@@ -268,7 +272,7 @@ public class BangDiemCaNhan extends CommonJPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(maLopjTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                                .addComponent(maLopjTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -386,6 +390,10 @@ public class BangDiemCaNhan extends CommonJPanel {
     private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
         ((BangDiemController)controller).exportBD();
     }//GEN-LAST:event_jButton10MouseClicked
+
+    private void hocKyjTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_hocKyjTextFieldKeyReleased
+        ((BangDiemController)controller).hocKyFilter();
+    }//GEN-LAST:event_hocKyjTextFieldKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

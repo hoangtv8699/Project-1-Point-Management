@@ -286,8 +286,8 @@ public class ListStudentController extends Controller implements Properties{
                 return;
             }
             for (BangDiem m : list) {
-                if(uDao.findSV(m.getUser_id()) == null){
-                    JOptionPane.showMessageDialog(new JFrame(), "có mã sinh viên không tồn tại");
+                if(uDao.findSV(m.getUser_id()) == null || bdDao.find(monHoc.getMaHP(), monHoc.getMaLop(), monHoc.getHocKy(), m.getUser_id()) == null) {
+                    JOptionPane.showMessageDialog(new JFrame(), "có mã sinh viên không có trong lớp hoặc không tồn tại");
                     return;
                 }
             }

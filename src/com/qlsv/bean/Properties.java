@@ -12,6 +12,6 @@ package com.qlsv.bean;
 public interface Properties {
     String DATABASE_PATH = "jdbc:mysql://localhost:3306/quanlydiemsv?useUnicode=true&characterEncoding=utf8";
     String USERNAME = "root";
-    String PASSWORD = "1999";
-    String DEFAULT_FILE_PATH = "C:\\Users\\Hiddenpants-H";
+    String PASSWORD = "root";
+    String DEFAULT_FILE_PATH = "/home/tranhoang/Màn hình nền";
 }

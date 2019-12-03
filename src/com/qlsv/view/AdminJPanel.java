@@ -88,7 +88,7 @@ public final class AdminJPanel extends JPanelMenuAbstract{
         jlbQuanLyNguoidung.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jlbQuanLyNguoidung.setForeground(new java.awt.Color(255, 255, 255));
         jlbQuanLyNguoidung.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jlbQuanLyNguoidung.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlsv/image/Icon_manage_user.png"))); // NOI18N
+        jlbQuanLyNguoidung.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlsv/image/icon_manage_user.png"))); // NOI18N
         jlbQuanLyNguoidung.setText("Quản Lý Người Dùng");
 
         javax.swing.GroupLayout jpnQuanLyNguoidungLayout = new javax.swing.GroupLayout(jpnQuanLyNguoidung);
