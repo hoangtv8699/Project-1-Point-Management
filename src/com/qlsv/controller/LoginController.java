@@ -45,6 +45,10 @@ public class LoginController extends Controller {
     }
 
     public boolean login() {
+        if(usernamejTextField.getText().equals("") || passwordjPasswordField.getText().equals("")){
+            JOptionPane.showMessageDialog(new JFrame(), "Tài khoản hoặc mật khẩu không chính xác");
+            return false;
+        }
         if (sVjRadioButton.isSelected()) {
             SinhVien user = new SinhVien();
             user.setUser_id(Long.parseLong(usernamejTextField.getText()));

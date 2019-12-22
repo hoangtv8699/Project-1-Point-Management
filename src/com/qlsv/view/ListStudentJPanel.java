@@ -38,7 +38,7 @@ public class ListStudentJPanel extends CommonJPanel {
         dSSVjTable.getTableHeader().setFont(new Font("Arial",Font.BOLD,12));
         dSSVjTable.getTableHeader().setBackground(new Color(255,102,102));
         dSSVjTable.getTableHeader().setForeground(new Color(255,255,255));
-        setController(new ListStudentController(monHoc, dSSVjTable, sTTjTextField, maSVjTextField, tenSVjTextField, diemGKjTextField, diemCKjTextField, changeDiemGKjTextField, ChangeDiemCKjTextField, maHPjLabel, maLopjLabel, tenHPjLabel, hocKyjLabel, themSVjButton, user));
+        setController(new ListStudentController(monHoc, dSSVjTable, sTTjTextField, maSVjTextField, tenSVjTextField, diemGKjTextField, diemCKjTextField, changeDiemGKjTextField, ChangeDiemCKjTextField, maHPjLabel, maLopjLabel, tenHPjLabel, hocKyjLabel, themSVjButton, xoaSVjButton, user));
         ((ListStudentController)controller).setTextDSSV();
         ((ListStudentController)controller).setLabel();
         ((ListStudentController)controller).setView();
@@ -74,7 +74,7 @@ public class ListStudentJPanel extends CommonJPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        xoaSVjButton = new javax.swing.JButton();
         themSVjButton = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
@@ -220,12 +220,12 @@ public class ListStudentJPanel extends CommonJPanel {
             }
         });
 
-        jButton9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jButton9.setText("Xóa Sinh viên đã chọn khỏi lớp");
-        jButton9.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
-        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+        xoaSVjButton.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        xoaSVjButton.setText("Xóa Sinh viên đã chọn khỏi lớp");
+        xoaSVjButton.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
+        xoaSVjButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton9MouseClicked(evt);
+                xoaSVjButtonMouseClicked(evt);
             }
         });
 
@@ -303,7 +303,7 @@ public class ListStudentJPanel extends CommonJPanel {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addComponent(jButton9)
+                                .addComponent(xoaSVjButton)
                                 .addGap(35, 35, 35)
                                 .addComponent(themSVjButton)
                                 .addGap(18, 18, 18)
@@ -327,11 +327,11 @@ public class ListStudentJPanel extends CommonJPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(maHPjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -348,12 +348,12 @@ public class ListStudentJPanel extends CommonJPanel {
                     .addComponent(diemGKjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(diemCKjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(changeDiemGKjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(xoaSVjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(themSVjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -416,9 +416,9 @@ public class ListStudentJPanel extends CommonJPanel {
         ((ListStudentController)controller).setTextDSSV();
     }//GEN-LAST:event_jButton8MouseClicked
 
-    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+    private void xoaSVjButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xoaSVjButtonMouseClicked
         ((ListStudentController)controller).deleteSV();
-    }//GEN-LAST:event_jButton9MouseClicked
+    }//GEN-LAST:event_xoaSVjButtonMouseClicked
 
     private void themSVjButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_themSVjButtonMouseClicked
         ((ListStudentController)controller).importSV();
@@ -474,7 +474,6 @@ public class ListStudentJPanel extends CommonJPanel {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -487,5 +486,6 @@ public class ListStudentJPanel extends CommonJPanel {
     private javax.swing.JLabel tenHPjLabel;
     private javax.swing.JTextField tenSVjTextField;
     private javax.swing.JButton themSVjButton;
+    private javax.swing.JButton xoaSVjButton;
     // End of variables declaration//GEN-END:variables
 }

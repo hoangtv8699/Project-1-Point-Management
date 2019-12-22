@@ -47,8 +47,9 @@ public class ListStudentController extends Controller implements Properties{
     private JLabel tenHPjLabel;
     private JLabel hocKyjLabel;
     private JButton themSVjButton;
+    private JButton xoaSVjButton;
 
-    public ListStudentController(MonHoc monHoc, JTable dSSVjTable, JTextField sTTjTextField, JTextField maSVjTextField, JTextField tenSVjTextField, JTextField diemGKjTextField, JTextField diemCKjTextField, JTextField changeDiemGKjTextField, JTextField changeDiemCKjTextField, JLabel maHPjLabel, JLabel maLopjLabel, JLabel tenHPjLabel, JLabel hocKyjLabel, JButton themSVjButton, User user) {
+    public ListStudentController(MonHoc monHoc, JTable dSSVjTable, JTextField sTTjTextField, JTextField maSVjTextField, JTextField tenSVjTextField, JTextField diemGKjTextField, JTextField diemCKjTextField, JTextField changeDiemGKjTextField, JTextField changeDiemCKjTextField, JLabel maHPjLabel, JLabel maLopjLabel, JLabel tenHPjLabel, JLabel hocKyjLabel, JButton themSVjButton, JButton xoaSVjButton, User user) {
         super(user);
         this.monHoc = monHoc;
         this.dSSVjTable = dSSVjTable;
@@ -64,14 +65,17 @@ public class ListStudentController extends Controller implements Properties{
         this.tenHPjLabel = tenHPjLabel;
         this.hocKyjLabel = hocKyjLabel;
         this.themSVjButton = themSVjButton;
+        this.xoaSVjButton = xoaSVjButton;
+        
     }
     
     public void setView(){
         if(getUser() instanceof Admin){
             themSVjButton.setVisible(true);
-            
+            xoaSVjButton.setVisible(true);
         }else{
             themSVjButton.setVisible(false);
+            xoaSVjButton.setVisible(false);
         }
     }
 
@@ -217,12 +221,20 @@ public class ListStudentController extends Controller implements Properties{
             bangDiem.setUser_id(Long.valueOf(model.getValueAt(selected, 1).toString()));
             if (!(changeDiemGKjTextField.getText().equals("") || !changeDiemGKjTextField.getText().matches("[+-]?([0-9]*[.])?[0-9]+")
                     && changeDiemCKjTextField.getText().equals("") || !changeDiemCKjTextField.getText().matches("[+-]?([0-9]*[.])?[0-9]+"))) {
+                if(Float.parseFloat(changeDiemGKjTextField.getText()) < 0 || Float.parseFloat(changeDiemGKjTextField.getText()) > 10 ||
+                    Float.parseFloat(changeDiemCKjTextField.getText()) <0 || Float.parseFloat(changeDiemCKjTextField.getText()) > 10    ){
+                    JOptionPane.showMessageDialog(new JFrame(), "điểm nhập không hợp lệ!");
+                    return;
+                }
                 bangDiem.setDiemQT(Float.parseFloat(changeDiemGKjTextField.getText()));
                 bangDiem.setDiemCK(Float.parseFloat(changeDiemCKjTextField.getText()));
                 float trongSo = new MonHocDAO().find(bangDiem.getMaLop(), bangDiem.getMaHP(), bangDiem.getHocKy()).get(0).getqT();
                 bangDiem.setDiem(bangDiem.getDiemQT()* trongSo + bangDiem.getDiemCK() * trongSo);
                 new BangDiemDAO().update(bangDiem);
                 JOptionPane.showMessageDialog(new JFrame(), "Cập nhật điểm thành công");
+            }else{
+                JOptionPane.showMessageDialog(new JFrame(), "điểm nhập không hợp lệ!");
+                    return;
             }
 
         }

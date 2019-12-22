@@ -7,12 +7,9 @@ package com.qlsv.view;
 
 import com.qlsv.controller.TaiKhoanController;
 import com.qlsv.controller.TextBubbleBorder;
-import com.qlsv.dao.UserDAO;
-import com.qlsv.models.SinhVien;
 import com.qlsv.models.User;
+import com.toedter.calendar.JTextFieldDateEditor;
 import java.awt.Color;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,6 +23,8 @@ public class TaiKhoanJPanel extends CommonJPanel {
         initComponents();
         setController(new TaiKhoanController(userIdJLabel, tenjTextField, emailjTextField, dateChooser, diaChijTextField, sDTjTextField, dacTrungJLabel, sexjComboBox, user));
         ((TaiKhoanController)controller).setData();
+        JTextFieldDateEditor editor = (JTextFieldDateEditor) dateChooser.getDateEditor();
+        editor.setEditable(false);
     }
 
     /**

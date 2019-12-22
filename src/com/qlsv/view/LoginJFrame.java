@@ -16,12 +16,13 @@ import java.awt.Color;
  * @author Hiddenpants-H
  */
 public class LoginJFrame extends javax.swing.JFrame {
+
     private Controller controller;
 
     public void setController(Controller controller) {
         this.controller = controller;
     }
-    
+
     /**
      * Creates new form Login
      */
@@ -116,11 +117,21 @@ public class LoginJFrame extends javax.swing.JFrame {
                 usernamejTextFieldActionPerformed(evt);
             }
         });
+        usernamejTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                usernamejTextFieldKeyReleased(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel3.setText("Password");
 
         passwordjPasswordField.setBorder(new TextBubbleBorder(Color.MAGENTA.darker(), 1, 5, 0));
+        passwordjPasswordField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                passwordjPasswordFieldKeyReleased(evt);
+            }
+        });
 
         dangNhapjButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         dangNhapjButton.setText("Đăng nhập");
@@ -128,6 +139,11 @@ public class LoginJFrame extends javax.swing.JFrame {
         dangNhapjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dangNhapjButtonActionPerformed(evt);
+            }
+        });
+        dangNhapjButton.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                dangNhapjButtonKeyReleased(evt);
             }
         });
 
@@ -203,11 +219,37 @@ public class LoginJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_usernamejTextFieldActionPerformed
 
     private void dangNhapjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dangNhapjButtonActionPerformed
-       boolean tmp =((LoginController)controller).login();
-       if(tmp){
-           dispose();
-       }
+        boolean tmp = ((LoginController) controller).login();
+        if (tmp) {
+            dispose();
+        }
     }//GEN-LAST:event_dangNhapjButtonActionPerformed
+
+    private void dangNhapjButtonKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dangNhapjButtonKeyReleased
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            boolean tmp = ((LoginController) controller).login();
+            if (tmp) {
+                dispose();
+            }
+        }
+    }//GEN-LAST:event_dangNhapjButtonKeyReleased
+
+    private void passwordjPasswordFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordjPasswordFieldKeyReleased
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            boolean tmp = ((LoginController) controller).login();
+            if (tmp) {
+                dispose();
+            }
+        }    }//GEN-LAST:event_passwordjPasswordFieldKeyReleased
+
+    private void usernamejTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usernamejTextFieldKeyReleased
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            boolean tmp = ((LoginController) controller).login();
+            if (tmp) {
+                dispose();
+            }
+        }
+    }//GEN-LAST:event_usernamejTextFieldKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -69,7 +69,7 @@ public class ManageAccountController extends Controller {
         if (sVjRadioButton.isSelected()) {
             user = new SinhVien();
             String dacTrung = dacTrungjTextField.getText();
-            if (dacTrung == null) {
+            if (dacTrung.equals("")) {
                 JOptionPane.showMessageDialog(new JFrame(), "Bạn phải nhập chương trình");
                 return;
             }
@@ -79,7 +79,7 @@ public class ManageAccountController extends Controller {
         } else if (gVjRadioButton.isSelected()) {
             user = new GiangVien();
             String dacTrung = dacTrungjTextField.getText();
-            if (dacTrung == null) {
+            if (dacTrung.equals("")) {
                 JOptionPane.showMessageDialog(new JFrame(), "Bạn phải nhập Level");
                 return;
             } else if (!dacTrung.matches("^[0-9]{0,}$")) {
